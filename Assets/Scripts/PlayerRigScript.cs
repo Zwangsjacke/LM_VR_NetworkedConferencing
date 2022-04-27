@@ -15,7 +15,7 @@ public class PlayerRigScript : MonoBehaviour
 
 
 
-    public 
+
     // Start is called before the first frame update
 
 

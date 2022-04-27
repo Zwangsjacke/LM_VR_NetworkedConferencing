@@ -13,10 +13,6 @@ public class MyNetworkManager : NetworkManager
     public Transform secondFotoSpawnLocation;
 
 
-
-
-
-
     public NetworkConnection[] clientConnections = new NetworkConnection[2];
 
 

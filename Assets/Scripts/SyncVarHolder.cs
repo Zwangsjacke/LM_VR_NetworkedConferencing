@@ -13,33 +13,28 @@ public class SyncVarHolder : NetworkBehaviour
     public int numPlayers = 0;
 
 
-    // Start is called before the first frame update
-
-    public void Awake()
-    {
-
-    }
-    // Update is called once per frame
 
 
     public override void OnStartClient()
     {
         base.OnStartClient();
 
+
         MovingThePlayers(numPlayers);
-        Debug.Log("Test");
+        Debug.Log(numPlayers);
+        
     }
 
     [Command(requiresAuthority = false)]
     public void MovingThePlayers(int t)
     {
+        numPlayers++;
         MovePlayer(t);
     }
 
     [ClientRpc]
-    public void MovePlayer(int x)
+    public void MovePlayer(int numPlayers)
     {
-        numPlayers++;
         playerRig.Move(numPlayers);
     }
 }

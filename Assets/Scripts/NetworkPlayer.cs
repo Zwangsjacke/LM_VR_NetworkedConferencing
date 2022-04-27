@@ -33,11 +33,4 @@ public class NetworkPlayer : MonoBehaviour
         head.transform.rotation = cameraRig.transform.rotation;
     }
 
-    void MapPosition(Transform target, XRNode node)
-    {
-        InputDevices.GetDeviceAtXRNode(node).TryGetFeatureValue(CommonUsages.devicePosition, out Vector3 position);
-        InputDevices.GetDeviceAtXRNode(node).TryGetFeatureValue(CommonUsages.deviceRotation, out Quaternion rotation);
-
-    }
-
 }
