@@ -9,8 +9,9 @@ public class SyncVarHolder : NetworkBehaviour
     public MyNetworkManager networkManager;
     public Transform spawn;
 
+    [SerializeField]
     [SyncVar]
-    public int numPlayers = 0;
+    private int numPlayers = 1;
 
 
 
@@ -19,18 +20,22 @@ public class SyncVarHolder : NetworkBehaviour
     {
         base.OnStartClient();
 
+        Debug.Log(numPlayers);
 
         MovingThePlayers(numPlayers);
-        Debug.Log(numPlayers);
+
+        numPlayers++;
         
     }
 
+    
     [Command(requiresAuthority = false)]
     public void MovingThePlayers(int t)
     {
         numPlayers++;
         MovePlayer(t);
     }
+
 
     [ClientRpc]
     public void MovePlayer(int numPlayers)
