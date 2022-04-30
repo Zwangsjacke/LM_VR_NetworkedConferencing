@@ -6,26 +6,23 @@ using Mirror;
 public class MyNetworkManager : NetworkManager
 
 {
-    public NetworkConnectionToClient clientOneConn;
-    public NetworkConnectionToClient clientTwoConn;
+    [Header("Client Information")]
+
+    private NetworkConnectionToClient clientOneConn;
+    private NetworkConnectionToClient clientTwoConn;
+    private int clientCount = 0;
+    private NetworkConnection[] clientConnections = new NetworkConnection[2];
+
+    [Header("Spawn Locations")]
 
     public Transform firstFotoSpawnLocation;
     public Transform secondFotoSpawnLocation;
 
-
-    public NetworkConnection[] clientConnections = new NetworkConnection[2];
-
-
-    private int clientCount = 0;
-
-
-    // When server is started
     public override void OnStartServer()
     {
         base.OnStartServer();
     }
 
-    // Whenever a client connects:
     public override void OnServerConnect(NetworkConnectionToClient conn)
     {
         base.OnServerConnect(conn);
@@ -40,9 +37,12 @@ public class MyNetworkManager : NetworkManager
 
     }
 
-
-
-    // Takes a prefab and two spawnLocations. One for each client.
+    /// <summary>
+    /// Spawns prefab for both players and allocates authority accordingly 
+    /// </summary>
+    /// <param name="prefab">Must be in "spawnables"</param>
+    /// <param name="firstSpawnLocation"></param>
+    /// <param name="secondSpawnLocation"></param>
     public void SpawnForBothClients(GameObject prefab, Transform firstSpawnLocation, Transform secondSpawnLocation)
     {
 
@@ -50,7 +50,6 @@ public class MyNetworkManager : NetworkManager
 
         Vector3 pos = firstSpawnLocation.position;
         Quaternion rot = firstSpawnLocation.rotation;
-
 
         GameObject go1 = Instantiate(prefab, pos, rot);
         NetworkServer.Spawn(go1, clientConnections[0]);
@@ -63,15 +62,19 @@ public class MyNetworkManager : NetworkManager
 
     }
 
-
-
-    // KeyPad uses this to set IP-Address
+    /// <summary>
+    /// Sets current IP to new IP
+    /// </summary>
+    /// <param name="newIp"></param>
     public void SetIp(string newIp)
     {
         networkAddress = newIp;
     }
 
-    // Stores Client Conn ID for spawning objects with the correct authority
+    /// <summary>
+    /// Increases the client count by one and stores the connectionsID of the current connection in clientConnections[]
+    /// </summary>
+    /// <param name="conn"></param>
     public void StoreClientConn(NetworkConnectionToClient conn)
     {
         clientCount++;
@@ -94,9 +97,6 @@ public class MyNetworkManager : NetworkManager
             Debug.Log("Too many players!");
         }
     }
-
-
-
 
 }
 

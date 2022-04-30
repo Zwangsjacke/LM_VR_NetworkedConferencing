@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class DontDestroyOnLoad : MonoBehaviour
 {
-    // Add this Script to prevent object being destroyed when the scene changes.
+    /// <summary>
+    /// Prevents Object to be destroyed when changing scenes.
+    /// </summary>
     void Start()
     {
         DontDestroyOnLoad(this);
     }
-
-
 }

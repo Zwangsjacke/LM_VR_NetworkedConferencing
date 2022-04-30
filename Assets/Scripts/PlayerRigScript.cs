@@ -1,36 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using Mirror;
 
 public class PlayerRigScript : MonoBehaviour
 {
+
+    [Header("Spawn Points")]
     public Transform spawnPointOne;
     public Transform spawnPointTwo;
 
-    public bool click = false;
-
+    [Header("Spawn Check")]
     public bool alreadySpawned = false;
 
-
-
-
-    // Start is called before the first frame update
-
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (click)
-        {
-            Move(1);
-            click = false;
-        }
-    }
-
-
-
+    /// <summary>
+    /// Moves the CameraRig to a spawnlocation according to the number of connected players.
+    /// Should be called, when connecting as a client.
+    /// </summary>
+    /// <param name="numPlayers"></param>
     public void Move(int numPlayers)
     {
 
@@ -39,8 +25,6 @@ public class PlayerRigScript : MonoBehaviour
         if (alreadySpawned) return;
 
         alreadySpawned = true;
-
-        Debug.Log($"There are {numPlayers} player connected");
 
         if(numPlayers == 1)
         {
@@ -54,7 +38,7 @@ public class PlayerRigScript : MonoBehaviour
         }
         else
         {
-            Debug.Log("Are you even connected?");
+            Debug.Log($"Something went wrong. There cannot be {numPlayers} players.");
         }
 
 

@@ -5,20 +5,21 @@ using UnityEngine.XR;
 
 public class NetworkPlayer : MonoBehaviour
 {
-    public Transform cameraRig;
+    [Header("Transforms of Bodyparts")]
 
+    public Transform cameraRig;
     public Transform head;
     public Transform leftHand;
     public Transform rightHand;
 
-
-    // Update is called once per frame
-
     private void Awake()
     {
         cameraRig = GameObject.FindGameObjectWithTag("CameraRig").transform;
-
     }
+
+    /// <summary>
+    /// Constantly sets position of hands and head.
+    /// </summary>
     void Update()
     {
         leftHand.localPosition = OVRInput.GetLocalControllerPosition(OVRInput.Controller.LHand);
@@ -27,10 +28,6 @@ public class NetworkPlayer : MonoBehaviour
         leftHand.localRotation = OVRInput.GetLocalControllerRotation(OVRInput.Controller.LHand);
         rightHand.localRotation = OVRInput.GetLocalControllerRotation(OVRInput.Controller.RHand);
 
-        
-
-        head.transform.position = cameraRig.transform.position;
-        head.transform.rotation = cameraRig.transform.rotation;
+        head.transform.SetPositionAndRotation(cameraRig.transform.position, cameraRig.transform.rotation);
     }
-
 }
