@@ -6,10 +6,6 @@ using Mirror;
 public class MyNetworkManager : NetworkManager
 
 {
-    [Header("Spawn Buttons")]
-    public bool click = false;
-
-
     [Header("Client Information")]
 
     private NetworkConnectionToClient clientOneConn;
@@ -22,19 +18,14 @@ public class MyNetworkManager : NetworkManager
     public Transform firstFotoSpawnLocation;
     public Transform secondFotoSpawnLocation;
 
+    public Transform firstClipSpawn;
+    public Transform secondClipSpawn;
+
     public override void OnStartServer()
     {
         base.OnStartServer();
     }
 
-    public void Update()
-    {
-        if (click)
-        {
-            click = false;
-            SpawnClipBoard();
-        }
-    }
 
     public override void OnServerConnect(NetworkConnectionToClient conn)
     {
@@ -113,7 +104,7 @@ public class MyNetworkManager : NetworkManager
 
     public void SpawnClipBoard()
     {
-        SpawnForBothClients(spawnPrefabs[1], firstFotoSpawnLocation, secondFotoSpawnLocation);
+        SpawnForBothClients(spawnPrefabs[1], firstClipSpawn, secondClipSpawn);
         Debug.Log("Tried to spawn clipboard");
     }
 
