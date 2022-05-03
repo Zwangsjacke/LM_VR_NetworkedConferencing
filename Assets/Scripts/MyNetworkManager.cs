@@ -6,6 +6,10 @@ using Mirror;
 public class MyNetworkManager : NetworkManager
 
 {
+    [Header("Spawn Buttons")]
+    public bool click = false;
+
+
     [Header("Client Information")]
 
     private NetworkConnectionToClient clientOneConn;
@@ -21,6 +25,15 @@ public class MyNetworkManager : NetworkManager
     public override void OnStartServer()
     {
         base.OnStartServer();
+    }
+
+    public void Update()
+    {
+        if (click)
+        {
+            click = false;
+            SpawnClipBoard();
+        }
     }
 
     public override void OnServerConnect(NetworkConnectionToClient conn)
@@ -46,7 +59,7 @@ public class MyNetworkManager : NetworkManager
     public void SpawnForBothClients(GameObject prefab, Transform firstSpawnLocation, Transform secondSpawnLocation)
     {
 
-        if (clientConnections[0] == null || clientConnections[1] == null) return;
+        //if (clientConnections[0] == null || clientConnections[1] == null) return;
 
         Vector3 pos = firstSpawnLocation.position;
         Quaternion rot = firstSpawnLocation.rotation;
@@ -96,6 +109,12 @@ public class MyNetworkManager : NetworkManager
         {
             Debug.Log("Too many players!");
         }
+    }
+
+    public void SpawnClipBoard()
+    {
+        SpawnForBothClients(spawnPrefabs[1], firstFotoSpawnLocation, secondFotoSpawnLocation);
+        Debug.Log("Tried to spawn clipboard");
     }
 
 }
