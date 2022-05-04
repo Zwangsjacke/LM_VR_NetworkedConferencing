@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1032,6 +1032,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1472995546816691650, guid: 358eb529e6c40554ba6ba606d4a2d6f4,
+        type: 3}
+      propertyPath: m_TagString
+      value: HandVisual
+      objectReference: {fileID: 0}
     - target: {fileID: 3248432094306782195, guid: 358eb529e6c40554ba6ba606d4a2d6f4,
         type: 3}
       propertyPath: AllowRecenter
@@ -1096,6 +1101,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6453048943126002416, guid: 358eb529e6c40554ba6ba606d4a2d6f4,
+        type: 3}
+      propertyPath: m_TagString
+      value: HandVisual
       objectReference: {fileID: 0}
     - target: {fileID: 7154713077040680114, guid: 358eb529e6c40554ba6ba606d4a2d6f4,
         type: 3}
@@ -1769,6 +1779,11 @@ PrefabInstance:
         type: 3}
       propertyPath: maxConnections
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8105947476590764326, guid: 3d54ffd2aea4f9141814aff6474fec1d,
+        type: 3}
+      propertyPath: networkAddress
+      value: 192.168.11.121
       objectReference: {fileID: 0}
     - target: {fileID: 8105947476590764326, guid: 3d54ffd2aea4f9141814aff6474fec1d,
         type: 3}

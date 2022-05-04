@@ -33,6 +33,7 @@ public class MyNetworkManager : NetworkManager
 
         StoreClientConn(conn);
 
+        DisableHandVisuals();
 
         if (clientCount == 2)
         {
@@ -102,10 +103,28 @@ public class MyNetworkManager : NetworkManager
         }
     }
 
+    /// <summary>
+    /// Spawns Clipboards for both Clients
+    /// </summary>
     public void SpawnClipBoard()
     {
         SpawnForBothClients(spawnPrefabs[1], firstClipSpawn, secondClipSpawn);
         Debug.Log("Tried to spawn clipboard");
+    }
+
+
+    /// <summary>
+    /// Deactivates all GameObjects with the tag HandVisual
+    /// </summary>
+    public void DisableHandVisuals()
+    {
+        GameObject[] handVisuals = GameObject.FindGameObjectsWithTag("HandVisual");
+
+        foreach(GameObject go in handVisuals)
+        {
+            go.SetActive(false);
+        }
+
     }
 
 }

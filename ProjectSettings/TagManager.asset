@@ -4,13 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - playerHead
-  - playerLeftHand
-  - playerRightHand
-  - networkedHead
-  - networkedLeftHand
-  - networkedRightHand
   - CameraRig
+  - NetworkManager
+  - HandVisual
   layers:
   - Default
   - TransparentFX
