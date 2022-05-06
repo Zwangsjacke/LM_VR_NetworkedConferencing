@@ -51,7 +51,7 @@ public class MyNetworkManager : NetworkManager
     public void SpawnForBothClients(GameObject prefab, Transform firstSpawnLocation, Transform secondSpawnLocation)
     {
 
-        //if (clientConnections[0] == null || clientConnections[1] == null) return;
+        if (clientConnections[0] == null || clientConnections[1] == null) return;
 
         Vector3 pos = firstSpawnLocation.position;
         Quaternion rot = firstSpawnLocation.rotation;
