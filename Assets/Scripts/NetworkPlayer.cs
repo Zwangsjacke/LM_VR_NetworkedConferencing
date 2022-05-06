@@ -22,6 +22,7 @@ public class NetworkPlayer : MonoBehaviour
     /// </summary>
     void Update()
     {
+
         leftHand.localPosition = OVRInput.GetLocalControllerPosition(OVRInput.Controller.LHand);
         rightHand.localPosition = OVRInput.GetLocalControllerPosition(OVRInput.Controller.RHand);
 

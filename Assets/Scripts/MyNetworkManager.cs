@@ -13,20 +13,6 @@ public class MyNetworkManager : NetworkManager
     private int clientCount = 0;
     private NetworkConnection[] clientConnections = new NetworkConnection[2];
 
-    [Header("Spawn Locations")]
-
-    public Transform firstFotoSpawnLocation;
-    public Transform secondFotoSpawnLocation;
-
-    public Transform firstClipSpawn;
-    public Transform secondClipSpawn;
-
-    public override void OnStartServer()
-    {
-        base.OnStartServer();
-    }
-
-
     public override void OnServerConnect(NetworkConnectionToClient conn)
     {
         base.OnServerConnect(conn);
@@ -34,12 +20,6 @@ public class MyNetworkManager : NetworkManager
         StoreClientConn(conn);
 
         DisableHandVisuals();
-
-        if (clientCount == 2)
-        {
-            SpawnForBothClients(spawnPrefabs[0], firstFotoSpawnLocation, secondFotoSpawnLocation);
-        }
-
     }
 
     /// <summary>
@@ -50,6 +30,8 @@ public class MyNetworkManager : NetworkManager
     /// <param name="secondSpawnLocation"></param>
     public void SpawnForBothClients(GameObject prefab, Transform firstSpawnLocation, Transform secondSpawnLocation)
     {
+
+        Debug.Log("Tried to spawn");
 
         if (clientConnections[0] == null || clientConnections[1] == null) return;
 
@@ -101,15 +83,6 @@ public class MyNetworkManager : NetworkManager
         {
             Debug.Log("Too many players!");
         }
-    }
-
-    /// <summary>
-    /// Spawns Clipboards for both Clients
-    /// </summary>
-    public void SpawnClipBoard()
-    {
-        SpawnForBothClients(spawnPrefabs[1], firstClipSpawn, secondClipSpawn);
-        Debug.Log("Tried to spawn clipboard");
     }
 
 
