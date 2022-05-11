@@ -532,7 +532,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 230384767}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -1022,6 +1022,63 @@ Transform:
   m_Father: {fileID: 1697138292}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &680141021 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3151793269510673863, guid: ba0282cb6c30590468cbcef43089c894,
+    type: 3}
+  m_PrefabInstance: {fileID: 3151793269911479645}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &680141022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 680141021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7108552d39d20304a830b7e5754c6f96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  networkManager: {fileID: 0}
+  prefabId: 0
+  gameManager: {fileID: 3151793269911479646}
+  spawnLocationOne: {fileID: 1681921282}
+  spawnLocationTwo: {fileID: 94642462}
+--- !u!114 &680141023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 680141021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5430abeb7c494fe448f3e8f14fa54960, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  networkManager: {fileID: 0}
+  prefabId: 0
+  gameManager: {fileID: 3151793269911479646}
+  spawnLocationOne: {fileID: 1681921282}
+  spawnLocationTwo: {fileID: 94642462}
+--- !u!114 &680141024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 680141021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e46a55401a8cc64e98455426a91c149, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  networkManager: {fileID: 0}
+  prefabId: 1
+  gameManager: {fileID: 3151793269911479646}
+  spawnLocationOne: {fileID: 1047762811}
+  spawnLocationTwo: {fileID: 420940339}
 --- !u!1 &816043601
 GameObject:
   m_ObjectHideFlags: 0
@@ -2439,17 +2496,17 @@ PrefabInstance:
     - target: {fileID: 3151793269510673862, guid: ba0282cb6c30590468cbcef43089c894,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.15145448
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3151793269510673862, guid: ba0282cb6c30590468cbcef43089c894,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.2139659
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3151793269510673862, guid: ba0282cb6c30590468cbcef43089c894,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -8.017707
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3151793269510673862, guid: ba0282cb6c30590468cbcef43089c894,
         type: 3}
@@ -2509,7 +2566,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 3151793269911479645}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 680141021}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 09577366851fbe54987f5a4e7778b333, type: 3}

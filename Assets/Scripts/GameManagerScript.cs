@@ -6,15 +6,8 @@ public class GameManagerScript : MonoBehaviour
 {
 
     public MyNetworkManager networkManager;
+    public PhotoGame photoGame;
 
-    [Header("SpawnLocations")]
-    public Transform firstPhotoSpawnLocation;
-    public Transform secondPhotoSpawnLocation;
-
-    public void Awake()
-    {
-        FindNetworkManager();
-    }
 
     /// <summary>
     /// Finds GO with Networkmanager Tag
@@ -30,34 +23,6 @@ public class GameManagerScript : MonoBehaviour
     /// </summary>
     public void StartPictureGame()
     {
-        StartGame(0, firstPhotoSpawnLocation, secondPhotoSpawnLocation);
+        photoGame.StartGame();
     }
-
-
-    /// <summary>
-    /// Spawns Prefabs at given Locations
-    /// </summary>
-    /// <param name="num">Arrayposition of prefab in Networkmanager.spawnablePrefabs</param>
-    /// <param name="firstSpawnLocation"></param>
-    /// <param name="secondSpawnLocation"></param>
-    public void StartGame(int num, Transform firstSpawnLocation, Transform secondSpawnLocation)
-    {
-        ClearGamePrefabs();
-
-        networkManager.SpawnForBothClients(networkManager.spawnPrefabs[num], firstSpawnLocation, secondSpawnLocation);
-    }
-
-    /// <summary>
-    /// Destroys GO with GamePrefab Tag
-    /// </summary>
-    public void ClearGamePrefabs()
-    {
-        GameObject[] gos = GameObject.FindGameObjectsWithTag("GamePrefab");
-
-        foreach(GameObject go in gos)
-        {
-            Destroy(go);
-        }
-    }
-
 }
