@@ -8,6 +8,8 @@ TagManager:
   - NetworkManager
   - HandVisual
   - GamePrefab
+  - correct
+  - false
   layers:
   - Default
   - TransparentFX

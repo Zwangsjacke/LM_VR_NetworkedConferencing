@@ -33,7 +33,7 @@ public class MyNetworkManager : NetworkManager
 
         Debug.Log("Tried to spawn");
 
-        if (clientConnections[0] == null || clientConnections[1] == null) return;
+       // if (clientConnections[0] == null || clientConnections[1] == null) return;
 
         Vector3 pos = firstSpawnLocation.position;
         Quaternion rot = firstSpawnLocation.rotation;

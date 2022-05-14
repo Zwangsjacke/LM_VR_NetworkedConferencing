@@ -6,8 +6,6 @@ public class GameManagerScript : MonoBehaviour
 {
 
     public MyNetworkManager networkManager;
-    public PhotoGame photoGame;
-
 
     /// <summary>
     /// Finds GO with Networkmanager Tag
@@ -18,11 +16,4 @@ public class GameManagerScript : MonoBehaviour
         networkManager = go.GetComponent<MyNetworkManager>();
     }
 
-    /// <summary>
-    /// Calls StartGame with according Parameters
-    /// </summary>
-    public void StartPictureGame()
-    {
-        photoGame.StartGame();
-    }
 }

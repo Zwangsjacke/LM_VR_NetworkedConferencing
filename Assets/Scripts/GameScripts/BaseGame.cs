@@ -26,6 +26,7 @@ public class BaseGame : MonoBehaviour
 
     public virtual void StartGame()
     {
+        ClearGamePrefabs();
         networkManager.SpawnForBothClients(networkManager.spawnPrefabs[prefabId], spawnLocationOne, spawnLocationTwo);
     }
 
