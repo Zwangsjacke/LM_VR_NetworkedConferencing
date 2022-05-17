@@ -30,6 +30,10 @@ public class BaseGame : MonoBehaviour
         networkManager.SpawnForBothClients(networkManager.spawnPrefabs[prefabId], spawnLocationOne, spawnLocationTwo);
     }
 
+    public virtual void SetCondition()
+    {
+        gameManager.endCondition = true;
+    }
 
     /// <summary>
     /// Destroys GO with GamePrefab Tag

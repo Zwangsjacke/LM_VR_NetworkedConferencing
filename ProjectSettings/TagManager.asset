@@ -10,6 +10,7 @@ TagManager:
   - GamePrefab
   - correct
   - false
+  - poses
   layers:
   - Default
   - TransparentFX
