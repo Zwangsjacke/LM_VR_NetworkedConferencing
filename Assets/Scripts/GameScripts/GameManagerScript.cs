@@ -12,9 +12,24 @@ public class GameManagerScript : MonoBehaviour
     public bool endCondition = false;
     public bool alreadyThumbs = false;
 
+    public string header;
+    public string body;
+
     /// <summary>
     /// Finds GO with Networkmanager Tag
     /// </summary>
+
+    public void Awake()
+    {
+        FindNetworkedGameManager();
+        FindNetworkManager();
+    }
+
+    public void FindNetworkedGameManager()
+    {
+        GameObject go = GameObject.FindGameObjectWithTag("gameManager");
+        networkedGameManager = go.GetComponent<NetworkGameManager>();
+    }
     public void FindNetworkManager()
     {
         GameObject go = GameObject.FindGameObjectWithTag("NetworkManager");
@@ -30,6 +45,10 @@ public class GameManagerScript : MonoBehaviour
         endCondition = false;
         alreadyThumbs = false;
         }
+        if(endCondition && gameCounter == 3)
+        {
+            EndVRStudy();
+        }
     }
 
     public void ThumbsUp()
@@ -41,4 +60,19 @@ public class GameManagerScript : MonoBehaviour
         }
     }
 
+    public void EndVRStudy()
+    {
+        foreach(GameObject go in GameObject.FindGameObjectsWithTag("GamePrefab"))
+        {
+            Destroy(go);
+        }
+        foreach (GameObject go in GameObject.FindGameObjectsWithTag("header"))
+        {
+            go.SendMessage("ChangeText", header);
+        }
+        foreach (GameObject go in GameObject.FindGameObjectsWithTag("body"))
+        {
+            go.SendMessage("ChangeText", body);
+        }
+    }
 }

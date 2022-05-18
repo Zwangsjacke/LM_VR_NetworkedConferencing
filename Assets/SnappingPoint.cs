@@ -1,11 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 
-public class TextMeshHand : MonoBehaviour
+public class SnappingPoint : MonoBehaviour
 {
-    public TextMeshProUGUI zex;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,14 +14,5 @@ public class TextMeshHand : MonoBehaviour
     void Update()
     {
         
-    }
-
-    public void changeText()
-    {
-        zex.text = "Pose :)";
-    }
-    public void changeback()
-    {
-        zex.text = "No pose :(";
     }
 }

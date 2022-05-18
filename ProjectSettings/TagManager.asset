@@ -11,6 +11,13 @@ TagManager:
   - correct
   - false
   - poses
+  - header
+  - body
+  - gameManager
+  - handPoseDetector
+  - snappingPoint
+  - networkGameManager
+  - plant
   layers:
   - Default
   - TransparentFX

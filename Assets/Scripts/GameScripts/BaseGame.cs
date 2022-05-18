@@ -11,6 +11,8 @@ public class BaseGame : MonoBehaviour
     [Header("SpawnLocations")]
     public Transform spawnLocationOne;
     public Transform spawnLocationTwo;
+    public string header;
+    public string body;
 
     public void Awake()
     {
@@ -27,6 +29,7 @@ public class BaseGame : MonoBehaviour
     public virtual void StartGame()
     {
         ClearGamePrefabs();
+        ChangeGameText();
         networkManager.SpawnForBothClients(networkManager.spawnPrefabs[prefabId], spawnLocationOne, spawnLocationTwo);
     }
 
@@ -46,6 +49,19 @@ public class BaseGame : MonoBehaviour
         {
             Destroy(go);
         }
+    }
+
+    public void ChangeGameText()
+    {
+        foreach(GameObject go in GameObject.FindGameObjectsWithTag("header"))
+        {
+            go.SendMessage("ChangeText", header);
+        }
+        foreach (GameObject go in GameObject.FindGameObjectsWithTag("body"))
+        {
+            go.SendMessage("ChangeText", body);
+        }
+
     }
 
 }

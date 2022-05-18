@@ -1,18 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class GamePad : MonoBehaviour
 {
-    public PhotoGame photoGame;
+    public GameManagerScript gameManager;
     public string answer = "";
 
-    public TextMesh firstNumberText;
-    public TextMesh secondNumberText;
-    public TextMesh thirdNumberText;
-    public TextMesh fourthNumberText;
+    public TextMeshProUGUI firstNumberText;
+    public TextMeshProUGUI secondNumberText;
+    public TextMeshProUGUI thirdNumberText;
+    public TextMeshProUGUI fourthNumberText;
 
-    private string _correctAnswer ="1111";
+    public string correctAnswer ="1111";
     public int firstNumber = 1;
     public int secondNumber = 1;
     public int thirdNumber = 1;
@@ -24,6 +25,7 @@ public class GamePad : MonoBehaviour
 
     private void Awake()
     {
+        gameManager = GameObject.FindGameObjectWithTag("gameManager").GetComponent<GameManagerScript>();
 
         gosCorrect = GameObject.FindGameObjectsWithTag("correct");
         gosFalse = GameObject.FindGameObjectsWithTag("false");
@@ -39,7 +41,7 @@ public class GamePad : MonoBehaviour
     public void IsCorrect()
     {
 
-        if (answer[0] == _correctAnswer[0])
+        if (answer[0] == correctAnswer[0])
         {
             gosCorrect[0].SetActive(true);
         }
@@ -48,7 +50,7 @@ public class GamePad : MonoBehaviour
             gosFalse[0].SetActive(true);
         }
 
-        if (answer[1] == _correctAnswer[1])
+        if (answer[1] == correctAnswer[1])
         {
             gosCorrect[1].SetActive(true);
         }
@@ -57,7 +59,7 @@ public class GamePad : MonoBehaviour
             gosFalse[1].SetActive(true);
         }
 
-        if (answer[2] == _correctAnswer[2])
+        if (answer[2] == correctAnswer[2])
         {
             gosCorrect[2].SetActive(true);
         }
@@ -66,7 +68,7 @@ public class GamePad : MonoBehaviour
             gosFalse[2].SetActive(true);
         }
 
-        if (answer[3] == _correctAnswer[3])
+        if (answer[3] == correctAnswer[3])
         {
             gosCorrect[3].SetActive(true);
         }
@@ -74,6 +76,9 @@ public class GamePad : MonoBehaviour
         {
             gosFalse[3].SetActive(true);
         }
+
+        gameManager.endCondition = true;
+
     }
 
     public void ChangeText(int letter)

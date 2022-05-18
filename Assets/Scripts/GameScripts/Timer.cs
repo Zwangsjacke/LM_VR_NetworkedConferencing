@@ -7,6 +7,7 @@ using TMPro;
 
 public class Timer : MonoBehaviour
 {
+    public GameManagerScript gameManager;
     public bool timerActive = false;
     float currentTime;
     public int startingMinutes;
@@ -14,6 +15,7 @@ public class Timer : MonoBehaviour
     private void Awake()
     {
         currentTime = startingMinutes * 60;
+        gameManager = GameObject.FindGameObjectWithTag("gameManager").GetComponent<GameManagerScript>();
     }
 
     // Update is called once per frame
@@ -48,5 +50,6 @@ public class Timer : MonoBehaviour
     {
         timerActive = false;
         Debug.Log("Timer finished");
+        gameManager.endCondition = true;
     }
 }
