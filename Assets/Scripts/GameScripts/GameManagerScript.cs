@@ -51,6 +51,21 @@ public class GameManagerScript : MonoBehaviour
         }
     }
 
+    public void StartGames()
+    {
+        if (gameCounter <= 3)
+        {
+            endCondition = false;
+            games[gameCounter].StartGame();
+            gameCounter++;
+            alreadyThumbs = false;
+        }
+        else
+        {
+            EndVRStudy();
+        }
+    }
+
     public void ThumbsUp()
     {
         if (endCondition && !alreadyThumbs)
