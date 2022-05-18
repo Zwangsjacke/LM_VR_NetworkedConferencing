@@ -7,6 +7,9 @@ public class NetworkGameManager : NetworkBehaviour
 {
     public GameManagerScript gameManager;
 
+    public int thumbsRequired = 2;
+
+    [SyncVar]
     public int numThumbs;
 
 
@@ -14,7 +17,7 @@ public class NetworkGameManager : NetworkBehaviour
     public void CMDThumbsUp()
     {
         numThumbs++;
-        if(numThumbs == 2)
+        if(numThumbs == thumbsRequired)
         {
             numThumbs = 0;
             RPCRdyStartNextGame();

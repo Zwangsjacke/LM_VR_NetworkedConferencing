@@ -6,7 +6,8 @@ public class HandPoseBroadCast : MonoBehaviour
 {
     public bool foundManager = false;
 
-    public NetworkGameManager gameManager;
+    public NetworkGameManager networkGameManager;
+    public GameManagerScript gameManager;
 
 
 
@@ -15,15 +16,24 @@ public class HandPoseBroadCast : MonoBehaviour
     {
 
         FindGameManager();
-        gameManager.CMDThumbsUp();
+        if (foundManager)
+        {
+        gameManager.ThumbsUp();
+
+        }
 
     }
     public void FindGameManager()
     {
         if (!foundManager)
         {
-            gameManager = GameObject.FindGameObjectWithTag("gameManager").GetComponent<NetworkGameManager>();
-            foundManager = true;
+            networkGameManager = GameObject.FindGameObjectWithTag("networkGameManager").GetComponent<NetworkGameManager>();
+            gameManager = GameObject.FindGameObjectWithTag("gameManager").GetComponent<GameManagerScript>();
+            if (gameManager != null)
+            {
+                foundManager = true;
+            }
+
 
         }
     }

@@ -6,7 +6,7 @@ public class GameManagerScript : MonoBehaviour
 {
 
     public MyNetworkManager networkManager;
-    public NetworkGameManager networkedGameManager;
+    public NetworkGameManager networkGameManager;
     public BaseGame[] games;
     public int gameCounter = 0;
     public bool endCondition = false;
@@ -27,8 +27,8 @@ public class GameManagerScript : MonoBehaviour
 
     public void FindNetworkedGameManager()
     {
-        GameObject go = GameObject.FindGameObjectWithTag("gameManager");
-        networkedGameManager = go.GetComponent<NetworkGameManager>();
+        GameObject go = GameObject.FindGameObjectWithTag("networkGameManager");
+        networkGameManager = go.GetComponent<NetworkGameManager>();
     }
     public void FindNetworkManager()
     {
@@ -38,14 +38,14 @@ public class GameManagerScript : MonoBehaviour
 
     public void StartNextGame()
     {
-        if (endCondition && gameCounter <= 2)
+        if (gameCounter <= 3)
         {
+        endCondition = false;
         games[gameCounter].StartGame();
         gameCounter++;
-        endCondition = false;
         alreadyThumbs = false;
         }
-        if(endCondition && gameCounter == 3)
+        else
         {
             EndVRStudy();
         }
@@ -56,7 +56,7 @@ public class GameManagerScript : MonoBehaviour
         if (endCondition && !alreadyThumbs)
         {
             alreadyThumbs = true;
-            networkedGameManager.CMDThumbsUp();
+            networkGameManager.CMDThumbsUp();
         }
     }
 
