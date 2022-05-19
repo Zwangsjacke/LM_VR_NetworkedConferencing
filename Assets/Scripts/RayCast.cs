@@ -88,16 +88,16 @@ public class RayCast : NetworkBehaviour
     {
 
         raycastSources = GameObject.FindGameObjectsWithTag("rayCastSource");
-        if(raycastSources[1] != null)
+        if(raycastSources.Length == 2)
         {
             raySourceOne = raycastSources[0];
             raySourceTwo = raycastSources[1];
             startedTracking = true;
             foundTwoSources = true;
+            Debug.Log("Gaze Tracking Started");
         }
 
 
-        Debug.Log("Gaze Tracking Started");
     }
     void BeginFile()
     {

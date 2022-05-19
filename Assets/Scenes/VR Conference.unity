@@ -1692,7 +1692,7 @@ GameObject:
   - component: {fileID: 286954189}
   m_Layer: 0
   m_Name: Data Tracker
-  m_TagString: dataTracker
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1716,7 +1716,8 @@ MonoBehaviour:
   raySourceTwo: {fileID: 0}
   startedTracking: 0
   foundTwoSources: 0
-  watchTime: 0
+  watchTimePlayerOne: 0
+  watchTimePlayerTwo: 0
 --- !u!114 &286954190
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2252,7 +2253,7 @@ GameObject:
   - component: {fileID: 499100296}
   m_Layer: 0
   m_Name: Sphere
-  m_TagString: rayCastSource
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
