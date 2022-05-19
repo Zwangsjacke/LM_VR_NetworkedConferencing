@@ -18,6 +18,9 @@ TagManager:
   - snappingPoint
   - networkGameManager
   - plant
+  - rayCastSource
+  - dataTracker
+  - walls
   layers:
   - Default
   - TransparentFX

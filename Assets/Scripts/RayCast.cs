@@ -3,14 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using System.IO;
+using Mirror;
 
-public class RayCast : MonoBehaviour
+public class RayCast : NetworkBehaviour
 {
-
-    public GameObject rayStart;
-    public float watchTime;
-    string watchedObject;
+    public GameObject[] raycastSources;
+    public GameObject raySourceOne;
+    public GameObject raySourceTwo;
+    public bool startedTracking;
+    public bool foundTwoSources;
+    public float watchTimePlayerOne;
+    public float watchTimePlayerTwo;
+    RaycastHit hit;
+    RaycastHit hit2;
+    string watchedObjectOne;
+    string watchedObjectTwo;
     string _fileName = "";
+
 
     // Start is called before the first frame update
     void Start()
@@ -19,39 +28,85 @@ public class RayCast : MonoBehaviour
         BeginFile();
     }
 
+
     // Update is called once per frame
     void Update()
     {
-        RaycastHit hit;
 
-        if (Physics.Raycast(rayStart.transform.position, rayStart.transform.forward, out hit, 100f))
+        if (!foundTwoSources)
         {
-            if (hit.transform.CompareTag("plant"))
+            BeginTracking();
+        }
+
+
+
+        if (startedTracking)
+        {
+            if (Physics.Raycast(raySourceOne.transform.position, raySourceOne.transform.forward, out hit, 100f))
             {
-                watchedObject = hit.transform.tag;
-                watchTime += Time.deltaTime;
+                
+                if (hit.transform.CompareTag("plant"))
+                {
+                    watchedObjectOne = hit.transform.tag;
+                    watchTimePlayerOne += Time.deltaTime;
+
+                }
+                else if (watchTimePlayerOne != 0)
+                {
+                    WriteFile(watchedObjectOne, watchTimePlayerOne, 1);
+                    watchTimePlayerOne = 0;
+                }
 
             }
-            else if (watchTime != 0)
+            
+            if (Physics.Raycast(raySourceTwo.transform.position, raySourceTwo.transform.forward, out hit2, 100f))
             {
-                WriteFile(watchedObject, watchTime);
-                watchTime = 0;
+                if (hit2.transform.CompareTag("plant"))
+                {
+                    watchedObjectTwo = hit2.transform.tag;
+                    watchTimePlayerTwo += Time.deltaTime;
+
+                }
+                else if (watchTimePlayerTwo != 0)
+                {
+                    WriteFile(watchedObjectTwo, watchTimePlayerTwo, 2);
+                    watchTimePlayerTwo = 0;
+                }
+
             }
+            
 
         }
 
 
 
+
     }
 
+
+    public void BeginTracking()
+    {
+
+        raycastSources = GameObject.FindGameObjectsWithTag("rayCastSource");
+        if(raycastSources[1] != null)
+        {
+            raySourceOne = raycastSources[0];
+            raySourceTwo = raycastSources[1];
+            startedTracking = true;
+            foundTwoSources = true;
+        }
+
+
+        Debug.Log("Gaze Tracking Started");
+    }
     void BeginFile()
     {
         TextWriter tw = new StreamWriter(_fileName, false);
-        tw.WriteLine("Incident Number, Duration, Time");
+        tw.WriteLine("Player, Incident Number, Duration, Time");
         tw.Close();
     }
 
-    void WriteFile(string objectName, float duration)
+    void WriteFile(string objectName, float duration, int playerId)
     {
         TextWriter tw = new StreamWriter(_fileName, true);
 
@@ -61,7 +116,7 @@ public class RayCast : MonoBehaviour
         string durationText = timePassed.Seconds.ToString() + ":" + timePassed.Milliseconds.ToString();
         
 
-        tw.WriteLine($"{objectName}, {durationText}, {time}", "/b");
+        tw.WriteLine($"{playerId},{objectName}, {durationText}, {time}", "/b");
 
         tw.Close();
 

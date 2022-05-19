@@ -6,6 +6,7 @@ using Mirror;
 public class MyNetworkManager : NetworkManager
 
 {
+
     [Header("Client Information")]
 
     private NetworkConnectionToClient clientOneConn;
@@ -20,6 +21,7 @@ public class MyNetworkManager : NetworkManager
         StoreClientConn(conn);
 
         DisableHandVisuals();
+
     }
 
     /// <summary>
@@ -71,6 +73,7 @@ public class MyNetworkManager : NetworkManager
             clientOneConn = conn;
             clientConnections[0] = clientOneConn;
             Debug.Log($"Player One connected and Connection stored: {clientOneConn}");
+           
         }
 
         if (clientCount == 2)
@@ -83,6 +86,8 @@ public class MyNetworkManager : NetworkManager
         {
             Debug.Log("Too many players!");
         }
+
+
     }
 
 
