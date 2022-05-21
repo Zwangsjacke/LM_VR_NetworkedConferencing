@@ -11,7 +11,7 @@ public class PhotoGame : BaseGame
     {
         ClearGamePrefabs();
         ChangeGameText();
-        networkManager.SpawnForBothClients(networkManager.spawnPrefabs[prefabId], spawnLocationOne, spawnLocationTwo);
-        networkManager.SpawnForBothClients(networkManager.spawnPrefabs[tabletId], tabletSpawnOne, tabletSpawnTwo);
+        networkGameManager.SpawnObjects(prefabId, spawnLocationOne, spawnLocationTwo);
+        networkGameManager.SpawnObjects(tabletId, tabletSpawnOne, tabletSpawnTwo);
     }
 }

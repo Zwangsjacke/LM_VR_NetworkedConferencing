@@ -11,7 +11,7 @@ public class InterviewGame : BaseGame
     {
         ClearGamePrefabs();
         ChangeGameText();
-        networkManager.SpawnForBothClients(networkManager.spawnPrefabs[prefabId], spawnLocationOne, spawnLocationTwo);
-        networkManager.SpawnForBothClients(networkManager.spawnPrefabs[alarmId], alarmSpawnOne, alarmSpawnTwo);
+        networkGameManager.SpawnObjects(prefabId, spawnLocationOne, spawnLocationTwo);
+        networkGameManager.SpawnObjects(alarmId, alarmSpawnOne, alarmSpawnTwo);
     }
 }
