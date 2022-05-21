@@ -7,6 +7,7 @@ public class BaseGame : MonoBehaviour
     public MyNetworkManager networkManager;
     public int prefabId;
     public GameManagerScript gameManager;
+    public NetworkGameManager networkGameManager;
 
     [Header("SpawnLocations")]
     public Transform spawnLocationOne;
@@ -16,10 +17,14 @@ public class BaseGame : MonoBehaviour
 
     public void Awake()
     {
-            FindNetworkManager();     
+        FindNetworkManager();
+        FindNetworkGameManager();
     }
 
-
+    public void FindNetworkGameManager()
+    {
+        networkGameManager = GameObject.FindGameObjectWithTag("networkGameManager").GetComponent<NetworkGameManager>();
+    }
     public void FindNetworkManager()
     {
         GameObject go = GameObject.FindGameObjectWithTag("NetworkManager");
@@ -30,7 +35,8 @@ public class BaseGame : MonoBehaviour
     {
         ClearGamePrefabs();
         ChangeGameText();
-        networkManager.SpawnForBothClients(networkManager.spawnPrefabs[prefabId], spawnLocationOne, spawnLocationTwo);
+
+        networkGameManager.SpawnObjects(prefabId, spawnLocationOne, spawnLocationTwo);
     }
 
     public virtual void SetCondition()

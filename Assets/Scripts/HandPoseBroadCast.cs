@@ -18,6 +18,7 @@ public class HandPoseBroadCast : MonoBehaviour
         FindGameManager();
         if (foundManager)
         {
+
         gameManager.ThumbsUp();
 
         }

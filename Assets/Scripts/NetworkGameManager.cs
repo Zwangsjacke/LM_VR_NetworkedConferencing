@@ -6,12 +6,26 @@ using Mirror;
 public class NetworkGameManager : NetworkBehaviour
 {
     public GameManagerScript gameManager;
+    public MyNetworkManager networkManager;
 
     public int thumbsRequired = 2;
 
     [SyncVar]
     public int numThumbs;
 
+
+    public void Awake()
+    {
+        networkManager = GameObject.FindGameObjectWithTag("NetworkManager").GetComponent<MyNetworkManager>();
+    }
+
+    public void SpawnObjects(int prefabId, Transform spawnLocationOne, Transform spawnLocationTwo)
+    {
+        if (isServer)
+        {
+        networkManager.SpawnForBothClients(networkManager.spawnPrefabs[prefabId], spawnLocationOne, spawnLocationTwo);
+        }
+    }
 
     [Command(requiresAuthority = false)]
     public void CMDThumbsUp()
@@ -23,6 +37,7 @@ public class NetworkGameManager : NetworkBehaviour
             RPCRdyStartNextGame();
         }
     }
+
 
 
     [ClientRpc]
