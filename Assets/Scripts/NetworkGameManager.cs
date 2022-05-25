@@ -14,9 +14,10 @@ public class NetworkGameManager : NetworkBehaviour
     public int numThumbs;
 
 
-    public void Awake()
+    public void Start()
     {
         networkManager = GameObject.FindGameObjectWithTag("NetworkManager").GetComponent<MyNetworkManager>();
+        // networkManager = NetworkManager.singleton.GetComponent<MyNetworkManager>();
     }
 
     public void SpawnObjects(int prefabId, Transform spawnLocationOne, Transform spawnLocationTwo)

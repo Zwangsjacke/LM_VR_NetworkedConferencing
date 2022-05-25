@@ -9,7 +9,7 @@ public class GameManagerScript : MonoBehaviour
     public NetworkGameManager networkGameManager;
     public BaseGame[] games;
     public int gameCounter = 0;
-    public bool endCondition = false;
+    public bool endCondition = true;
     public bool alreadyThumbs = false;
 
     public string header;
@@ -19,7 +19,7 @@ public class GameManagerScript : MonoBehaviour
     /// Finds GO with Networkmanager Tag
     /// </summary>
 
-    public void Awake()
+    public void Start()
     {
         FindNetworkedGameManager();
         FindNetworkManager();

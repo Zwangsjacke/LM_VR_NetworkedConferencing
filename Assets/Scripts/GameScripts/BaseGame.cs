@@ -15,7 +15,7 @@ public class BaseGame : MonoBehaviour
     public string header;
     public string body;
 
-    public void Awake()
+    public void Start()
     {
         FindNetworkManager();
         FindNetworkGameManager();

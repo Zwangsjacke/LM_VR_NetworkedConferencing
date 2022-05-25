@@ -7,7 +7,7 @@ public class NetworkTextScript : MonoBehaviour
 {
     public TextMesh textMesh;
     public MyNetworkManager networkManager;
-    public string text = "192.168.11.121";
+    public string text = "192.168.11.118";
 
 
     /// <summary>
