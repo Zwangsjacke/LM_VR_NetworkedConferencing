@@ -32,6 +32,8 @@ public class HandPoseBroadCast : MonoBehaviour
             {
                 networkGameManager = GameObject.FindGameObjectWithTag("networkGameManager").GetComponent<NetworkGameManager>();
                 gameManager = GameObject.FindGameObjectWithTag("gameManager").GetComponent<GameManagerScript>();
+
+                Debug.Log("Found my Managers");
             }
             catch (System.Exception)
             {
