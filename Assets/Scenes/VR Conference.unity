@@ -1222,10 +1222,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e46a55401a8cc64e98455426a91c149, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  networkManager: {fileID: 0}
   prefabId: 1
   gameManager: {fileID: 172102858}
-  networkGameManager: {fileID: 0}
+  networkGameManager: {fileID: 277440570}
   spawnLocationOne: {fileID: 10573240}
   spawnLocationTwo: {fileID: 1692868471}
   header: Interviewt euch!
@@ -1247,10 +1246,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7108552d39d20304a830b7e5754c6f96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  networkManager: {fileID: 0}
   prefabId: 0
   gameManager: {fileID: 172102858}
-  networkGameManager: {fileID: 0}
+  networkGameManager: {fileID: 277440570}
   spawnLocationOne: {fileID: 1790872565}
   spawnLocationTwo: {fileID: 258695948}
   header: "K\xF6nnt ihr die Paare finden?"
@@ -1272,10 +1270,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5430abeb7c494fe448f3e8f14fa54960, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  networkManager: {fileID: 0}
   prefabId: 2
   gameManager: {fileID: 172102858}
-  networkGameManager: {fileID: 0}
+  networkGameManager: {fileID: 277440570}
   spawnLocationOne: {fileID: 1508910459}
   spawnLocationTwo: {fileID: 983255316}
   header: Building Game!
@@ -1292,8 +1289,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09577366851fbe54987f5a4e7778b333, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  networkManager: {fileID: 0}
-  networkGameManager: {fileID: 0}
+  networkGameManager: {fileID: 277440570}
   games:
   - {fileID: 172102857}
   - {fileID: 172102856}

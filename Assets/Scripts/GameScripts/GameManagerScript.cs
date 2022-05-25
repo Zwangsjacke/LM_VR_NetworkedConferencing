@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameManagerScript : MonoBehaviour
 {
 
-    public MyNetworkManager networkManager;
+
     public NetworkGameManager networkGameManager;
     public BaseGame[] games;
     public int gameCounter = 0;
@@ -15,26 +15,8 @@ public class GameManagerScript : MonoBehaviour
     public string header;
     public string body;
 
-    /// <summary>
-    /// Finds GO with Networkmanager Tag
-    /// </summary>
 
-    public void Start()
-    {
-        FindNetworkedGameManager();
-        FindNetworkManager();
-    }
 
-    public void FindNetworkedGameManager()
-    {
-        GameObject go = GameObject.FindGameObjectWithTag("networkGameManager");
-        networkGameManager = go.GetComponent<NetworkGameManager>();
-    }
-    public void FindNetworkManager()
-    {
-        GameObject go = GameObject.FindGameObjectWithTag("NetworkManager");
-        networkManager = go.GetComponent<MyNetworkManager>();
-    }
 
     public void StartNextGame()
     {

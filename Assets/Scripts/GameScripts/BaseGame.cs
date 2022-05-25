@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class BaseGame : MonoBehaviour
 {
-    public MyNetworkManager networkManager;
     public int prefabId;
     public GameManagerScript gameManager;
     public NetworkGameManager networkGameManager;
@@ -14,22 +13,6 @@ public class BaseGame : MonoBehaviour
     public Transform spawnLocationTwo;
     public string header;
     public string body;
-
-    public void Start()
-    {
-        FindNetworkManager();
-        FindNetworkGameManager();
-    }
-
-    public void FindNetworkGameManager()
-    {
-        networkGameManager = GameObject.FindGameObjectWithTag("networkGameManager").GetComponent<NetworkGameManager>();
-    }
-    public void FindNetworkManager()
-    {
-        GameObject go = GameObject.FindGameObjectWithTag("NetworkManager");
-        networkManager = go.GetComponent<MyNetworkManager>();
-    }
 
     public virtual void StartGame()
     {
