@@ -1129,6 +1129,7 @@ MonoBehaviour:
   networkManager: {fileID: 0}
   prefabId: 1
   gameManager: {fileID: 172102858}
+  networkGameManager: {fileID: 0}
   spawnLocationOne: {fileID: 10573240}
   spawnLocationTwo: {fileID: 1692868471}
   header: Interviewt euch!
@@ -1153,6 +1154,7 @@ MonoBehaviour:
   networkManager: {fileID: 0}
   prefabId: 0
   gameManager: {fileID: 172102858}
+  networkGameManager: {fileID: 0}
   spawnLocationOne: {fileID: 1790872565}
   spawnLocationTwo: {fileID: 258695948}
   header: "K\xF6nnt ihr die Paare finden?"
@@ -1177,6 +1179,7 @@ MonoBehaviour:
   networkManager: {fileID: 0}
   prefabId: 2
   gameManager: {fileID: 172102858}
+  networkGameManager: {fileID: 0}
   spawnLocationOne: {fileID: 1508910459}
   spawnLocationTwo: {fileID: 983255316}
   header: Building Game!
@@ -1660,6 +1663,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   gameManager: {fileID: 172102858}
+  networkManager: {fileID: 0}
   thumbsRequired: 2
   numThumbs: 0
 --- !u!114 &277440571

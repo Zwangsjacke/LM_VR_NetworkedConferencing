@@ -56,6 +56,7 @@ namespace Oculus.Interaction.Input
 
         protected virtual void Awake()
         {
+
             Hand = _hand as IHand;
         }
 
