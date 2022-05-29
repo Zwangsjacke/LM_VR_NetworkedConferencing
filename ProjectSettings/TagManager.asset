@@ -21,6 +21,7 @@ TagManager:
   - rayCastSource
   - dataTracker
   - walls
+  - PinBoard
   layers:
   - Default
   - TransparentFX
