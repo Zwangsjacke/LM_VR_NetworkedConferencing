@@ -4,50 +4,47 @@ using UnityEngine;
 
 public class GameManagerScript : MonoBehaviour
 {
-
-
     public NetworkGameManager networkGameManager;
+
+    [Tooltip("Order relevant! \nShould be: Interview, Desert Survival, Photos")]
     public BaseGame[] games;
+    [Tooltip("Timer in Minutes\nMatch the order above!")]
+    public int[] gameTimers;
     public int gameCounter = 0;
-    public bool endCondition = true;
+    public bool endCondition = false;
     public bool alreadyThumbs = false;
 
-    public string header;
-    public string body;
+    [Header("Display Text")]
+    public string studyEndHeader;
+    public string studyEndBody;
 
 
 
-
+    /// <summary>
+    /// Increments the gameCounter an starts the respective Game or ends the study. See BaseGame[] games order for the game order.
+    /// Resets endConditions
+    /// </summary>
     public void StartNextGame()
     {
         if (gameCounter <= 3)
         {
         endCondition = false;
+        alreadyThumbs = false;
+
         games[gameCounter].StartGame();
         gameCounter++;
-        alreadyThumbs = false;
         }
+
         else
         {
             EndVRStudy();
         }
     }
 
-    public void StartGames()
-    {
-        if (gameCounter <= 3)
-        {
-            endCondition = false;
-            games[gameCounter].StartGame();
-            gameCounter++;
-            alreadyThumbs = false;
-        }
-        else
-        {
-            EndVRStudy();
-        }
-    }
-
+    /// <summary>
+    /// If endcondition of the current game is met notify the network gamemanager
+    /// Also checks if this already happend and resets every new game
+    /// </summary>
     public void ThumbsUp()
     {
         if (endCondition && !alreadyThumbs)
@@ -57,6 +54,9 @@ public class GameManagerScript : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Destorys all GameObjects and displays Study End Message
+    /// </summary>
     public void EndVRStudy()
     {
         foreach(GameObject go in GameObject.FindGameObjectsWithTag("GamePrefab"))
@@ -65,11 +65,11 @@ public class GameManagerScript : MonoBehaviour
         }
         foreach (GameObject go in GameObject.FindGameObjectsWithTag("header"))
         {
-            go.SendMessage("ChangeText", header);
+            go.SendMessage("ChangeText", studyEndHeader);
         }
         foreach (GameObject go in GameObject.FindGameObjectsWithTag("body"))
         {
-            go.SendMessage("ChangeText", body);
+            go.SendMessage("ChangeText", studyEndBody);
         }
     }
 }

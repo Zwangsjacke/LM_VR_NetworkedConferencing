@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1059,7 +1059,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 172102857}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: BaseGame, Assembly-CSharp
         m_MethodName: StartGame
         m_Mode: 1
@@ -1200,9 +1200,9 @@ GameObject:
   m_Component:
   - component: {fileID: 172102859}
   - component: {fileID: 172102858}
+  - component: {fileID: 172102855}
   - component: {fileID: 172102857}
   - component: {fileID: 172102856}
-  - component: {fileID: 172102855}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: gameManager
@@ -1231,9 +1231,9 @@ MonoBehaviour:
   body: "F\xFCr die letzte Aufgabe habt ihr nun 5 Minuten Zeit euch besser kennen
     zu lernen. Interviewt euch gegenseitig. Ihr k\xF6nnt dabei gerne die Hilfsfragen
     auf den Klemmbrettern nutzen!"
+  alarmId: 2
   alarmSpawnOne: {fileID: 1508910459}
   alarmSpawnTwo: {fileID: 983255316}
-  alarmId: 2
 --- !u!114 &172102856
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1267,16 +1267,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 172102854}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5430abeb7c494fe448f3e8f14fa54960, type: 3}
+  m_Script: {fileID: 11500000, guid: f6ddfc7a5012f8346a86301f2443182e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabId: 2
+  prefabId: 3
   gameManager: {fileID: 172102858}
   networkGameManager: {fileID: 277440570}
-  spawnLocationOne: {fileID: 1508910459}
-  spawnLocationTwo: {fileID: 983255316}
-  header: Building Game!
-  body: Das ist das Building Game
+  spawnLocationOne: {fileID: 1790872565}
+  spawnLocationTwo: {fileID: 258695948}
+  header: 
+  body: 
 --- !u!114 &172102858
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1291,16 +1291,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   networkGameManager: {fileID: 277440570}
   games:
+  - {fileID: 172102855}
   - {fileID: 172102857}
   - {fileID: 172102856}
-  - {fileID: 172102855}
+  gameTimers: 050000000500000005000000
   gameCounter: 0
-  endCondition: 1
+  endCondition: 0
   alreadyThumbs: 0
-  header: Ihr habt das Ende erreicht!
-  body: "Jetzt warten im echten Leben einige Fragebogen auf euch. Ihr k\xF6nnt die
-    VR Headsets nun abziehen und dem Versuchsleiter bescheidgeben. Vielen Dank f\xFCr
-    die Teilnahme!"
+  studyEndHeader: 
+  studyEndBody: 
 --- !u!4 &172102859
 Transform:
   m_ObjectHideFlags: 0
@@ -2490,7 +2489,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh140678
+  m_Name: pb_Mesh46402
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5587,7 +5586,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh140666
+  m_Name: pb_Mesh46382
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2

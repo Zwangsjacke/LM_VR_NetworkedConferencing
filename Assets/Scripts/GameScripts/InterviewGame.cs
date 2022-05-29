@@ -4,14 +4,19 @@ using UnityEngine;
 
 public class InterviewGame : BaseGame
 {
+    [Header("Alarm Spawn")]
+    public int alarmId;
     public Transform alarmSpawnOne;
     public Transform alarmSpawnTwo;
-    public int alarmId;
+
+    /// <summary>
+    /// Additionally spawns the alarm
+    /// </summary>
     public override void StartGame()
     {
-        ClearGamePrefabs();
-        ChangeGameText();
-        networkGameManager.SpawnObjects(prefabId, spawnLocationOne, spawnLocationTwo);
+        base.StartGame();
         networkGameManager.SpawnObjects(alarmId, alarmSpawnOne, alarmSpawnTwo);
     }
+
+    //Endcondition is handled by the alarm
 }

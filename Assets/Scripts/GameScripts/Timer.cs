@@ -11,9 +11,15 @@ public class Timer : MonoBehaviour
     public bool timerActive = false;
     float currentTime;
     public int startingMinutes;
+
     public TextMeshProUGUI currentTimeText;
+
+    /// <summary>
+    /// Finds GameManager and sets starting Time
+    /// </summary>
     private void Awake()
     {
+        GetStartingMinutes();
         currentTime = startingMinutes * 60;
         gameManager = GameObject.FindGameObjectWithTag("gameManager").GetComponent<GameManagerScript>();
     }
@@ -46,10 +52,23 @@ public class Timer : MonoBehaviour
         timerActive = false;
     }
 
+    /// <summary>
+    /// Resets Timer and sets Endcondition true
+    /// </summary>
     public void TimerFinished()
     {
         timerActive = false;
         Debug.Log("Timer finished");
         gameManager.endCondition = true;
+    }
+
+    /// <summary>
+    /// Sets starting minutes for the specific game
+    /// -1 to counter the increment in GamesManager
+    /// </summary>
+    private void GetStartingMinutes()
+    {
+        int gameCount = gameManager.gameCounter - 1;
+        startingMinutes = gameManager.gameTimers[gameCount];
     }
 }

@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class BaseGame : MonoBehaviour
 {
+    [Tooltip("Hier kommen noch welche ID zu welchem Spiel gehört")]
     public int prefabId;
+
     public GameManagerScript gameManager;
     public NetworkGameManager networkGameManager;
 
@@ -14,6 +16,9 @@ public class BaseGame : MonoBehaviour
     public string header;
     public string body;
 
+    /// <summary>
+    /// Destorys all previous game objects, changes the dispayed text and spawns new ones specific to the game
+    /// </summary>
     public virtual void StartGame()
     {
         ClearGamePrefabs();
@@ -22,6 +27,9 @@ public class BaseGame : MonoBehaviour
         networkGameManager.SpawnObjects(prefabId, spawnLocationOne, spawnLocationTwo);
     }
 
+    /// <summary>
+    /// Sets the endcondition to true, so that the next game can be started
+    /// </summary>
     public virtual void SetCondition()
     {
         gameManager.endCondition = true;
@@ -40,6 +48,9 @@ public class BaseGame : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Changes disyplayed text to game specific text
+    /// </summary>
     public void ChangeGameText()
     {
         foreach(GameObject go in GameObject.FindGameObjectsWithTag("header"))
