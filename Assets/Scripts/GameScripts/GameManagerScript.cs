@@ -10,6 +10,7 @@ public class GameManagerScript : MonoBehaviour
     public BaseGame[] games;
     [Tooltip("Timer in Minutes\nMatch the order above!")]
     public int[] gameTimers;
+    public int desertSecondPhaseTimer;
     public int gameCounter = 0;
     public bool endCondition = false;
     public bool alreadyThumbs = false;

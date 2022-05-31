@@ -1222,18 +1222,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e46a55401a8cc64e98455426a91c149, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabId: 1
+  prefabIds: 0100000002000000
   gameManager: {fileID: 172102858}
   networkGameManager: {fileID: 277440570}
-  spawnLocationOne: {fileID: 10573240}
-  spawnLocationTwo: {fileID: 1692868471}
+  SpawnLocationsPlayerOne:
+  - {fileID: 10573240}
+  - {fileID: 1508910459}
+  SpawnLocationsPlayerTwo:
+  - {fileID: 1692868471}
+  - {fileID: 983255316}
   header: Interviewt euch!
   body: "F\xFCr die letzte Aufgabe habt ihr nun 5 Minuten Zeit euch besser kennen
     zu lernen. Interviewt euch gegenseitig. Ihr k\xF6nnt dabei gerne die Hilfsfragen
     auf den Klemmbrettern nutzen!"
-  alarmId: 2
-  alarmSpawnOne: {fileID: 1508910459}
-  alarmSpawnTwo: {fileID: 983255316}
 --- !u!114 &172102856
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1246,18 +1247,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7108552d39d20304a830b7e5754c6f96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabId: 0
+  prefabIds: 000000000300000002000000
   gameManager: {fileID: 172102858}
   networkGameManager: {fileID: 277440570}
-  spawnLocationOne: {fileID: 1790872565}
-  spawnLocationTwo: {fileID: 258695948}
+  SpawnLocationsPlayerOne:
+  - {fileID: 1790872565}
+  - {fileID: 674303061}
+  - {fileID: 1508910459}
+  SpawnLocationsPlayerTwo:
+  - {fileID: 258695948}
+  - {fileID: 1294443472}
+  - {fileID: 983255316}
   header: "K\xF6nnt ihr die Paare finden?"
   body: "\xDCberlegt gemeinsam, welche Haustier-Besitzer P\xE4rchen richtig sind.
     Gebt sie jeweils in das Tablet ein. Solltet ihr das Gef\xFChl haben fertig zu
     sein, dr\xFCck auf den Knopf unten, um euer Ergebniss zu sehen."
-  tabletSpawnOne: {fileID: 674303061}
-  tabletSpawnTwo: {fileID: 1294443472}
-  tabletId: 3
 --- !u!114 &172102857
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1270,13 +1274,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6ddfc7a5012f8346a86301f2443182e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabId: 3
+  prefabIds: 02000000
   gameManager: {fileID: 172102858}
   networkGameManager: {fileID: 277440570}
-  spawnLocationOne: {fileID: 1790872565}
-  spawnLocationTwo: {fileID: 258695948}
+  SpawnLocationsPlayerOne:
+  - {fileID: 1508910459}
+  SpawnLocationsPlayerTwo:
+  - {fileID: 983255316}
   header: 
   body: 
+  numPinned: 0
+  numPins: 0
 --- !u!114 &172102858
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1294,10 +1302,12 @@ MonoBehaviour:
   - {fileID: 172102855}
   - {fileID: 172102857}
   - {fileID: 172102856}
-  gameTimers: 050000000500000005000000
+  gameTimers: 010000000100000001000000
+  desertSecondPhaseTimer: 1
   gameCounter: 0
   endCondition: 0
   alreadyThumbs: 0
+  timerFinished: 0
   studyEndHeader: 
   studyEndBody: 
 --- !u!4 &172102859

@@ -11,6 +11,8 @@ public class Timer : MonoBehaviour
     public bool timerActive = false;
     float currentTime;
     public int startingMinutes;
+    public int gameCount;
+    public bool desertPhaseOneDone = false;
 
     public TextMeshProUGUI currentTimeText;
 
@@ -19,9 +21,10 @@ public class Timer : MonoBehaviour
     /// </summary>
     private void Awake()
     {
+        gameManager = GameObject.FindGameObjectWithTag("gameManager").GetComponent<GameManagerScript>();
         GetStartingMinutes();
         currentTime = startingMinutes * 60;
-        gameManager = GameObject.FindGameObjectWithTag("gameManager").GetComponent<GameManagerScript>();
+        StartTimer();
     }
 
     // Update is called once per frame
@@ -57,9 +60,17 @@ public class Timer : MonoBehaviour
     /// </summary>
     public void TimerFinished()
     {
-        timerActive = false;
+        if(gameCount == 1 && !desertPhaseOneDone)
+        {
+            desertPhaseOneDone = true;
+            currentTime= gameManager.desertSecondPhaseTimer * 60;
+        }
+        else
+        {
+        EndTimer();
         Debug.Log("Timer finished");
         gameManager.timerFinished = true;
+        }
     }
 
     /// <summary>
@@ -68,7 +79,10 @@ public class Timer : MonoBehaviour
     /// </summary>
     private void GetStartingMinutes()
     {
-        int gameCount = gameManager.gameCounter - 1;
-        startingMinutes = gameManager.gameTimers[gameCount];
+   gameCount = gameManager.gameCounter;
+
+    startingMinutes = gameManager.gameTimers[gameCount];
+       
+
     }
 }

@@ -4,20 +4,9 @@ using UnityEngine;
 
 public class InterviewGame : BaseGame
 {
-    [Header("Alarm Spawn")]
-    public int alarmId;
-    public Transform alarmSpawnOne;
-    public Transform alarmSpawnTwo;
-
-    /// <summary>
-    /// Additionally spawns the alarm
-    /// </summary>
-    public override void StartGame()
+    private void Start()
     {
-        base.StartGame();
         SetCondition();
-        networkGameManager.SpawnObjects(alarmId, alarmSpawnOne, alarmSpawnTwo);
     }
-
     //Endcondition is handled by the alarm
 }

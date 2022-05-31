@@ -5,14 +5,14 @@ using UnityEngine;
 public class BaseGame : MonoBehaviour
 {
     [Tooltip("Hier kommen noch welche ID zu welchem Spiel gehört")]
-    public int prefabId;
+    public int[] prefabIds;
 
     public GameManagerScript gameManager;
     public NetworkGameManager networkGameManager;
 
     [Header("SpawnLocations")]
-    public Transform spawnLocationOne;
-    public Transform spawnLocationTwo;
+    public Transform[] SpawnLocationsPlayerOne;
+    public Transform[] SpawnLocationsPlayerTwo;
     public string header;
     public string body;
 
@@ -23,8 +23,21 @@ public class BaseGame : MonoBehaviour
     {
         ClearGamePrefabs();
         ChangeGameText();
+        SpawnObjects();
+        
+    }
 
-        networkGameManager.SpawnObjects(prefabId, spawnLocationOne, spawnLocationTwo);
+    /// <summary>
+    /// Spawns all Objects relevant for the Game. Stored in Arrays
+    /// </summary>
+    public void SpawnObjects()
+    {
+
+        for (int i = 0; i < prefabIds.Length; i++)
+        {
+            networkGameManager.SpawnObjects(prefabIds[i], SpawnLocationsPlayerOne[i], SpawnLocationsPlayerTwo[i]);
+        }
+
     }
 
     /// <summary>
