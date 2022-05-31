@@ -59,7 +59,7 @@ public class Timer : MonoBehaviour
     {
         timerActive = false;
         Debug.Log("Timer finished");
-        gameManager.endCondition = true;
+        gameManager.timerFinished = true;
     }
 
     /// <summary>

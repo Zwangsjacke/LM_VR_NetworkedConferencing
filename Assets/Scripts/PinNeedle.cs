@@ -5,6 +5,13 @@ using UnityEngine;
 public class PinNeedle : MonoBehaviour
 {
     public Rigidbody rigidBody;
+    public DesertSurvivalGame desertSurvival;
+    public Transform lockedPosition;
+
+    private void Awake()
+    {
+        desertSurvival = GameObject.FindGameObjectWithTag("gameManager").GetComponent<DesertSurvivalGame>();
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -12,6 +19,8 @@ public class PinNeedle : MonoBehaviour
         {
             SetConstrains();
             Debug.Log("Pinned!");
+            desertSurvival.numPinned++;
+            SavePosition();
         }
     }
 
@@ -21,9 +30,22 @@ public class PinNeedle : MonoBehaviour
         {
             ReleaseConstraints();
             Debug.Log("Unpinned!");
+            desertSurvival.numPinned--;
+           
         }
     }
 
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("PinBoard"))
+        {
+            this.transform.position = new Vector3(transform.position.x, lockedPosition.transform.position.y, lockedPosition.transform.position.z);
+        }
+    }
+
+    /// <summary>
+    /// Freezes the rotation, gravity and y and z transforms
+    /// </summary>
     public void SetConstrains()
     {
         rigidBody.constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezePositionZ;
@@ -31,10 +53,18 @@ public class PinNeedle : MonoBehaviour
         rigidBody.freezeRotation = true;
     }
 
+    /// <summary>
+    /// Unfreezes everything
+    /// </summary>
     public void ReleaseConstraints()
     {
         rigidBody.constraints = RigidbodyConstraints.None;
         rigidBody.useGravity = true;
         rigidBody.freezeRotation = false;
+    }
+
+    public void SavePosition()
+    {
+        lockedPosition = this.transform;
     }
 }

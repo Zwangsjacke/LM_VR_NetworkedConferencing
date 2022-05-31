@@ -13,7 +13,7 @@ public class GameManagerScript : MonoBehaviour
     public int gameCounter = 0;
     public bool endCondition = false;
     public bool alreadyThumbs = false;
-
+    public bool timerFinished;
     [Header("Display Text")]
     public string studyEndHeader;
     public string studyEndBody;
@@ -30,6 +30,7 @@ public class GameManagerScript : MonoBehaviour
         {
         endCondition = false;
         alreadyThumbs = false;
+        timerFinished = false;
 
         games[gameCounter].StartGame();
         gameCounter++;
@@ -47,7 +48,7 @@ public class GameManagerScript : MonoBehaviour
     /// </summary>
     public void ThumbsUp()
     {
-        if (endCondition && !alreadyThumbs)
+        if (endCondition && !alreadyThumbs && timerFinished)
         {
             alreadyThumbs = true;
             networkGameManager.CMDThumbsUp();

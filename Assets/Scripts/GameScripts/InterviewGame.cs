@@ -15,6 +15,7 @@ public class InterviewGame : BaseGame
     public override void StartGame()
     {
         base.StartGame();
+        SetCondition();
         networkGameManager.SpawnObjects(alarmId, alarmSpawnOne, alarmSpawnTwo);
     }
 
