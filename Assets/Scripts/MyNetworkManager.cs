@@ -20,7 +20,7 @@ public class MyNetworkManager : NetworkManager
 
         StoreClientConn(conn);
 
-        //DisableHandVisuals();
+        DisableHandVisuals();
 
     }
 

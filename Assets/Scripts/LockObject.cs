@@ -14,6 +14,7 @@ public class LockObject : MonoBehaviour
         if (other.CompareTag("Hand"))
         {
             MakeKinematic();
+            Debug.Log("Touched by Hand");
         }
     }
 

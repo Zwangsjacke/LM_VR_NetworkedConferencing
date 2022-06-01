@@ -22,6 +22,7 @@ TagManager:
   - dataTracker
   - walls
   - PinBoard
+  - Hand
   layers:
   - Default
   - TransparentFX
