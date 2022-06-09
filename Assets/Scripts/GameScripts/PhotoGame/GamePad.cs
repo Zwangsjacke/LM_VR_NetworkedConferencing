@@ -8,7 +8,7 @@ public class GamePad : MonoBehaviour
     public GameManagerScript gameManager;
     public string answer = "";
 
-    public TextMeshProUGUI firstNumberText;
+    public TextMeshProUGUI firstPetText;
     public TextMeshProUGUI secondNumberText;
     public TextMeshProUGUI thirdNumberText;
     public TextMeshProUGUI fourthNumberText;
@@ -95,7 +95,7 @@ public class GamePad : MonoBehaviour
                     firstNumber = 1;
                 }
 
-                firstNumberText.text = firstNumber.ToString();
+                firstPetText.text = firstNumber.ToString();
                 break;
             case 2:
                 if (secondNumber < 3)
