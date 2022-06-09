@@ -55,7 +55,7 @@ public class PhotoGamePad : MonoBehaviour
         {
             answers[i] = petTexts[i].text;
         }
-        //DeactivateButtons();
+        DeactivateButtons();
         CheckAnswers();
         InformGameManager();
     }
@@ -64,7 +64,7 @@ public class PhotoGamePad : MonoBehaviour
     {
         for(int i = 0; i < 4; i++)
         {
-            //ToggleCheck(answers[i] == solution[i], i);
+            ToggleCheck(answers[i] == solution[i], i);
         }
     }
 
@@ -95,7 +95,7 @@ public class PhotoGamePad : MonoBehaviour
 
     private void InformGameManager()
     {
-        photoGame.SetCondition(); 
+        //photoGame.SetCondition(); 
     }
 
 
