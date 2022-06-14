@@ -18,6 +18,7 @@ public class GameManagerScript : MonoBehaviour
     [Header("Display Text")]
     public string studyEndHeader;
     public string studyEndBody;
+    
 
 
 
@@ -27,20 +28,22 @@ public class GameManagerScript : MonoBehaviour
     /// </summary>
     public void StartNextGame()
     {
-        if (gameCounter <= 3)
-        {
         endCondition = false;
         alreadyThumbs = false;
         timerFinished = false;
+        if (gameCounter <= 2)
+        {
+
 
         games[gameCounter].StartGame();
-        gameCounter++;
+
         }
 
         else
         {
             EndVRStudy();
         }
+        gameCounter++;
     }
 
     /// <summary>

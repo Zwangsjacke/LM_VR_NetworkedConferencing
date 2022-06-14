@@ -16,6 +16,8 @@ public class BaseGame : MonoBehaviour
     public string header;
     public string body;
 
+    public Timer timer;
+
     /// <summary>
     /// Destorys all previous game objects, changes the dispayed text and spawns new ones specific to the game
     /// </summary>
@@ -24,6 +26,7 @@ public class BaseGame : MonoBehaviour
         ClearGamePrefabs();
         ChangeGameText();
         SpawnObjects();
+        StartTimer();
         
     }
 
@@ -75,6 +78,15 @@ public class BaseGame : MonoBehaviour
             go.SendMessage("ChangeText", body);
         }
 
+    }
+
+    public void StartTimer()
+    {
+        if(timer == null)
+        {
+           timer = GameObject.FindGameObjectWithTag("Timer").GetComponent<Timer>();
+        }
+        timer.StartTimer();
     }
 
 }

@@ -9,7 +9,7 @@ public class Timer : MonoBehaviour
 {
     public GameManagerScript gameManager;
     public bool timerActive = false;
-    float currentTime;
+    public float currentTime;
     public int startingMinutes;
     public int gameCount;
     public bool desertPhaseOneDone = false;
@@ -22,9 +22,9 @@ public class Timer : MonoBehaviour
     private void Awake()
     {
         gameManager = GameObject.FindGameObjectWithTag("gameManager").GetComponent<GameManagerScript>();
-        GetStartingMinutes();
+        /*GetStartingMinutes();
         currentTime = startingMinutes * 60;
-        StartTimer();
+        StartTimer(); */
     }
 
     // Update is called once per frame
@@ -47,11 +47,14 @@ public class Timer : MonoBehaviour
 
     public void StartTimer()
     {
+        GetStartingMinutes();
+        currentTime = startingMinutes * 60;
         timerActive = true;
     }
 
     public void EndTimer()
     {
+
         timerActive = false;
     }
 
@@ -79,9 +82,9 @@ public class Timer : MonoBehaviour
     /// </summary>
     private void GetStartingMinutes()
     {
-   gameCount = gameManager.gameCounter;
 
-    startingMinutes = gameManager.gameTimers[gameCount];
+        gameCount = gameManager.gameCounter;
+        startingMinutes = gameManager.gameTimers[gameCount];
        
 
     }

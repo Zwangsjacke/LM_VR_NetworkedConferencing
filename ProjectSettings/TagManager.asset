@@ -23,6 +23,7 @@ TagManager:
   - walls
   - PinBoard
   - Hand
+  - Timer
   layers:
   - Default
   - TransparentFX
