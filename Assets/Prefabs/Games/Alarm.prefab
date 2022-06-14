@@ -503,7 +503,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: de5dd33596795a3438a533bad494b7e8, type: 2}
+  - {fileID: 2100000, guid: 4ef22f30b3758154082de9d018bcfb12, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -853,7 +853,7 @@ GameObject:
   - component: {fileID: 2296176164371059201}
   m_Layer: 0
   m_Name: Alarm
-  m_TagString: GamePrefab
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -922,6 +922,8 @@ MonoBehaviour:
   gameManager: {fileID: 0}
   timerActive: 1
   startingMinutes: 1
+  gameCount: 0
+  desertPhaseOneDone: 0
   currentTimeText: {fileID: 4973574712805560546}
 --- !u!114 &1605320401322063761
 MonoBehaviour:

@@ -51,6 +51,22 @@ public class MyNetworkManager : NetworkManager
 
     }
 
+    public void SpawnOneForEach(GameObject prefab, GameObject secondPrefab, Transform firstSpawnLocation, Transform secondSpawnLocation)
+    {
+        Vector3 pos = firstSpawnLocation.position;
+        Quaternion rot = firstSpawnLocation.rotation;
+
+        GameObject go1 = Instantiate(prefab, pos, rot);
+        NetworkServer.Spawn(go1, clientConnections[0]);
+
+        pos = secondSpawnLocation.position;
+        rot = secondSpawnLocation.rotation;
+
+        GameObject go2 = Instantiate(secondPrefab, pos, rot);
+        NetworkServer.Spawn(go2, clientConnections[1]);
+
+    }
+
     /// <summary>
     /// Sets current IP to new IP
     /// </summary>

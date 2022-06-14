@@ -18,11 +18,15 @@ public class PhotoGamePad : MonoBehaviour
 
     public string[] answers = new string[4];
 
-    public Button[] buttons;
+    public TextMeshProUGUI endText;
+
+    public GameObject[] buttons;
 
     public GameObject[] checks;
 
     public GameObject[] errors;
+
+    public int correctAnswers = 0;
 
     public void Awake()
     {
@@ -58,6 +62,7 @@ public class PhotoGamePad : MonoBehaviour
         DeactivateButtons();
         CheckAnswers();
         InformGameManager();
+        SetEndText();
     }
 
     public void CheckAnswers()
@@ -74,6 +79,7 @@ public class PhotoGamePad : MonoBehaviour
         if (isTrue)
         {
             checks[checkId].SetActive(true);
+            correctAnswers++;
         }
         else
         {
@@ -86,9 +92,9 @@ public class PhotoGamePad : MonoBehaviour
     /// </summary>
     private void DeactivateButtons()
     {
-        foreach(Button button in buttons)
+        foreach(GameObject button in buttons)
         {
-            Destroy(button);
+            button.SetActive(false);
         }
     }
     
@@ -96,6 +102,11 @@ public class PhotoGamePad : MonoBehaviour
     private void InformGameManager()
     {
         //photoGame.SetCondition(); 
+    }
+
+    private void SetEndText()
+    {
+        endText.text = $"Du hast {correctAnswers} Pärchen korrekt zugewiesen!";
     }
 
 

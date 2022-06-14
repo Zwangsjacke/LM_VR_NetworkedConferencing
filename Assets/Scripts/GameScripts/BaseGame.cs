@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BaseGame : MonoBehaviour
 {
-    [Tooltip("Hier kommen noch welche ID zu welchem Spiel gehört")]
+    [Tooltip("0 = Alarm\n1 = Clipboard\n2 = Pinboard And Pins\n3 = Owner Profiles\n4 = Pet Profiles\n5 = GamePad")]
     public int[] prefabIds;
 
     public GameManagerScript gameManager;
@@ -30,7 +30,7 @@ public class BaseGame : MonoBehaviour
     /// <summary>
     /// Spawns all Objects relevant for the Game. Stored in Arrays
     /// </summary>
-    public void SpawnObjects()
+    public virtual void SpawnObjects()
     {
 
         for (int i = 0; i < prefabIds.Length; i++)

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1231,7 +1231,7 @@ PrefabInstance:
         type: 3}
       propertyPath: spawnPrefabs.Array.data[0]
       value: 
-      objectReference: {fileID: 5143505889805921033, guid: 87da7762cddfb69499db5c4ff9b9a2f3,
+      objectReference: {fileID: 4973574712965037962, guid: ed96d48618f2c0a45ad3e905df3a8853,
         type: 3}
     - target: {fileID: 8105947476590764326, guid: 3d54ffd2aea4f9141814aff6474fec1d,
         type: 3}
@@ -1243,25 +1243,31 @@ PrefabInstance:
         type: 3}
       propertyPath: spawnPrefabs.Array.data[2]
       value: 
-      objectReference: {fileID: 4973574712965037962, guid: ed96d48618f2c0a45ad3e905df3a8853,
+      objectReference: {fileID: 1842571936679116329, guid: 575370938ea5bc246a622aa3167ad181,
         type: 3}
     - target: {fileID: 8105947476590764326, guid: 3d54ffd2aea4f9141814aff6474fec1d,
         type: 3}
       propertyPath: spawnPrefabs.Array.data[3]
       value: 
-      objectReference: {fileID: 61693033409530727, guid: 76269e500f1d54d4d908fd68f979104f,
+      objectReference: {fileID: 7232135495862677574, guid: f6f72c5db7c3e6a45b7d6d1960e3b612,
         type: 3}
     - target: {fileID: 8105947476590764326, guid: 3d54ffd2aea4f9141814aff6474fec1d,
         type: 3}
       propertyPath: spawnPrefabs.Array.data[4]
       value: 
-      objectReference: {fileID: 1125928364379250494, guid: bbdf10075b46c9149a006bd89453a78c,
+      objectReference: {fileID: 2638790018120391667, guid: 3e264e484b24c2d478f9b4ee1cfcf410,
         type: 3}
     - target: {fileID: 8105947476590764326, guid: 3d54ffd2aea4f9141814aff6474fec1d,
         type: 3}
       propertyPath: spawnPrefabs.Array.data[5]
       value: 
-      objectReference: {fileID: 6910556054731491161, guid: 4a8b606ca0233d74abf7c44c7ce2d5bc,
+      objectReference: {fileID: 2933558906577895911, guid: 5f6a24221e63a524d84f4fc23e0d449b,
+        type: 3}
+    - target: {fileID: 8105947476590764326, guid: 3d54ffd2aea4f9141814aff6474fec1d,
+        type: 3}
+      propertyPath: spawnPrefabs.Array.data[6]
+      value: 
+      objectReference: {fileID: 2933558906577895911, guid: 5f6a24221e63a524d84f4fc23e0d449b,
         type: 3}
     - target: {fileID: 8248559827386773471, guid: 3d54ffd2aea4f9141814aff6474fec1d,
         type: 3}
