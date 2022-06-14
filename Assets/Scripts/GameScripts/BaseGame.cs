@@ -86,6 +86,7 @@ public class BaseGame : MonoBehaviour
         {
            timer = GameObject.FindGameObjectWithTag("Timer").GetComponent<Timer>();
         }
+
         timer.StartTimer();
     }
 
