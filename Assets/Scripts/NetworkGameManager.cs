@@ -27,13 +27,16 @@ public class NetworkGameManager : NetworkBehaviour
     {
         if (isServer)
         {
-        networkManager.SpawnForBothClients(networkManager.spawnPrefabs[prefabId], spawnLocationOne, spawnLocationTwo);
+            networkManager.SpawnForBothClients(networkManager.spawnPrefabs[prefabId], spawnLocationOne, spawnLocationTwo);
         }
     }
 
     public void SpawnOneForEach(int prefabId,int secondPrefabId, Transform spawnLocationOne, Transform spawnLocationTwo)
     {
-        networkManager.SpawnOneForEach(networkManager.spawnPrefabs[prefabId], networkManager.spawnPrefabs[secondPrefabId], spawnLocationOne, spawnLocationTwo);
+        if (isServer)
+        {
+            networkManager.SpawnOneForEach(networkManager.spawnPrefabs[prefabId], networkManager.spawnPrefabs[secondPrefabId], spawnLocationOne, spawnLocationTwo);
+        }
     }
 
     [Command(requiresAuthority = false)]
