@@ -10,6 +10,7 @@ public class PinNeedle : MonoBehaviour
 
     private void Awake()
     {
+
         desertSurvival = GameObject.FindGameObjectWithTag("gameManager").GetComponent<DesertSurvivalGame>();
         pinPlane = GameObject.Find("Snapping Plane").transform;
     }
@@ -18,7 +19,9 @@ public class PinNeedle : MonoBehaviour
     {
         if (setPosition)
         {
-            this.transform.position = new Vector3(pinPlane.position.x, this.transform.position.y, this.transform.position.z);
+            Quaternion rot = new Quaternion(0, 0, 0, 0);
+            Vector3 pos = new Vector3(pinPlane.position.x, this.transform.position.y, this.transform.position.z);
+            transform.SetPositionAndRotation(pos, rot);
         }
     }
 
@@ -30,6 +33,11 @@ public class PinNeedle : MonoBehaviour
             desertSurvival.numPinned++;
             desertSurvival.SetCondition();
             setPosition = true;
+        }
+        if (other.CompareTag("Hand"))
+        {
+            setPosition = true;
+            Debug.Log("Collided with Hand");
         }
     }
 

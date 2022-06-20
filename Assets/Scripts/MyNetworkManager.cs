@@ -14,6 +14,8 @@ public class MyNetworkManager : NetworkManager
     private int clientCount = 0;
     private NetworkConnection[] clientConnections = new NetworkConnection[2];
 
+    public Transform phoneSpawnLocation;
+
     public override void OnServerConnect(NetworkConnectionToClient conn)
     {
         base.OnServerConnect(conn);
@@ -21,6 +23,11 @@ public class MyNetworkManager : NetworkManager
         StoreClientConn(conn);
 
         DisableHandVisuals();
+
+        if(clientConnections[1] == null)
+        {
+            SpawnPhoneForPlayerOne();
+        } 
 
     }
 
@@ -74,6 +81,15 @@ public class MyNetworkManager : NetworkManager
     public void SetIp(string newIp)
     {
         networkAddress = newIp;
+    }
+
+    public void SpawnPhoneForPlayerOne()
+    {
+        Vector3 pos = phoneSpawnLocation.position;
+        Quaternion rot = phoneSpawnLocation.rotation;
+
+        GameObject go1 = Instantiate(spawnPrefabs[6], pos, rot);
+        NetworkServer.Spawn(go1, clientConnections[0]);        
     }
 
     /// <summary>

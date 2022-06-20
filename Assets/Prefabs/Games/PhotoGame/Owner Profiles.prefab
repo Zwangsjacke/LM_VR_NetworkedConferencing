@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 6058755683283204141}
   m_Layer: 0
   m_Name: Owner Profiles
-  m_TagString: Untagged
+  m_TagString: GamePrefab
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -84,7 +84,7 @@ MonoBehaviour:
   sceneId: 0
   serverOnly: 0
   visible: 0
-  m_AssetId: 
+  m_AssetId: f6f72c5db7c3e6a45b7d6d1960e3b612
   hasSpawned: 0
 --- !u!114 &7596577216843636178
 MonoBehaviour:

@@ -22,9 +22,6 @@ public class Timer : MonoBehaviour
     private void Awake()
     {
         gameManager = GameObject.FindGameObjectWithTag("gameManager").GetComponent<GameManagerScript>();
-        /*GetStartingMinutes();
-        currentTime = startingMinutes * 60;
-        StartTimer(); */
     }
 
     // Update is called once per frame
@@ -41,7 +38,7 @@ public class Timer : MonoBehaviour
         }
 
         TimeSpan time = TimeSpan.FromSeconds(currentTime);
-        currentTimeText.text = time.Minutes.ToString() + ":" + time.Seconds.ToString();
+        currentTimeText.text = time.Minutes.ToString().PadLeft(2,'0') + ":" + time.Seconds.ToString().PadLeft(2, '0');
     }
 
 

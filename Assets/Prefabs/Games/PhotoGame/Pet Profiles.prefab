@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 1533299551301110362}
   m_Layer: 0
   m_Name: Pet Profiles
-  m_TagString: Untagged
+  m_TagString: GamePrefab
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -84,7 +84,7 @@ MonoBehaviour:
   sceneId: 0
   serverOnly: 0
   visible: 0
-  m_AssetId: 
+  m_AssetId: 3e264e484b24c2d478f9b4ee1cfcf410
   hasSpawned: 0
 --- !u!114 &1015012055687868922
 MonoBehaviour:
