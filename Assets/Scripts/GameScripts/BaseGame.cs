@@ -26,7 +26,6 @@ public class BaseGame : MonoBehaviour
         ClearGamePrefabs();
         ChangeGameText();
         SpawnObjects();
-        StartTimer();
         
     }
 
@@ -69,14 +68,14 @@ public class BaseGame : MonoBehaviour
     /// </summary>
     public void ChangeGameText()
     {
-        foreach(GameObject go in GameObject.FindGameObjectsWithTag("header"))
-        {
-            go.SendMessage("ChangeText", header);
-        }
-        foreach (GameObject go in GameObject.FindGameObjectsWithTag("body"))
-        {
-            go.SendMessage("ChangeText", body);
-        }
+        //foreach(GameObject go in GameObject.FindGameObjectsWithTag("header"))
+        //{
+        //    go.SendMessage("ChangeText", header);
+        //}
+        //foreach (GameObject go in GameObject.FindGameObjectsWithTag("body"))
+        //{
+        //    go.SendMessage("ChangeText", body);
+        //}
 
     }
 

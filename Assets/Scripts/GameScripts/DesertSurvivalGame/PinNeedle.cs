@@ -19,9 +19,12 @@ public class PinNeedle : MonoBehaviour
     {
         if (setPosition)
         {
-            Quaternion rot = new Quaternion(0, 0, 0, 0);
-            Vector3 pos = new Vector3(pinPlane.position.x, this.transform.position.y, this.transform.position.z);
-            transform.SetPositionAndRotation(pos, rot);
+            //Quaternion rot = new Quaternion(0, 0, 0, 0);
+            //Vector3 pos = new Vector3(pinPlane.localPosition.x, this.transform.localPosition.y, this.transform.localPosition.z);
+            //transform.SetPositionAndRotation(pos, rot);
+
+            transform.localPosition = new Vector3(pinPlane.localPosition.x, transform.localPosition.y, transform.localPosition.z);
+            transform.localEulerAngles = Vector3.zero;
         }
     }
 
@@ -32,7 +35,7 @@ public class PinNeedle : MonoBehaviour
             Debug.Log("Pinned!");
             desertSurvival.numPinned++;
             desertSurvival.SetCondition();
-            //setPosition = true;
+            setPosition = true;
         }
         if (other.CompareTag("Hand"))
         {

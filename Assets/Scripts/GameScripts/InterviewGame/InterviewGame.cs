@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class InterviewGame : BaseGame
 {
-    private void Start()
+    public override void StartGame()
     {
+        base.StartGame();
         SetCondition();
     }
     //Endcondition is handled by the alarm

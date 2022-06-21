@@ -77,7 +77,7 @@ public class GamePad : MonoBehaviour
             gosFalse[3].SetActive(true);
         }
 
-        gameManager.endCondition = true;
+        
 
     }
 
@@ -142,13 +142,18 @@ public class GamePad : MonoBehaviour
     /// </summary>
     public void LogInAnswer()
     {
-        answer = "";
-        answer += firstNumber.ToString();
-        answer += secondNumber.ToString();
-        answer += thirdNumber.ToString();
-        answer += fourthNumber.ToString();
+        if (gameManager.timerFinished)
+        {
 
+            answer = "";
+            answer += firstNumber.ToString();
+            answer += secondNumber.ToString();
+            answer += thirdNumber.ToString();
+            answer += fourthNumber.ToString();
+            IsCorrect();
+            gameManager.endCondition = true;
 
-        IsCorrect();
+        }
+
     }
 }

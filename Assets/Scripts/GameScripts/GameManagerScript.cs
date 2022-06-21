@@ -18,7 +18,9 @@ public class GameManagerScript : MonoBehaviour
     [Header("Display Text")]
     public string studyEndHeader;
     public string studyEndBody;
-    
+    public Timer TimerOne;
+    public Timer TimerTwo;
+
 
 
 
@@ -35,7 +37,9 @@ public class GameManagerScript : MonoBehaviour
         {
 
 
-        games[gameCounter].StartGame();
+            games[gameCounter].StartGame();
+            TimerOne.StartTimer();
+            TimerTwo.StartTimer();
 
         }
 

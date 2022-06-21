@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class HandPoseBroadCast : MonoBehaviour
 {
     public bool foundManager = false;
@@ -15,12 +16,14 @@ public class HandPoseBroadCast : MonoBehaviour
     public void ThumbsUp()
     {
 
-        FindGameManager();
-        if (foundManager)
         {
+            FindGameManager();
+            if (foundManager)
+            {
 
-        gameManager.ThumbsUp();
+                gameManager.ThumbsUp();
 
+            }
         }
 
     }

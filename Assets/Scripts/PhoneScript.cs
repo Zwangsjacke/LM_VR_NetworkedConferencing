@@ -17,12 +17,12 @@ public class PhoneScript : MonoBehaviour
     public TextMeshProUGUI clock;
     public bool timerActive;
     public float countdownSec = 60;
+    public NetworkGameManager networkedGameManager;
 
     private void Awake()
     {
         TurnPhoneOff();
         StartTimer();
-
     }
 
     public void StartTimer()
@@ -45,9 +45,9 @@ public class PhoneScript : MonoBehaviour
     }
     public void Dismiss()
     {
-        NotificationObject.SetActive(false);
-        StopVibrating();
+        networkedGameManager.CMDTurnPhonesOff();
     }
+
     public void GetNotification()
     {
         Vibrate();
@@ -92,6 +92,8 @@ public class PhoneScript : MonoBehaviour
 
     public void TurnPhoneOff()
     {
+        NotificationObject.SetActive(false);
+        StopVibrating();
         screenMaterial.mainTexture = phoneOff;
         clock.text = null;
     }

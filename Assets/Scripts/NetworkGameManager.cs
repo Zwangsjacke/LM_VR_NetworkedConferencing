@@ -11,6 +11,8 @@ public class NetworkGameManager : NetworkBehaviour
     public Transform alarmTransformPlayerOne;
     public Transform alarmTransformPlayerTwo;
 
+    public PhoneScript phone;
+
     public int thumbsRequired = 2;
 
     [SyncVar]
@@ -20,7 +22,7 @@ public class NetworkGameManager : NetworkBehaviour
     public void Start()
     {
         networkManager = GameObject.FindGameObjectWithTag("NetworkManager").GetComponent<MyNetworkManager>();
-        networkManager.SpawnForBothClients(networkManager.spawnPrefabs[0], alarmTransformPlayerOne, alarmTransformPlayerTwo);
+        //networkManager.SpawnForBothClients(networkManager.spawnPrefabs[0], alarmTransformPlayerOne, alarmTransformPlayerTwo);
     }
 
     public void SpawnObjects(int prefabId, Transform spawnLocationOne, Transform spawnLocationTwo)
@@ -40,6 +42,12 @@ public class NetworkGameManager : NetworkBehaviour
     }
 
     [Command(requiresAuthority = false)]
+    public void CMDTurnPhonesOff()
+    {
+        RPCTurnOffPhone();
+    }
+
+    [Command(requiresAuthority = false)]
     public void CMDThumbsUp()
     {
         numThumbs++;
@@ -47,11 +55,17 @@ public class NetworkGameManager : NetworkBehaviour
         {
             numThumbs = 0;
             RPCRdyStartNextGame();
+            gameManager.StartNextGame();
         }
     }
 
 
 
+    [ClientRpc]
+    public void RPCTurnOffPhone()
+    {
+        phone.TurnPhoneOff();
+    }
     [ClientRpc]
     public void RPCRdyStartNextGame()
     {

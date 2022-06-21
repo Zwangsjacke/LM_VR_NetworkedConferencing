@@ -6,7 +6,6 @@ using Mirror;
 public class MyNetworkManager : NetworkManager
 
 {
-
     [Header("Client Information")]
 
     private NetworkConnectionToClient clientOneConn;

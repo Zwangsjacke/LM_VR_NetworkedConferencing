@@ -15,7 +15,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8333916794165639927
 Transform:
   m_ObjectHideFlags: 0
@@ -595,7 +595,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4973574712805560544}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0.001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4973574714241889477}
@@ -643,8 +643,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4280164047
-  m_fontColor: {r: 0.8113208, g: 0.11863652, b: 0.11863652, a: 1}
+    rgba: 4283833565
+  m_fontColor: {r: 0.8679245, g: 0.11053756, b: 0.3372549, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -849,8 +849,7 @@ GameObject:
   - component: {fileID: 4973574712965037964}
   - component: {fileID: 4973574712965037965}
   - component: {fileID: 4973574712965037966}
-  - component: {fileID: 1605320401322063761}
-  - component: {fileID: 2296176164371059201}
+  - component: {fileID: 325195355659893431}
   m_Layer: 0
   m_Name: Alarm
   m_TagString: Timer
@@ -897,7 +896,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4973574712965037962}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 43f86b14a27b52f4f9298c33015b5c26, type: 3}
   m_Name: 
@@ -921,11 +920,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
   timerActive: 1
+  currentTime: 0
   startingMinutes: 1
   gameCount: 0
   desertPhaseOneDone: 0
   currentTimeText: {fileID: 4973574712805560546}
---- !u!114 &1605320401322063761
+--- !u!114 &325195355659893431
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -942,40 +942,6 @@ MonoBehaviour:
   visible: 0
   m_AssetId: ed96d48618f2c0a45ad3e905df3a8853
   hasSpawned: 0
---- !u!114 &2296176164371059201
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4973574712965037962}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f74aedd71d9a4f55b3ce499326d45fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncMode: 0
-  syncInterval: 0.1
-  clientAuthority: 1
-  sendInterval: 0.05
-  syncPosition: 1
-  syncRotation: 1
-  syncScale: 0
-  interpolatePosition: 1
-  interpolateRotation: 1
-  interpolateScale: 0
-  bufferTimeMultiplier: 1
-  bufferSizeLimit: 64
-  catchupThreshold: 4
-  catchupMultiplier: 0.1
-  onlySyncOnChange: 1
-  bufferResetMultiplier: 5
-  positionSensitivity: 0.01
-  rotationSensitivity: 0.01
-  scaleSensitivity: 0.01
-  showGizmos: 0
-  showOverlay: 0
-  overlayColor: {r: 0, g: 0, b: 0, a: 0.5}
 --- !u!1 &4973574712996991492
 GameObject:
   m_ObjectHideFlags: 0
