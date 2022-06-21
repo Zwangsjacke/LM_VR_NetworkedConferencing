@@ -32,7 +32,7 @@ public class PinNeedle : MonoBehaviour
             Debug.Log("Pinned!");
             desertSurvival.numPinned++;
             desertSurvival.SetCondition();
-            setPosition = true;
+            //setPosition = true;
         }
         if (other.CompareTag("Hand"))
         {

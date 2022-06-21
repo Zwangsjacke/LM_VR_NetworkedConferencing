@@ -26,7 +26,7 @@ public class MyNetworkManager : NetworkManager
 
         if(clientConnections[1] == null)
         {
-            SpawnPhoneForPlayerOne();
+            //SpawnPhoneForPlayerOne();
         } 
 
     }
