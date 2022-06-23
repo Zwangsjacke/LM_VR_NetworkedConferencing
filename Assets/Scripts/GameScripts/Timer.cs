@@ -13,6 +13,7 @@ public class Timer : MonoBehaviour
     public int startingMinutes;
     public int gameCount;
     public bool desertPhaseOneDone = false;
+    public AudioSource audioSource;
 
     public TextMeshProUGUI currentTimeText;
 
@@ -69,7 +70,7 @@ public class Timer : MonoBehaviour
         {
         EndTimer();
         Debug.Log("Timer finished");
-        gameManager.timerFinished = true;
+        
         }
     }
 
@@ -85,4 +86,17 @@ public class Timer : MonoBehaviour
        
 
     }
+
+    private void PlayAlarm()
+    {
+        audioSource.Play();
+    }
+
+    public void TurnAlarmOff()
+    {
+        audioSource.Stop();
+        gameManager.timerFinished = true;
+    }
+
+
 }

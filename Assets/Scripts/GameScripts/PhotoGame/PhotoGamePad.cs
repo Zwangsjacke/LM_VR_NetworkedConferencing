@@ -101,7 +101,7 @@ public class PhotoGamePad : MonoBehaviour
 
     private void InformGameManager()
     {
-        //photoGame.SetCondition(); 
+        photoGame.SetCondition(); 
     }
 
     private void SetEndText()

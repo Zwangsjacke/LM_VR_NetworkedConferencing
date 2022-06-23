@@ -7,6 +7,7 @@ public class PinNeedle : MonoBehaviour
     public DesertSurvivalGame desertSurvival;
     public Transform pinPlane;
     public bool setPosition;
+    public AudioSource audioSource;
 
     private void Awake()
     {
@@ -36,6 +37,7 @@ public class PinNeedle : MonoBehaviour
             desertSurvival.numPinned++;
             desertSurvival.SetCondition();
             setPosition = true;
+            PlaySound();
         }
         if (other.CompareTag("Hand"))
         {
@@ -54,6 +56,9 @@ public class PinNeedle : MonoBehaviour
         }
     }
 
-
+    public void PlaySound()
+    {
+        audioSource.Play();
+    }
 
 }
