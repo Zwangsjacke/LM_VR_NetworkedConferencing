@@ -28,6 +28,10 @@ public class PhotoGamePad : MonoBehaviour
 
     public int correctAnswers = 0;
 
+    public Sprite commitActive;
+
+    public SpriteRenderer spriteRenderer;
+
     public void Awake()
     {
 
@@ -106,7 +110,13 @@ public class PhotoGamePad : MonoBehaviour
 
     private void SetEndText()
     {
+        
         endText.text = $"Du hast {correctAnswers} Pärchen korrekt zugewiesen!";
+    }
+
+    public void SetCommitButtonActive()
+    {
+        spriteRenderer.sprite = commitActive;
     }
 
 

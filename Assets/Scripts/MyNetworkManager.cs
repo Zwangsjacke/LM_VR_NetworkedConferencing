@@ -15,6 +15,9 @@ public class MyNetworkManager : NetworkManager
 
     public Transform phoneSpawnLocation;
 
+    /* We need the server to start as a host, so that he can speak with the players.
+     */ 
+
     public override void OnServerConnect(NetworkConnectionToClient conn)
     {
         base.OnServerConnect(conn);
@@ -97,7 +100,8 @@ public class MyNetworkManager : NetworkManager
     /// <param name="conn"></param>
     public void StoreClientConn(NetworkConnectionToClient conn)
     {
-        clientCount++;
+        
+        
 
         if (clientCount == 1)
         {
@@ -118,6 +122,7 @@ public class MyNetworkManager : NetworkManager
             Debug.Log("Too many players!");
         }
 
+        clientCount++;
 
     }
 

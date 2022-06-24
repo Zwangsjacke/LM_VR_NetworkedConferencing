@@ -2,32 +2,55 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR;
+using Mirror;
 
-public class NetworkPlayer : MonoBehaviour
+public class NetworkPlayer : NetworkBehaviour
 {
     [Header("Transforms of Bodyparts")]
 
-    public Transform cameraRig;
-    public Transform head;
-    public Transform leftHand;
-    public Transform rightHand;
+    public GameObject cameraRig;
+    public GameObject head;
+    public GameObject leftHand;
+    public GameObject rightHand;
 
-    private void Awake()
+
+    private void Start()
     {
-        cameraRig = GameObject.FindGameObjectWithTag("CameraRig").transform;
+        cameraRig = GameObject.FindGameObjectWithTag("Player");
+        if (isServer)
+        {
+            head.SetActive(false);
+            leftHand.SetActive(false);
+            rightHand.SetActive(false);
+            cameraRig.SetActive(false);
+            //Destroy(head);
+            //Destroy(leftHand);
+            //Destroy(rightHand);
+            //Destroy(cameraRig);
+            Debug.Log("Destroyed?");
+        }
     }
+
 
     /// <summary>
     /// Constantly sets position of hands and head.
     /// </summary>
     void Update()
     {
+        if (isServer) return;
+        {
 
-        leftHand.localPosition = OVRInput.GetLocalControllerPosition(OVRInput.Controller.LHand);
-        rightHand.localPosition = OVRInput.GetLocalControllerPosition(OVRInput.Controller.RHand);
+            //SetPositions();
+        }
+    }
 
-        leftHand.localRotation = OVRInput.GetLocalControllerRotation(OVRInput.Controller.LHand);
-        rightHand.localRotation = OVRInput.GetLocalControllerRotation(OVRInput.Controller.RHand);
+    public void SetPositions()
+    {
+        leftHand.transform.localPosition = OVRInput.GetLocalControllerPosition(OVRInput.Controller.LHand);
+        rightHand.transform.localPosition = OVRInput.GetLocalControllerPosition(OVRInput.Controller.RHand);
+
+        leftHand.transform.localRotation = OVRInput.GetLocalControllerRotation(OVRInput.Controller.LHand);
+        rightHand.transform.localRotation = OVRInput.GetLocalControllerRotation(OVRInput.Controller.RHand);
 
         head.transform.SetPositionAndRotation(cameraRig.transform.position, cameraRig.transform.rotation);
     }
