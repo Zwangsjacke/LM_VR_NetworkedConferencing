@@ -4638,7 +4638,10 @@ MonoBehaviour:
   - {fileID: 2933558904913022178}
   correctAnswers: 0
   commitActive: {fileID: 21300000, guid: 9ca48dd8a74e156499c931ddc462d686, type: 3}
-  spriteRenderer: {fileID: 0}
+  spriteRenderer: {fileID: 6450001918934712}
+  commitButtonDelaySec: 10
+  timerActive: 1
+  commitActiveBool: 0
 --- !u!54 &2933558906577895907
 Rigidbody:
   m_ObjectHideFlags: 0

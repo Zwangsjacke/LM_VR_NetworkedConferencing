@@ -11,7 +11,14 @@ public class NetworkGameManager : NetworkBehaviour
     public Transform alarmTransformPlayerOne;
     public Transform alarmTransformPlayerTwo;
 
+    
+
+    [Header("Distractors")]
+    public DoorKnockingScript door;
+    public PictureScript picture;
     public PhoneScript phone;
+
+
 
     public int thumbsRequired = 2;
 
@@ -22,8 +29,14 @@ public class NetworkGameManager : NetworkBehaviour
     public void Start()
     {
         networkManager = GameObject.FindGameObjectWithTag("NetworkManager").GetComponent<MyNetworkManager>();
-        //networkManager.SpawnForBothClients(networkManager.spawnPrefabs[0], alarmTransformPlayerOne, alarmTransformPlayerTwo);
+
+        if (/*networkManager.twoPlayerConnected*/ /*&&*/ isServer)
+        {
+            StartDistractorTimer();
+        }
+
     }
+
 
     public void SpawnObjects(int prefabId, Transform spawnLocationOne, Transform spawnLocationTwo)
     {
@@ -55,7 +68,6 @@ public class NetworkGameManager : NetworkBehaviour
         {
             numThumbs = 0;
             RPCRdyStartNextGame();
-            gameManager.StartNextGame();
         }
     }
 
@@ -70,5 +82,12 @@ public class NetworkGameManager : NetworkBehaviour
     public void RPCRdyStartNextGame()
     {
         gameManager.StartNextGame();
+    }
+    [ClientRpc]
+    public void StartDistractorTimer()
+    {
+        door.timerActive = true;
+        picture.timerActive = true;
+        phone.timerActive = true;
     }
 }

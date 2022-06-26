@@ -10,8 +10,9 @@ public class MyNetworkManager : NetworkManager
 
     private NetworkConnectionToClient clientOneConn;
     private NetworkConnectionToClient clientTwoConn;
-    private int clientCount = 0;
+    public int clientCount = 0;
     private NetworkConnection[] clientConnections = new NetworkConnection[2];
+    public bool twoPlayerConnected;
 
     public Transform phoneSpawnLocation;
 
@@ -23,6 +24,11 @@ public class MyNetworkManager : NetworkManager
         base.OnServerConnect(conn);
 
         StoreClientConn(conn);
+
+        if(clientCount == 2)
+        {
+            twoPlayerConnected = true;
+        }
 
         DisableHandVisuals();
 
@@ -44,7 +50,6 @@ public class MyNetworkManager : NetworkManager
 
         Debug.Log("Tried to spawn");
 
-       // if (clientConnections[0] == null || clientConnections[1] == null) return;
 
         Vector3 pos = firstSpawnLocation.position;
         Quaternion rot = firstSpawnLocation.rotation;
@@ -85,24 +90,13 @@ public class MyNetworkManager : NetworkManager
         networkAddress = newIp;
     }
 
-    public void SpawnPhoneForPlayerOne()
-    {
-        Vector3 pos = phoneSpawnLocation.position;
-        Quaternion rot = phoneSpawnLocation.rotation;
-
-        GameObject go1 = Instantiate(spawnPrefabs[6], pos, rot);
-        NetworkServer.Spawn(go1, clientConnections[0]);        
-    }
-
     /// <summary>
     /// Increases the client count by one and stores the connectionsID of the current connection in clientConnections[]
     /// </summary>
     /// <param name="conn"></param>
     public void StoreClientConn(NetworkConnectionToClient conn)
     {
-        
-        
-
+               
         if (clientCount == 1)
         {
             clientOneConn = conn;
@@ -116,6 +110,8 @@ public class MyNetworkManager : NetworkManager
             clientTwoConn = conn;
             clientConnections[1] = clientTwoConn;
             Debug.Log($"Player Two connected and Connection stored: {clientTwoConn}");
+
+
         }
         if (clientCount > 2)
         {

@@ -32,6 +32,12 @@ public class PhotoGamePad : MonoBehaviour
 
     public SpriteRenderer spriteRenderer;
 
+    public float commitButtonDelaySec;
+
+    public bool timerActive = true;
+
+    public bool commitActiveBool;
+
     public void Awake()
     {
 
@@ -40,6 +46,15 @@ public class PhotoGamePad : MonoBehaviour
         for(int i = 0; i < answers.Length; i++)
         {
             petTexts[i].text = petNames[i];
+        }
+    }
+
+    private void Update()
+    {
+        if (timerActive)
+        {
+            commitButtonDelaySec -= Time.deltaTime;
+            if (commitButtonDelaySec <= 0) SetCommitButtonActive();
         }
     }
 
@@ -59,6 +74,8 @@ public class PhotoGamePad : MonoBehaviour
 
     public void LogInAnswer()
     {
+        if (!commitActiveBool) return;
+
         for(int i=0; i<answers.Length; i++)
         {
             answers[i] = petTexts[i].text;
@@ -117,6 +134,8 @@ public class PhotoGamePad : MonoBehaviour
     public void SetCommitButtonActive()
     {
         spriteRenderer.sprite = commitActive;
+        timerActive = false;
+        commitActiveBool = true;
     }
 
 

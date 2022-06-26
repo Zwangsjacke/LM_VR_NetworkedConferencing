@@ -22,12 +22,6 @@ public class PhoneScript : MonoBehaviour
     private void Awake()
     {
         TurnPhoneOff();
-        StartTimer();
-    }
-
-    public void StartTimer()
-    {
-        timerActive = true;
     }
 
     public void Update()

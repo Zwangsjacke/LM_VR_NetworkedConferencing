@@ -54,6 +54,7 @@ public class Timer : MonoBehaviour
     {
 
         timerActive = false;
+        PlayAlarm();
     }
 
     /// <summary>
@@ -84,7 +85,6 @@ public class Timer : MonoBehaviour
         gameCount = gameManager.gameCounter;
         startingMinutes = gameManager.gameTimers[gameCount];
        
-
     }
 
     private void PlayAlarm()
@@ -94,6 +94,7 @@ public class Timer : MonoBehaviour
 
     public void TurnAlarmOff()
     {
+        if (timerActive) return;
         audioSource.Stop();
         gameManager.timerFinished = true;
     }

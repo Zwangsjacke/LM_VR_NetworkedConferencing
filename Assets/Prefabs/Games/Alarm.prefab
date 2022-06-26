@@ -1043,7 +1043,7 @@ MonoBehaviour:
   gameManager: {fileID: 0}
   timerActive: 1
   currentTime: 0
-  startingMinutes: 1
+  startingMinutes: 100
   gameCount: 0
   desertPhaseOneDone: 0
   audioSource: {fileID: 5114254403880932290}
@@ -2113,7 +2113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1464721f2283eb14e94a33e812b47be4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _interactableView: {fileID: 0}
+  _interactableView: {fileID: 6881889302297199362}
   _whenHover:
     m_PersistentCalls:
       m_Calls: []
