@@ -12,7 +12,7 @@ public class PhotoGamePad : MonoBehaviour
 
     public TextMeshProUGUI[] petTexts;
 
-    public string[] petNames = new string[] { "Amigo", "name1", "name2", "name3" };
+    public string[] petNames = new string[] { "Amigo", "Poopie", "Amigo", "Kitty" };
 
     public string[] solution;
 
