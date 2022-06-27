@@ -8,6 +8,7 @@ public class GameManagerScript : MonoBehaviour
 
     [Tooltip("Order relevant! \nShould be: Interview, Desert Survival, Photos")]
     public BaseGame[] games;
+
     [Tooltip("Timer in Minutes\nMatch the order above!")]
     public int[] gameTimers;
     public int desertSecondPhaseTimer;
@@ -15,14 +16,18 @@ public class GameManagerScript : MonoBehaviour
     public bool endCondition = false;
     public bool alreadyThumbs = false;
     public bool timerFinished;
+
     [Header("Display Text")]
     public string studyEndHeader;
     public string studyEndBody;
     public Timer TimerOne;
     public Timer TimerTwo;
 
+    [Header("AudioSources")]
+    public AudioSource changeGameSound;
+    public AudioSource thumbsUpSound;
 
-
+    
 
     /// <summary>
     /// Increments the gameCounter an starts the respective Game or ends the study. See BaseGame[] games order for the game order.
@@ -33,10 +38,10 @@ public class GameManagerScript : MonoBehaviour
         endCondition = false;
         alreadyThumbs = false;
         timerFinished = false;
+        changeGameSound.Play();
         if (gameCounter <= 2)
         {
-
-
+            
             games[gameCounter].StartGame();
             TimerOne.StartTimer();
             TimerTwo.StartTimer();
@@ -59,6 +64,7 @@ public class GameManagerScript : MonoBehaviour
         if (endCondition && !alreadyThumbs && timerFinished)
         {
             alreadyThumbs = true;
+            thumbsUpSound.Play();
             networkGameManager.CMDThumbsUp();
         }
     }
