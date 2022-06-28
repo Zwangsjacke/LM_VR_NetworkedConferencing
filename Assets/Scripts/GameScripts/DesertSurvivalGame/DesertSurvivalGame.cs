@@ -5,7 +5,7 @@ using UnityEngine;
 public class DesertSurvivalGame : BaseGame
 {
     public int numPinned = 0;
-    public int numPins;
+    public int numPins = 6;
 
 
     public override void SetCondition()

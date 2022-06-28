@@ -32,7 +32,7 @@ public class Timer : MonoBehaviour
         if (timerActive)
         {
             currentTime -= Time.deltaTime;
-            if(currentTime <= 0)
+            if(currentTime <= 0 && gameManager.gameCounter != 0)
             {
                 TimerFinished();
             }
