@@ -16,19 +16,18 @@ public class NetworkPlayer : NetworkBehaviour
 
     private void Start()
     {
-        cameraRig = GameObject.FindGameObjectWithTag("Player");
-        //if (isServer)
-        //{
-        //    head.SetActive(false);
-        //    leftHand.SetActive(false);
-        //    rightHand.SetActive(false);
-        //    cameraRig.SetActive(false);
-        //    //Destroy(head);
-        //    //Destroy(leftHand);
-        //    //Destroy(rightHand);
-        //    //Destroy(cameraRig);
-        //    Debug.Log("Destroyed?");
-        //}
+        if (isLocalPlayer)
+        {
+            cameraRig = GameObject.FindGameObjectWithTag("Player");
+            if (isServer)
+            {
+                head.SetActive(false);
+                leftHand.SetActive(false);
+                rightHand.SetActive(false);
+                cameraRig.SetActive(false);
+                Debug.Log("Destroyed?");
+            }
+        }
     }
 
 
@@ -37,8 +36,12 @@ public class NetworkPlayer : NetworkBehaviour
     /// </summary>
     void Update()
     {
-        //if (isServer) return;
-        SetPositions();
+        if (isServer) return;
+        if (isLocalPlayer)
+        {
+
+            SetPositions();
+        }
     }
 
     public void SetPositions()

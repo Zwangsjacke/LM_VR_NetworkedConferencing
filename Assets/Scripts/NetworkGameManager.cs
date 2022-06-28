@@ -11,6 +11,7 @@ public class NetworkGameManager : NetworkBehaviour
     public Transform alarmTransformPlayerOne;
     public Transform alarmTransformPlayerTwo;
 
+
     
 
     [Header("Distractors")]
@@ -26,15 +27,10 @@ public class NetworkGameManager : NetworkBehaviour
     public int numThumbs;
 
 
+
     public void Start()
     {
         networkManager = GameObject.FindGameObjectWithTag("NetworkManager").GetComponent<MyNetworkManager>();
-
-        if (/*networkManager.twoPlayerConnected*/ /*&&*/ isServer)
-        {
-            StartDistractorTimer();
-        }
-
     }
 
 
@@ -68,7 +64,14 @@ public class NetworkGameManager : NetworkBehaviour
         {
             numThumbs = 0;
             RPCRdyStartNextGame();
+            CMDStartDistractorTimer();
         }
+    }
+    [Command(requiresAuthority = false)]
+    public void CMDStartDistractorTimer()
+    {
+        Debug.Log("Called in CMD");
+        RPCStartDistractorTimer();
     }
 
 
@@ -84,8 +87,9 @@ public class NetworkGameManager : NetworkBehaviour
         gameManager.StartNextGame();
     }
     [ClientRpc]
-    public void StartDistractorTimer()
+    public void RPCStartDistractorTimer()
     {
+        Debug.Log("Called in RPC");
         door.timerActive = true;
         picture.timerActive = true;
         phone.timerActive = true;

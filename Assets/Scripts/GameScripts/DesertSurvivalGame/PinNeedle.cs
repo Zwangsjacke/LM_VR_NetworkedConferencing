@@ -14,6 +14,7 @@ public class PinNeedle : MonoBehaviour
 
         desertSurvival = GameObject.FindGameObjectWithTag("gameManager").GetComponent<DesertSurvivalGame>();
         pinPlane = GameObject.Find("Snapping Plane").transform;
+        
     }
 
     private void Update()

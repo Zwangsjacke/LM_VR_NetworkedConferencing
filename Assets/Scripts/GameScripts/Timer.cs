@@ -14,6 +14,7 @@ public class Timer : MonoBehaviour
     public int gameCount;
     public bool desertPhaseOneDone = false;
     public AudioSource audioSource;
+    public Timer otherTimer;
 
     public TextMeshProUGUI currentTimeText;
 
@@ -49,11 +50,14 @@ public class Timer : MonoBehaviour
         currentTime = startingMinutes * 60;
         timerActive = true;
     }
-
+    /// <summary>
+    /// Doesnt play the AlarmSound if its the server
+    /// </summary>
     public void EndTimer()
     {
 
         timerActive = false;
+        if (gameManager.networkGameManager.isServer) return;
         PlayAlarm();
     }
 
@@ -95,6 +99,7 @@ public class Timer : MonoBehaviour
     public void TurnAlarmOff()
     {
         if (timerActive) return;
+        otherTimer.audioSource.Stop();
         audioSource.Stop();
         gameManager.timerFinished = true;
     }

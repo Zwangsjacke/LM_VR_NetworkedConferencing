@@ -1047,6 +1047,7 @@ MonoBehaviour:
   gameCount: 0
   desertPhaseOneDone: 0
   audioSource: {fileID: 5114254403880932290}
+  otherTimer: {fileID: 0}
   currentTimeText: {fileID: 4973574712805560546}
 --- !u!114 &325195355659893431
 MonoBehaviour:

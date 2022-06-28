@@ -25,6 +25,7 @@ public class PlayerPositionManagerScript : NetworkBehaviour
     [Command(requiresAuthority = false)]
     public void CMDMovingThePlayers(int t)
     {
+        Debug.Log("Moving the Players");
         numPlayers++;
         RPCMovePlayer(t);
     }

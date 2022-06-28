@@ -12,12 +12,12 @@ public class MyNetworkManager : NetworkManager
     private NetworkConnectionToClient clientTwoConn;
     public int clientCount = 0;
     private NetworkConnection[] clientConnections = new NetworkConnection[2];
-    public bool twoPlayerConnected;
+
 
     public Transform phoneSpawnLocation;
 
-    /* We need the server to start as a host, so that he can speak with the players.
-     */ 
+    // We need the server to start as a host, so that he can speak with the players.
+      
 
     public override void OnServerConnect(NetworkConnectionToClient conn)
     {
@@ -25,17 +25,8 @@ public class MyNetworkManager : NetworkManager
 
         StoreClientConn(conn);
 
-        if(clientCount == 2)
-        {
-            twoPlayerConnected = true;
-        }
-
         DisableHandVisuals();
 
-        if(clientConnections[1] == null)
-        {
-            //SpawnPhoneForPlayerOne();
-        } 
 
     }
 

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5016,6 +5016,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1752695412603354505, guid: 3ddcd9f190e20084abad99224d533116,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.07800001
+      objectReference: {fileID: 0}
+    - target: {fileID: 1897231589807040199, guid: 3ddcd9f190e20084abad99224d533116,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.07800001
+      objectReference: {fileID: 0}
     - target: {fileID: 2390703879553784144, guid: 3ddcd9f190e20084abad99224d533116,
         type: 3}
       propertyPath: sceneId
@@ -5101,5 +5111,30 @@ PrefabInstance:
       propertyPath: desertSurvival
       value: 
       objectReference: {fileID: 1526101801}
+    - target: {fileID: 2756191034696682483, guid: 3ddcd9f190e20084abad99224d533116,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.07800001
+      objectReference: {fileID: 0}
+    - target: {fileID: 5042717275530871080, guid: 3ddcd9f190e20084abad99224d533116,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.07800001
+      objectReference: {fileID: 0}
+    - target: {fileID: 5853745087259171441, guid: 3ddcd9f190e20084abad99224d533116,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6003033433231340744, guid: 3ddcd9f190e20084abad99224d533116,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.078
+      objectReference: {fileID: 0}
+    - target: {fileID: 6422127560679379257, guid: 3ddcd9f190e20084abad99224d533116,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.07800001
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ddcd9f190e20084abad99224d533116, type: 3}
