@@ -25,6 +25,7 @@ TagManager:
   - Hand
   - Timer
   - Floor
+  - Socket
   layers:
   - Default
   - TransparentFX

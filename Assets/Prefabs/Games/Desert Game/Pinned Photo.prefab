@@ -1043,7 +1043,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4020739785950541869}
-  - component: {fileID: 4020739785950541868}
+  - component: {fileID: 3459042168541941449}
   - component: {fileID: 4020739785950541871}
   - component: {fileID: 4020739785950541870}
   - component: {fileID: 4020739785950541857}
@@ -1082,7 +1082,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4020739785950541868
+--- !u!114 &3459042168541941449
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1091,13 +1091,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 4020739785950541859}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5296ca183755f924e96c7454dd5c7209, type: 3}
+  m_Script: {fileID: 11500000, guid: cf5964e2010a3134ca82aa6b4ef53f70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  desertSurvival: {fileID: 0}
-  pinPlane: {fileID: 0}
-  setPosition: 0
   audioSource: {fileID: 0}
+  survivalGame: {fileID: 0}
 --- !u!65 &4020739785950541871
 BoxCollider:
   m_ObjectHideFlags: 0
