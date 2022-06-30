@@ -18,6 +18,7 @@ public class NetworkGameManager : NetworkBehaviour
     public DoorKnockingScript door;
     public PictureScript picture;
     public PhoneScript phone;
+    public BirdScript bird;
 
 
 
@@ -93,5 +94,6 @@ public class NetworkGameManager : NetworkBehaviour
         door.timerActive = true;
         picture.timerActive = true;
         phone.timerActive = true;
+        bird.timerActive = true;
     }
 }

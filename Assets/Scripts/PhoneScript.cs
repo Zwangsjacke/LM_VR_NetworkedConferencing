@@ -15,9 +15,11 @@ public class PhoneScript : MonoBehaviour
     public GameObject NotificationObject;
     public bool isNotified;
     public TextMeshProUGUI clock;
+    public NetworkGameManager networkedGameManager;
+
+    [Header("InternalTimer")]
     public bool timerActive;
     public float countdownSec = 60;
-    public NetworkGameManager networkedGameManager;
 
     private void Awake()
     {
