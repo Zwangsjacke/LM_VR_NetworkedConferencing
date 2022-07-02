@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class BaseGame : MonoBehaviour
 {
@@ -13,8 +14,10 @@ public class BaseGame : MonoBehaviour
     [Header("SpawnLocations")]
     public Transform[] SpawnLocationsPlayerOne;
     public Transform[] SpawnLocationsPlayerTwo;
-    public string header;
-    public string body;
+
+    [Header("Display")]
+    //public TextMeshProUGUI[] displays;
+    public string gameText;
 
     public Timer timer;
 
@@ -24,7 +27,7 @@ public class BaseGame : MonoBehaviour
     public virtual void StartGame()
     {
         ClearGamePrefabs();
-        ChangeGameText();
+        //ChangeGameText();
         SpawnObjects();
         
     }
@@ -66,18 +69,14 @@ public class BaseGame : MonoBehaviour
     /// <summary>
     /// Changes disyplayed text to game specific text
     /// </summary>
-    public void ChangeGameText()
-    {
-        //foreach(GameObject go in GameObject.FindGameObjectsWithTag("header"))
-        //{
-        //    go.SendMessage("ChangeText", header);
-        //}
-        //foreach (GameObject go in GameObject.FindGameObjectsWithTag("body"))
-        //{
-        //    go.SendMessage("ChangeText", body);
-        //}
+    //public void ChangeGameText()
+    //{
+    //    foreach (TextMeshProUGUI txt in displays)
+    //    {
+    //        txt.text = gameText;
+    //    }
 
-    }
+    //}
 
     public void StartTimer()
     {

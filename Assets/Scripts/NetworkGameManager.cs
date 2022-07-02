@@ -95,5 +95,7 @@ public class NetworkGameManager : NetworkBehaviour
         picture.timerActive = true;
         phone.timerActive = true;
         bird.timerActive = true;
+        gameManager.TimerOne.timerActive = true;
+        gameManager.TimerTwo.timerActive =
     }
 }

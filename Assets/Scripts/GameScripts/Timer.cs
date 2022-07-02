@@ -8,7 +8,7 @@ using TMPro;
 public class Timer : MonoBehaviour
 {
     public GameManagerScript gameManager;
-    public bool timerActive = false;
+    public bool timerActive = true;
     public float currentTime;
     public int startingMinutes;
     public int gameCount;
@@ -33,7 +33,7 @@ public class Timer : MonoBehaviour
         if (timerActive)
         {
             currentTime -= Time.deltaTime;
-            if(currentTime <= 0 && gameManager.gameCounter != 0)
+            if(currentTime <= 0 )
             {
                 TimerFinished();
             }
@@ -57,7 +57,11 @@ public class Timer : MonoBehaviour
     {
 
         timerActive = false;
-        if (gameManager.networkGameManager.isServer) return;
+        if (gameManager.gameCounter != 0)
+        {
+            gameManager.GameEnded();
+        }
+       // if (gameManager.networkGameManager.isServer) return;
         PlayAlarm();
     }
 
@@ -69,7 +73,13 @@ public class Timer : MonoBehaviour
         if(gameCount == 1 && !desertPhaseOneDone)
         {
             desertPhaseOneDone = true;
-            currentTime= gameManager.desertSecondPhaseTimer * 60;
+            currentTime = gameManager.desertSecondPhaseTimer * 60;
+            foreach (TextMeshProUGUI txt in gameManager.disyplays)
+            {
+                txt.text = "Welcher Gegenstand kann euch am meisten helfen? Bringt die Gegenstände nun in Rangreihenfolge und pinnt die Fotos an die richtige Stelle!";
+            }
+
+
         }
         else
         {
@@ -103,6 +113,8 @@ public class Timer : MonoBehaviour
         audioSource.Stop();
         gameManager.timerFinished = true;
     }
+
+    
 
 
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class GameManagerScript : MonoBehaviour
 {
@@ -18,8 +19,10 @@ public class GameManagerScript : MonoBehaviour
     public bool timerFinished;
 
     [Header("Display Text")]
+    public TextMeshProUGUI[] disyplays;
     public string studyEndHeader;
     public string studyEndBody;
+    public string betweenGames;
     public Timer TimerOne;
     public Timer TimerTwo;
 
@@ -41,7 +44,7 @@ public class GameManagerScript : MonoBehaviour
         changeGameSound.Play();
         if (gameCounter <= 2)
         {
-            
+            ChangeText();
             games[gameCounter].StartGame();
             TimerOne.StartTimer();
             TimerTwo.StartTimer();
@@ -53,6 +56,14 @@ public class GameManagerScript : MonoBehaviour
             EndVRStudy();
         }
         gameCounter++;
+    }
+
+    public void GameEnded()
+    {
+        foreach (TextMeshProUGUI txt in disyplays)
+        {
+            txt.text = betweenGames;
+        }
     }
 
     /// <summary>
@@ -69,6 +80,14 @@ public class GameManagerScript : MonoBehaviour
         }
     }
 
+    public void ChangeText()
+    {
+        foreach (TextMeshProUGUI txt in disyplays)
+        {
+            txt.text = games[gameCounter].gameText;
+        }
+    }
+
     /// <summary>
     /// Destorys all GameObjects and displays Study End Message
     /// </summary>
@@ -78,13 +97,9 @@ public class GameManagerScript : MonoBehaviour
         {
             Destroy(go);
         }
-        foreach (GameObject go in GameObject.FindGameObjectsWithTag("header"))
+        foreach (TextMeshProUGUI txt in disyplays)
         {
-            go.SendMessage("ChangeText", studyEndHeader);
-        }
-        foreach (GameObject go in GameObject.FindGameObjectsWithTag("body"))
-        {
-            go.SendMessage("ChangeText", studyEndBody);
+            txt.text = studyEndBody;
         }
     }
 }
