@@ -28,6 +28,7 @@ TagManager:
   - Socket
   - Fish
   - Ranking Header
+  - Pinned Photo
   layers:
   - Default
   - TransparentFX
