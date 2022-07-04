@@ -15,6 +15,8 @@ public class Timer : MonoBehaviour
     public bool desertPhaseOneDone = false;
     public AudioSource audioSource;
     public Timer otherTimer;
+    public GameObject arrow;
+    public bool arrowShown;
 
     public TextMeshProUGUI currentTimeText;
 
@@ -74,6 +76,8 @@ public class Timer : MonoBehaviour
         {
             desertPhaseOneDone = true;
             currentTime = gameManager.desertSecondPhaseTimer * 60;
+            GameObject header = GameObject.FindGameObjectWithTag("Ranking Header");
+            header.SetActive(true);
             foreach (TextMeshProUGUI txt in gameManager.disyplays)
             {
                 txt.text = "Welcher Gegenstand kann euch am meisten helfen? Bringt die Gegenstände nun in Rangreihenfolge und pinnt die Fotos an die richtige Stelle!";
@@ -103,11 +107,17 @@ public class Timer : MonoBehaviour
 
     private void PlayAlarm()
     {
+        if(!arrowShown)
+        {
+            arrow.SetActive(true);
+            arrowShown = true;
+        }
         audioSource.Play();
     }
 
     public void TurnAlarmOff()
-    {
+    {        
+        arrow.SetActive(false);
         if (timerActive) return;
         otherTimer.audioSource.Stop();
         audioSource.Stop();

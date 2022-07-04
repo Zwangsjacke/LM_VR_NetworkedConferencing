@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Mirror;
 
 public class NetworkGameManager : NetworkBehaviour
@@ -12,7 +13,7 @@ public class NetworkGameManager : NetworkBehaviour
     public Transform alarmTransformPlayerTwo;
 
 
-    
+    public GameObject experimenterNotification;
 
     [Header("Distractors")]
     public DoorKnockingScript door;
@@ -50,6 +51,19 @@ public class NetworkGameManager : NetworkBehaviour
             networkManager.SpawnOneForEach(networkManager.spawnPrefabs[prefabId], networkManager.spawnPrefabs[secondPrefabId], spawnLocationOne, spawnLocationTwo);
         }
     }
+
+    public void DeactivateExperimenterNotification()
+    {
+        experimenterNotification.SetActive(false);
+    }
+
+    
+    [Command(requiresAuthority = false)]
+    public void NotifyExperimenter()
+    {
+        experimenterNotification.SetActive(true);
+    }
+
 
     [Command(requiresAuthority = false)]
     public void CMDTurnPhonesOff()
@@ -95,7 +109,5 @@ public class NetworkGameManager : NetworkBehaviour
         picture.timerActive = true;
         phone.timerActive = true;
         bird.timerActive = true;
-        gameManager.TimerOne.timerActive = true;
-        gameManager.TimerTwo.timerActive =
     }
 }

@@ -26,6 +26,8 @@ TagManager:
   - Timer
   - Floor
   - Socket
+  - Fish
+  - Ranking Header
   layers:
   - Default
   - TransparentFX

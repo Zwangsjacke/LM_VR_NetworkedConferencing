@@ -11,9 +11,10 @@ public class DataTracker : NetworkBehaviour
     public float watchTime;
     string watchedObject;
     string _fileName = "";
+    public string[] tags;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         _fileName = Application.dataPath + "/TesterFile.csv";
         BeginFile();
@@ -26,17 +27,17 @@ public class DataTracker : NetworkBehaviour
 
         if (Physics.Raycast(rayStart.transform.position, rayStart.transform.forward, out hit, 100f))
         {
-            if (hit.transform.CompareTag("plant"))
-            {
+
+            if (TagExistsinArray(hit.transform.tag)){
                 watchedObject = hit.transform.tag;
                 watchTime += Time.deltaTime;
-
             }
             else if (watchTime != 0)
             {
                 WriteFile(watchedObject, watchTime);
                 watchTime = 0;
             }
+
 
         }
 
@@ -49,6 +50,7 @@ public class DataTracker : NetworkBehaviour
         TextWriter tw = new StreamWriter(_fileName, false);
         tw.WriteLine("Incident Number, Duration, Time");
         tw.Close();
+        Debug.Log("Startet File");
     }
 
     void WriteFile(string objectName, float duration)
@@ -68,5 +70,16 @@ public class DataTracker : NetworkBehaviour
         Debug.Log("Wrote File");
     }
 
+    public bool TagExistsinArray(string tag)
+    {
+        if (Array.Exists(tags, element => element == tag))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 
 }
