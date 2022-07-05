@@ -29,6 +29,9 @@ TagManager:
   - Fish
   - Ranking Header
   - Pinned Photo
+  - Finger
+  - CenterEye
+  - NetworkPlayer
   layers:
   - Default
   - TransparentFX

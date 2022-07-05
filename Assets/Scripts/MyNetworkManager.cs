@@ -30,6 +30,20 @@ public class MyNetworkManager : NetworkManager
 
     }
 
+    public override void OnServerAddPlayer(NetworkConnectionToClient conn)
+    {
+        base.OnServerAddPlayer(conn);
+        foreach (NetworkConnection connection in clientConnections)
+        {
+
+            if(connection != null)
+            {
+                Debug.Log(connection.address);
+                connection.identity.GetComponent<NetworkPlayer>().RPCRequestNewInfos();
+            }   
+        }
+    }
+
     /// <summary>
     /// Spawns prefab for both players and allocates authority accordingly 
     /// </summary>
@@ -88,7 +102,7 @@ public class MyNetworkManager : NetworkManager
     public void StoreClientConn(NetworkConnectionToClient conn)
     {
                
-        if (clientCount == 1)
+        if (clientCount == 0)
         {
             clientOneConn = conn;
             clientConnections[0] = clientOneConn;
@@ -96,7 +110,7 @@ public class MyNetworkManager : NetworkManager
            
         }
 
-        if (clientCount == 2)
+        if (clientCount == 1)
         {
             clientTwoConn = conn;
             clientConnections[1] = clientTwoConn;
