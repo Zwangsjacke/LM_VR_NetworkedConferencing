@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerRigScript : MonoBehaviour
 {
+    public GameObject playerRig;
+
 
     [Header("Spawn Points")]
     public Transform spawnPointOne;
@@ -28,12 +30,12 @@ public class PlayerRigScript : MonoBehaviour
 
         if(numPlayers == 1)
         {
-            this.transform.position = spawnPointOne.position;
+            playerRig.transform.position = spawnPointOne.position;
             Debug.Log("Spawning as Player One");
         }
         else if (numPlayers == 2)
         {
-            this.transform.position = spawnPointTwo.position;
+            playerRig.transform.position = spawnPointTwo.position;
             Debug.Log("Spawning as Player Two");
         }
         else
