@@ -13,11 +13,14 @@ public class MyNetworkManager : NetworkManager
     public int clientCount = 0;
     private NetworkConnection[] clientConnections = new NetworkConnection[2];
 
+    [Tooltip("1. In person scene\n2. Videoconference scene")]
+    public string[] scenes;
+
 
     public Transform phoneSpawnLocation;
 
     // We need the server to start as a host, so that he can speak with the players.
-      
+
 
     public override void OnServerConnect(NetworkConnectionToClient conn)
     {
@@ -142,5 +145,21 @@ public class MyNetworkManager : NetworkManager
 
     }
 
+    public void ChangeOnlineScene(string newScene)
+    {
+        onlineScene = newScene;
+    }
+
+    public void HostInPersonServer()
+    {
+        ChangeOnlineScene(scenes[0]);
+        StartHost();
+    }
+
+    public void HostVideoConferencingServer()
+    {
+        ChangeOnlineScene(scenes[1]);
+        StartHost();
+    }
 }
 
