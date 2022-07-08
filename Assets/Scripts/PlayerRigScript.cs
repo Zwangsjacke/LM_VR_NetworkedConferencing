@@ -26,23 +26,27 @@ public class PlayerRigScript : MonoBehaviour
 
         if (alreadySpawned) return;
 
+
         alreadySpawned = true;
 
         if(numPlayers == 1)
         {
             playerRig.transform.position = spawnPointOne.position;
             Debug.Log("Spawning as Player One");
+            MyNetworkManager.singelton.playerNumber = 1;
         }
         else if (numPlayers == 2)
         {
             playerRig.transform.position = spawnPointTwo.position;
             Debug.Log("Spawning as Player Two");
+            MyNetworkManager.singelton.playerNumber = 2;
         }
         else
         {
             Debug.Log($"Something went wrong. There cannot be {numPlayers} players.");
         }
 
+        MyNetworkManager.singelton.DestroyRoom(MyNetworkManager.singelton.playerNumber);
 
     }
 }

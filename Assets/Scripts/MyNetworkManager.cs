@@ -16,12 +16,20 @@ public class MyNetworkManager : NetworkManager
     [Tooltip("1. In person scene\n2. Videoconference scene")]
     public string[] scenes;
 
+    public int playerNumber;
+
+    //Singelton
+    public static MyNetworkManager singelton; 
 
     public Transform phoneSpawnLocation;
 
     // We need the server to start as a host, so that he can speak with the players.
 
-
+    public override void Awake()
+    {
+        singelton = this;
+        base.Awake();
+    }
     public override void OnServerConnect(NetworkConnectionToClient conn)
     {
         base.OnServerConnect(conn);
@@ -32,6 +40,8 @@ public class MyNetworkManager : NetworkManager
 
 
     }
+
+
 
     public override void OnServerAddPlayer(NetworkConnectionToClient conn)
     {
@@ -55,9 +65,6 @@ public class MyNetworkManager : NetworkManager
     /// <param name="secondSpawnLocation"></param>
     public void SpawnForBothClients(GameObject prefab, Transform firstSpawnLocation, Transform secondSpawnLocation)
     {
-
-        Debug.Log("Tried to spawn");
-
 
         Vector3 pos = firstSpawnLocation.position;
         Quaternion rot = firstSpawnLocation.rotation;
@@ -160,6 +167,25 @@ public class MyNetworkManager : NetworkManager
     {
         ChangeOnlineScene(scenes[1]);
         StartHost();
+    }
+
+    public void DestroyRoom(int id)
+    {
+        if(id == 1)
+        {
+                Debug.Log("Ok Spielernum wird wohle rkannt");
+                Destroy(GameObject.Find("Room Player Two"));
+
+        }
+        else if (id == 2)
+        {
+                Destroy(GameObject.Find("Room Player One"));
+
+        }
+        else
+        {
+            Debug.Log("Player number is wrong");
+        }
     }
 }
 

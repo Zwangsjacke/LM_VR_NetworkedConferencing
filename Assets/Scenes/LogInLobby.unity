@@ -21032,7 +21032,7 @@ PrefabInstance:
     - target: {fileID: 8105947476590764326, guid: 3d54ffd2aea4f9141814aff6474fec1d,
         type: 3}
       propertyPath: scenes.Array.data[1]
-      value: VR Conference
+      value: VideoConferenceScene
       objectReference: {fileID: 0}
     - target: {fileID: 8105947476590764326, guid: 3d54ffd2aea4f9141814aff6474fec1d,
         type: 3}
