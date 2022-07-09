@@ -41,8 +41,6 @@ public class DataTracker : NetworkBehaviour
 
         }
 
-
-
     }
 
     void BeginFile()

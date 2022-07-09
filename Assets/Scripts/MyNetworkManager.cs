@@ -17,6 +17,8 @@ public class MyNetworkManager : NetworkManager
     public string[] scenes;
 
     public int playerNumber;
+
+    [SyncVar]
     public string studyCondition;
 
     //Singelton
