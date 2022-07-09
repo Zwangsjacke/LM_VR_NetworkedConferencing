@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 5686709981789007852}
   - component: {fileID: 2886038204892076562}
   - component: {fileID: -2253414809980004161}
+  - component: {fileID: 4283909460600272182}
   m_Layer: 0
   m_Name: Dissonance Player Test
   m_TagString: Untagged
@@ -122,7 +123,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2905658896430617308}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ae0fc7e5ceca1c440b7b759812c6a0cd, type: 3}
   m_Name: 
@@ -163,3 +164,11 @@ MonoBehaviour:
   showGizmos: 0
   showOverlay: 0
   overlayColor: {r: 0, g: 0, b: 0, a: 0.5}
+--- !u!81 &4283909460600272182
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2905658896430617308}
+  m_Enabled: 1

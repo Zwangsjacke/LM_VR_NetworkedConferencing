@@ -17,6 +17,7 @@ public class MyNetworkManager : NetworkManager
     public string[] scenes;
 
     public int playerNumber;
+    public string studyCondition;
 
     //Singelton
     public static MyNetworkManager singelton; 
@@ -160,12 +161,14 @@ public class MyNetworkManager : NetworkManager
     public void HostInPersonServer()
     {
         ChangeOnlineScene(scenes[0]);
+        studyCondition = "InPerson";
         StartHost();
     }
 
     public void HostVideoConferencingServer()
     {
         ChangeOnlineScene(scenes[1]);
+        studyCondition = "VideoConference";
         StartHost();
     }
 
@@ -173,7 +176,6 @@ public class MyNetworkManager : NetworkManager
     {
         if(id == 1)
         {
-                Debug.Log("Ok Spielernum wird wohle rkannt");
                 Destroy(GameObject.Find("Room Player Two"));
 
         }
