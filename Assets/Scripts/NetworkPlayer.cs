@@ -15,9 +15,11 @@ public class NetworkPlayer : NetworkBehaviour
     public static NetworkPlayer localPlayer;
     public ApperanceHolder apperanceHolder;
     public Apperance apperance;
+    public MyNetworkManager networkManager;
 
     private void Awake()
     {
+            networkManager = MyNetworkManager.singelton;
             apperanceHolder = ApperanceHolder.apperanceHolder;
             cameraRig = GameObject.FindGameObjectWithTag("CenterEye");
     }

@@ -9,19 +9,16 @@ public class NetworkGameManager : NetworkBehaviour
     public GameManagerScript gameManager;
     public MyNetworkManager networkManager;
 
-    public Transform alarmTransformPlayerOne;
-    public Transform alarmTransformPlayerTwo;
-
-
     public GameObject experimenterNotification;
 
     [Header("Distractors")]
     public DoorKnockingScript door;
     public PictureScript picture;
-    public PhoneScript phone;
+    public PhoneScript phoneOne;
+    public PhoneScript phoneTwo;
     public BirdScript bird;
 
-
+    public bool startedDistractorTimer;
 
     public int thumbsRequired = 2;
 
@@ -79,7 +76,9 @@ public class NetworkGameManager : NetworkBehaviour
         {
             numThumbs = 0;
             RPCRdyStartNextGame();
+            if (startedDistractorTimer) return;
             CMDStartDistractorTimer();
+            startedDistractorTimer = true;
         }
     }
     [Command(requiresAuthority = false)]
@@ -94,7 +93,8 @@ public class NetworkGameManager : NetworkBehaviour
     [ClientRpc]
     public void RPCTurnOffPhone()
     {
-        phone.TurnPhoneOff();
+        phoneOne.TurnPhoneOff();
+        phoneTwo.TurnPhoneOff();
     }
     [ClientRpc]
     public void RPCRdyStartNextGame()
@@ -107,7 +107,16 @@ public class NetworkGameManager : NetworkBehaviour
         Debug.Log("Called in RPC");
         door.timerActive = true;
         picture.timerActive = true;
-        phone.timerActive = true;
+        if (MyNetworkManager.singelton.playerNumber==1)
+        {
+
+        phoneOne.timerActive = true;
+        }
+        else
+        {
+        phoneTwo.timerActive = true;
+
+        }
         bird.timerActive = true;
     }
 }

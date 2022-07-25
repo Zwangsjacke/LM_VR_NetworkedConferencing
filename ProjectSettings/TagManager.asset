@@ -5,7 +5,6 @@ TagManager:
   serializedVersion: 2
   tags:
   - CameraRig
-  - NetworkManager
   - HandVisual
   - GamePrefab
   - correct
@@ -29,9 +28,18 @@ TagManager:
   - Fish
   - Ranking Header
   - Pinned Photo
-  - Finger
   - CenterEye
-  - NetworkPlayer
+  - Finger
+  - NetworkManager
+  - Picture
+  - Window
+  - Bird
+  - Door
+  - InstructionScreen
+  - plantAloe
+  - plantFarn
+  - Lamp
+  - Roof
   layers:
   - Default
   - TransparentFX

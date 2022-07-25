@@ -1,22 +1,52 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class SocketInteractor : MonoBehaviour
 {
     public AudioSource audioSource;
     public DesertSurvivalGame survivalGame;
+    public GameObject socket;
+    public bool pinned;
+    public float coolDown = 1;
+    public bool rePinnable = true;
 
     private void Awake()
     {
         survivalGame = GameObject.FindGameObjectWithTag("gameManager").GetComponent<DesertSurvivalGame>();
     }
+
+    private void Update()
+    {
+        if (!rePinnable)
+        {
+            coolDown -= Time.deltaTime;
+            if(coolDown <= 0)
+            {
+                rePinnable = true;
+                coolDown = 1;
+            }
+        }
+        if (!pinned) return;
+        PlaceInSocket(socket);
+
+        
+    }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Socket"))
+        if (other.CompareTag("Socket") && rePinnable)
         {
-            PlaceInSocket(other.gameObject);
+            socket = other.gameObject;
+            pinned = true;
+            audioSource.Play();
             survivalGame.IsPinned(true);
+        }
+        if(pinned && other.CompareTag("Hand"))
+        {
+            Debug.Log("Hand Kontakt");
+            rePinnable = false;
+            pinned = false;
         }
     }
 
@@ -28,10 +58,9 @@ public class SocketInteractor : MonoBehaviour
         }
     }
 
-    public void PlaceInSocket(GameObject socket)
+    public void PlaceInSocket(GameObject pinnedSocket)
     {
-        transform.SetPositionAndRotation(socket.transform.position, socket.transform.rotation);
-        audioSource.Play();
+        transform.SetPositionAndRotation(pinnedSocket.transform.position, pinnedSocket.transform.rotation);
     }
 
 

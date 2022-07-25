@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
+using TMPro;
 
 public class MyNetworkManager : NetworkManager
 
@@ -18,8 +19,10 @@ public class MyNetworkManager : NetworkManager
 
     public int playerNumber;
 
-    [SyncVar]
     public string studyCondition;
+
+    public TMP_InputField inputField;
+    public int experimentNumber;
 
     //Singelton
     public static MyNetworkManager singelton; 
@@ -45,7 +48,10 @@ public class MyNetworkManager : NetworkManager
     }
 
 
-
+    /// <summary>
+    /// On player connection set avatars and gamecondition on local networkmanagers
+    /// </summary>
+    /// <param name="conn"></param>
     public override void OnServerAddPlayer(NetworkConnectionToClient conn)
     {
         base.OnServerAddPlayer(conn);
@@ -56,6 +62,7 @@ public class MyNetworkManager : NetworkManager
             {
                 Debug.Log(connection.address);
                 connection.identity.GetComponent<NetworkPlayer>().RPCRequestNewInfos();
+                connection.identity.GetComponent<NetworkPlayer>().networkManager.studyCondition = studyCondition;
             }   
         }
     }
@@ -162,28 +169,42 @@ public class MyNetworkManager : NetworkManager
 
     public void HostInPersonServer()
     {
-        ChangeOnlineScene(scenes[0]);
-        studyCondition = "InPerson";
-        StartHost();
+        if(int.TryParse(inputField.text, out experimentNumber)){
+
+           ChangeOnlineScene(scenes[0]);
+           studyCondition = "InPerson";
+           StartHost();
+        }
+        else
+        {
+            return;
+        }
     }
 
     public void HostVideoConferencingServer()
     {
-        ChangeOnlineScene(scenes[1]);
-        studyCondition = "VideoConference";
-        StartHost();
+        if (int.TryParse(inputField.text, out experimentNumber))
+        {
+            ChangeOnlineScene(scenes[1]);
+            studyCondition = "VideoConference";
+            StartHost();
+        }
+        else
+        {
+            return;
+        }
     }
 
     public void DestroyRoom(int id)
     {
         if(id == 1)
         {
-                Destroy(GameObject.Find("Room Player Two"));
+                Destroy(GameObject.Find("Scenery Player Two"));
 
         }
         else if (id == 2)
         {
-                Destroy(GameObject.Find("Room Player One"));
+                Destroy(GameObject.Find("Scenery Player One"));
 
         }
         else

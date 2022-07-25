@@ -171,6 +171,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2154682893980136505}
+  - component: {fileID: -767206676721115401}
   m_Layer: 0
   m_Name: Aquarium Retry
   m_TagString: Untagged
@@ -200,6 +201,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-767206676721115401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1634006226880409219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c87c4751d6e88114f85809e209b8866f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UseAllChildren: 0
+  PointsOfInterest: []
 --- !u!1 &1903969104462100478
 GameObject:
   m_ObjectHideFlags: 0
@@ -645,6 +660,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1903969105216634037}
   - component: {fileID: 1903969105216633674}
+  - component: {fileID: 3333516937039050969}
   m_Layer: 0
   m_Name: Fish
   m_TagString: Untagged
@@ -683,6 +699,20 @@ MonoBehaviour:
   goalPos: {fileID: 1903969104628511654}
   speed: 0.1
   rotationSpeed: 1
+--- !u!114 &3333516937039050969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1903969105216634036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c87c4751d6e88114f85809e209b8866f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UseAllChildren: 0
+  PointsOfInterest: []
 --- !u!1 &1903969105396542075
 GameObject:
   m_ObjectHideFlags: 0

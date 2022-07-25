@@ -19,7 +19,7 @@ public class BaseGame : MonoBehaviour
     //public TextMeshProUGUI[] displays;
     public string gameText;
 
-    public Timer timer;
+    //public Timer timer;
 
     /// <summary>
     /// Destorys all previous game objects, changes the dispayed text and spawns new ones specific to the game
@@ -62,7 +62,8 @@ public class BaseGame : MonoBehaviour
 
         foreach (GameObject go in gos)
         {
-            Destroy(go);
+            go.SetActive(false);
+            //Destroy(go);
         }
     }
 
@@ -78,14 +79,14 @@ public class BaseGame : MonoBehaviour
 
     //}
 
-    public void StartTimer()
-    {
-        if(timer == null)
-        {
-           timer = GameObject.FindGameObjectWithTag("Timer").GetComponent<Timer>();
-        }
+    //public void StartTimer()
+    //{
+    //    if(timer == null)
+    //    {
+    //       timer = GameObject.FindGameObjectWithTag("Timer").GetComponent<Timer>();
+    //    }
 
-        timer.StartTimer();
-    }
+    //    timer.StartTimer();
+    //}
 
 }

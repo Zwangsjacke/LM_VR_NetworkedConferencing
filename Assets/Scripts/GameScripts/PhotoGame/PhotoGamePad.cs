@@ -12,7 +12,7 @@ public class PhotoGamePad : MonoBehaviour
 
     public TextMeshProUGUI[] petTexts;
 
-    public string[] petNames = new string[] { "Amigo", "Poopie", "Amigo", "Kitty" };
+    public string[] petNames = new string[] { "Amigo", "Poopie", "Bailey", "Tamara" };
 
     public string[] solution;
 
@@ -37,6 +37,10 @@ public class PhotoGamePad : MonoBehaviour
     public bool timerActive = true;
 
     public bool commitActiveBool;
+
+    public GameObject sureButton;
+    public GameObject notSureButton;
+    public GameObject commitButton;
 
     public void Awake()
     {
@@ -72,18 +76,39 @@ public class PhotoGamePad : MonoBehaviour
         petTexts[textNumber].text = petNames[newId];
     }
 
-    public void LogInAnswer()
+    public void CommitButtonPress()
     {
         if (!commitActiveBool) return;
+        endText.text = "Bist du dir sicher?";
+        commitButton.SetActive(false);
+        sureButton.SetActive(true);
+        notSureButton.SetActive(true);
+
+    }
+
+
+    public void NotSure()
+    {
+        sureButton.SetActive(false);
+        notSureButton.SetActive(false);
+        commitButton.SetActive(true);
+        endText.text = "";
+    }
+
+    public void LogInAnswer()
+    {
+
 
         for(int i=0; i<answers.Length; i++)
         {
             answers[i] = petTexts[i].text;
         }
-        DeactivateButtons();
         CheckAnswers();
         InformGameManager();
         SetEndText();
+        notSureButton.SetActive(false);
+        sureButton.SetActive(false);
+        DeactivateButtons();
     }
 
     public void CheckAnswers()

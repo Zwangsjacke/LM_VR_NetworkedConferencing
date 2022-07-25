@@ -14,7 +14,7 @@ public class PlayerPositionManagerScript : NetworkBehaviour
     public override void OnStartClient()
     {
         base.OnStartClient();
-        if (isServer) return;
+        //if (isServer) return;
         CMDMovingThePlayers(numPlayers);        
     }
     
@@ -35,8 +35,8 @@ public class PlayerPositionManagerScript : NetworkBehaviour
     /// </summary>
     /// <param name="numPlayers"></param>
     [ClientRpc]
-    public void RPCMovePlayer(int numPlayers)
+    public void RPCMovePlayer(int t)
     {
-        playerRig.Move(numPlayers);
+        playerRig.Move(t);
     }
 }

@@ -10,7 +10,7 @@ public class DataWriter : NetworkBehaviour
     public GameObject rayStart;
     public float watchTime;
     string watchedObject;
-    public string[] tags;
+    public string[] tags = new string[] { "Window", "Picture", "Bird", "Fish", "Door","InstructionScreen","plantFarn","plantAloe","Lamp","Player","Roof"};
 
     public string fileNameOne;
     public string fileNameTwo;
@@ -36,7 +36,7 @@ public class DataWriter : NetworkBehaviour
             }
             else if (watchTime != 0)
             {
-                MakeData(watchedObject, watchTime);()
+                MakeData(watchedObject, watchTime);
                 watchTime = 0;
             }
 
@@ -63,17 +63,17 @@ public class DataWriter : NetworkBehaviour
 
         if(playerNumber == 1)
         {
-            fileNameOne = Application.dataPath + $"/{MyNetworkManager.singelton.studyCondition.ToUpper()}{playerNumber}.csv";
+            fileNameOne = Application.dataPath + $"/Experiment{MyNetworkManager.singelton.experimentNumber}_{MyNetworkManager.singelton.studyCondition.ToUpper()}_Player{playerNumber}.csv";
             TextWriter tw = new StreamWriter(fileNameOne, false);
-            tw.WriteLine("Incident Number, Duration, Time");
+            tw.WriteLine("Object, Duration, Time");
             tw.Close();
             Debug.Log("Startet File of Player One");
         }
         else
         {
-            fileNameTwo = Application.dataPath + $"/{MyNetworkManager.singelton.studyCondition.ToUpper()}{playerNumber}.csv";
+            fileNameTwo = Application.dataPath + $"/Experiment{MyNetworkManager.singelton.experimentNumber}_{MyNetworkManager.singelton.studyCondition.ToUpper()}_Player{playerNumber}.csv";
             TextWriter tw = new StreamWriter(fileNameTwo, false);
-            tw.WriteLine("Incident Number, Duration, Time");
+            tw.WriteLine("Object, Duration, Time");
             tw.Close();
             Debug.Log("Startet File of Player Two");
         }

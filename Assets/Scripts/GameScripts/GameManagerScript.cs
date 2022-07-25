@@ -46,8 +46,14 @@ public class GameManagerScript : MonoBehaviour
         {
             ChangeText();
             games[gameCounter].StartGame();
-            TimerOne.StartTimer();
-            TimerTwo.StartTimer();
+            if(MyNetworkManager.singelton.playerNumber == 1)
+            {
+                TimerOne.StartTimer();
+            }
+            else
+            {
+                TimerTwo.StartTimer();
+            }
 
         }
 
@@ -95,7 +101,8 @@ public class GameManagerScript : MonoBehaviour
     {
         foreach(GameObject go in GameObject.FindGameObjectsWithTag("GamePrefab"))
         {
-            Destroy(go);
+            go.SetActive(false);
+            //Destroy(go);
         }
         foreach (TextMeshProUGUI txt in disyplays)
         {

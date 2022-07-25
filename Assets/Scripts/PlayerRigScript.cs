@@ -7,9 +7,12 @@ public class PlayerRigScript : MonoBehaviour
     public GameObject playerRig;
 
 
+
     [Header("Spawn Points")]
-    public Transform spawnPointOne;
-    public Transform spawnPointTwo;
+    public Transform spawnPointOneVideo;
+    public Transform spawnPointTwoVideo;
+    public Transform spawnPointOneInPerson;
+    public Transform spawnPointTwoInPerson;
 
     [Header("Spawn Check")]
     public bool alreadySpawned = false;
@@ -29,15 +32,20 @@ public class PlayerRigScript : MonoBehaviour
 
         alreadySpawned = true;
 
+        if (MyNetworkManager.singelton.studyCondition == "VideoConference")
+        {
+            Debug.Log("Moving Player in Condition Video Conference");
         if(numPlayers == 1)
         {
-            playerRig.transform.position = spawnPointOne.position;
+            playerRig.transform.SetPositionAndRotation(spawnPointOneVideo.position, spawnPointOneVideo.rotation);
+                //playerRig.transform.position = spawnPointOneVideo.position;
             Debug.Log("Spawning as Player One");
             MyNetworkManager.singelton.playerNumber = 1;
         }
         else if (numPlayers == 2)
         {
-            playerRig.transform.position = spawnPointTwo.position;
+            playerRig.transform.SetPositionAndRotation(spawnPointTwoVideo.position, spawnPointTwoVideo.rotation);
+                //playerRig.transform.position = spawnPointTwoVideo.position;
             Debug.Log("Spawning as Player Two");
             MyNetworkManager.singelton.playerNumber = 2;
         }
@@ -47,6 +55,29 @@ public class PlayerRigScript : MonoBehaviour
         }
 
         MyNetworkManager.singelton.DestroyRoom(MyNetworkManager.singelton.playerNumber);
+
+        }
+        else
+        {
+            if (numPlayers == 1)
+            {
+                playerRig.transform.SetPositionAndRotation(spawnPointOneInPerson.position, spawnPointOneInPerson.rotation);
+                //playerRig.transform.position = spawnPointOneInPerson.position;
+                Debug.Log("Spawning as Player One");
+                MyNetworkManager.singelton.playerNumber = 1;
+            }
+            else if (numPlayers == 2)
+            {
+                playerRig.transform.SetPositionAndRotation(spawnPointTwoInPerson.position,spawnPointTwoInPerson.rotation);
+                //playerRig.transform.position = spawnPointTwoInPerson.position;
+                //Debug.Log("Spawning as Player Two");
+                MyNetworkManager.singelton.playerNumber = 2;
+            }
+            else
+            {
+                Debug.Log($"Something went wrong. There cannot be {numPlayers} players.");
+            }
+        }
 
     }
 }

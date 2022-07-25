@@ -35,7 +35,7 @@ public class BoxButton : MonoBehaviour
         {
             if (other.gameObject.tag == "Finger")
             {
-                Debug.Log("Ich bin Finger und ich finger dich.");
+                
                 Button b = GetComponent<Button>();
                 if (b)
                 {
