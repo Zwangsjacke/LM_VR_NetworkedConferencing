@@ -7,6 +7,9 @@ using TMPro;
 public class MyNetworkManager : NetworkManager
 
 {
+    public GameObject rightHandVisual;
+    public GameObject leftHandvisual;
+
     [Header("Client Information")]
 
     private NetworkConnectionToClient clientOneConn;
@@ -153,12 +156,8 @@ public class MyNetworkManager : NetworkManager
     /// </summary>
     public void DisableHandVisuals()
     {
-        GameObject[] handVisuals = GameObject.FindGameObjectsWithTag("HandVisual");
-
-        foreach(GameObject go in handVisuals)
-        {
-            go.SetActive(false);
-        }
+        rightHandVisual.SetActive(false);
+        leftHandvisual.SetActive(false);
 
     }
 

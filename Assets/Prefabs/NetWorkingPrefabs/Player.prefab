@@ -2408,6 +2408,26 @@ PrefabInstance:
       propertyPath: solver.spine.headTarget
       value: 
       objectReference: {fileID: 1848466909563217555}
+    - target: {fileID: 8933371910339968887, guid: b4410c475dcb10f4c9177622da0787a7,
+        type: 3}
+      propertyPath: solver.leftArm.armLengthMlp
+      value: 0.79
+      objectReference: {fileID: 0}
+    - target: {fileID: 8933371910339968887, guid: b4410c475dcb10f4c9177622da0787a7,
+        type: 3}
+      propertyPath: solver.rightArm.armLengthMlp
+      value: 0.79
+      objectReference: {fileID: 0}
+    - target: {fileID: 8933371910339968887, guid: b4410c475dcb10f4c9177622da0787a7,
+        type: 3}
+      propertyPath: solver.leftArm.palmToThumbAxis.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8933371910339968887, guid: b4410c475dcb10f4c9177622da0787a7,
+        type: 3}
+      propertyPath: solver.rightArm.wristToPalmAxis.y
+      value: -1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 398059690926408438, guid: b4410c475dcb10f4c9177622da0787a7, type: 3}
     - {fileID: 4899903561732298367, guid: b4410c475dcb10f4c9177622da0787a7, type: 3}
