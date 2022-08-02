@@ -9,5 +9,9 @@ public class InterviewGame : BaseGame
         base.StartGame();
         SetCondition();
     }
+    public override void SpawnObjects()
+    {
+        networkGameManager.SpawnOneForEach(prefabIds[0], prefabIds[1], SpawnLocationsPlayerOne[0], SpawnLocationsPlayerTwo[0]);
+    }
     //Endcondition is handled by the alarm
 }

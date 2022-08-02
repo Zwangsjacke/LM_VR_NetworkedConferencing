@@ -1154,7 +1154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e46a55401a8cc64e98455426a91c149, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabIds: 01000000
+  prefabIds: 0100000007000000
   gameManager: {fileID: 172102858}
   networkGameManager: {fileID: 277440570}
   SpawnLocationsPlayerOne:
