@@ -62,8 +62,8 @@ public class BaseGame : MonoBehaviour
 
         foreach (GameObject go in gos)
         {
-            go.SetActive(false);
-            //Destroy(go);
+            //go.SetActive(false);
+            Destroy(go);
         }
     }
 

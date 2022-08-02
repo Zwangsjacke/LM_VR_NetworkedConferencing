@@ -26,6 +26,7 @@ public class MyNetworkManager : NetworkManager
 
     public TMP_InputField inputField;
     public int experimentNumber;
+    public bool serverPuffer = true;
 
     //Singelton
     public static MyNetworkManager singelton; 
@@ -43,6 +44,11 @@ public class MyNetworkManager : NetworkManager
     {
         base.OnServerConnect(conn);
 
+        if (serverPuffer)
+        {
+            serverPuffer = false;
+            return;
+        }
         StoreClientConn(conn);
 
         DisableHandVisuals();

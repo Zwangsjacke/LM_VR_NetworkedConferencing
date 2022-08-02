@@ -63,7 +63,7 @@ public class Timer : MonoBehaviour
         {
             gameManager.GameEnded();
         }
-       // if (gameManager.networkGameManager.isServer) return;
+        if (gameManager.networkGameManager.isServer) return;
         PlayAlarm();
     }
 
@@ -76,8 +76,8 @@ public class Timer : MonoBehaviour
         {
             desertPhaseOneDone = true;
             currentTime = gameManager.desertSecondPhaseTimer * 60;
-            GameObject header = GameObject.FindGameObjectWithTag("Ranking Header");
-            header.SetActive(true);
+            //GameObject header = GameObject.FindGameObjectWithTag("Ranking Header");
+            //header.SetActive(true);
             foreach (TextMeshProUGUI txt in gameManager.disyplays)
             {
                 txt.text = "Welcher Gegenstand kann euch am meisten helfen? Bringt die Gegenstände nun in Rangreihenfolge und pinnt die Fotos an die richtige Stelle!";

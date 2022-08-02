@@ -280,7 +280,6 @@ GameObject:
   - component: {fileID: 3501607683462618702}
   - component: {fileID: 2007229978225902128}
   - component: {fileID: 6160882189221930534}
-  - component: {fileID: -1626568776079025070}
   m_Layer: 0
   m_Name: Profile Template
   m_TagString: Untagged
@@ -377,20 +376,6 @@ MonoBehaviour:
   _transferHandOnSecondGrab: 0
   _addNewGrabsToFront: 0
   _maxGrabPoints: -1
---- !u!114 &-1626568776079025070
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 492706647258535057}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c87c4751d6e88114f85809e209b8866f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  UseAllChildren: 0
-  PointsOfInterest: []
 --- !u!1 &679748528163461903
 GameObject:
   m_ObjectHideFlags: 0

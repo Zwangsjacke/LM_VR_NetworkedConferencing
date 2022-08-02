@@ -14,7 +14,7 @@ public class PlayerPositionManagerScript : NetworkBehaviour
     public override void OnStartClient()
     {
         base.OnStartClient();
-        //if (isServer) return;
+        if (isServer) return;
         CMDMovingThePlayers(numPlayers);        
     }
     

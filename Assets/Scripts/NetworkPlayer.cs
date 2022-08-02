@@ -12,10 +12,12 @@ public class NetworkPlayer : NetworkBehaviour
     public GameObject head;
     public GameObject leftHand;
     public GameObject rightHand;
+    public GameObject eve;
     public static NetworkPlayer localPlayer;
     public ApperanceHolder apperanceHolder;
     public Apperance apperance;
     public MyNetworkManager networkManager;
+    public GameObject dummyTransform;
 
     private void Awake()
     {
@@ -30,14 +32,10 @@ public class NetworkPlayer : NetworkBehaviour
             localPlayer = this;
             
             CMDSetApparence(apperanceHolder.customs, apperanceHolder.colors);
-            
+
             //if (isServer)
             //{
-            //    head.SetActive(false);
-            //    leftHand.SetActive(false);
-            //    rightHand.SetActive(false);
-            //    cameraRig.SetActive(false);
-            //    Debug.Log("Destroyed?");
+            //    Destroy(this.gameObject);
             //}
         }
     }
@@ -48,7 +46,7 @@ public class NetworkPlayer : NetworkBehaviour
     /// </summary>
     void Update()
     {
-        //if (isServer) return;
+        if (isServer) return;
         if (isLocalPlayer)
         {
 

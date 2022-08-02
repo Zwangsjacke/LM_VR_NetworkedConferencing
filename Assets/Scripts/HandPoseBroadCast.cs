@@ -12,7 +12,7 @@ public class HandPoseBroadCast : MonoBehaviour
 
 
 
-
+    [ContextMenu("Thumbs Up!")]
     public void ThumbsUp()
     {
 

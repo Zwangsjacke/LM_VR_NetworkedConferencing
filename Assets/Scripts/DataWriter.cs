@@ -18,6 +18,7 @@ public class DataWriter : NetworkBehaviour
     private void Start()
     {
         if (isServer) return;
+        GetSource();
         CMDStartFile();
     }
 
@@ -111,7 +112,10 @@ public class DataWriter : NetworkBehaviour
         }
     }
 
-
+    public void GetSource()
+    {
+        rayStart = GameObject.Find("RayCastSource");
+    }
 
 [Command]
     public void CMDStartFile()

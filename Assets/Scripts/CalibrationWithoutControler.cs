@@ -6,7 +6,6 @@ public class CalibrationWithoutControler : MonoBehaviour
 {
     public Transform anchor;
     public GameObject OVRCameraRig;
-    public int presses;
     void Start()
     {
         RelocatePlayer();
@@ -28,7 +27,7 @@ public class CalibrationWithoutControler : MonoBehaviour
         //Quaternion ankerRotation = new Quaternion(OVRCameraRig.transform.rotation.x, anchor.rotation.y, OVRCameraRig.transform.rotation.z, 1);
         //OVRCameraRig.transform.rotation = ankerRotation;
         //OVRCameraRig.transform.position = ankerPosition;
-        OVRCameraRig.transform.SetPositionAndRotation(anchor.position,anchor.rotation);
+        OVRCameraRig.transform.position = new Vector3(anchor.position.x, OVRCameraRig.transform.position.y, anchor.transform.position.z);
         Debug.Log("Relocated");
     }
 }
