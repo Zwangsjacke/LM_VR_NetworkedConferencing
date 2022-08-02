@@ -864,7 +864,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1db68ac857b8ea9429a9506926c0b791, type: 2}
+  - {fileID: 2100000, guid: 86ac8b6a784f34b47bee1227eed2002e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -916,7 +916,7 @@ GameObject:
   - component: {fileID: 2632884673287000651}
   - component: {fileID: -752559387501046517}
   m_Layer: 0
-  m_Name: Clipboard
+  m_Name: Clipboard 1
   m_TagString: GamePrefab
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1054,7 +1054,7 @@ MonoBehaviour:
   sceneId: 0
   serverOnly: 0
   visible: 0
-  m_AssetId: c323931222e67ca4a9887179d0fa43b1
+  m_AssetId: 2323a001d3f054248a4eef4a34d356e3
   hasSpawned: 0
 --- !u!114 &2632884673287000651
 MonoBehaviour:
