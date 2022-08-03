@@ -6,8 +6,6 @@ public class PlayerRigScript : MonoBehaviour
 {
     public GameObject playerRig;
 
-
-
     [Header("Spawn Points")]
     public Transform spawnPointOneVideo;
     public Transform spawnPointTwoVideo;
@@ -61,16 +59,14 @@ public class PlayerRigScript : MonoBehaviour
         {
             if (numPlayers == 1)
             {
-                playerRig.transform.SetPositionAndRotation(spawnPointOneInPerson.position, spawnPointOneInPerson.rotation);
-                //playerRig.transform.position = spawnPointOneInPerson.position;
                 Debug.Log("Spawning as Player One");
                 MyNetworkManager.singelton.playerNumber = 1;
             }
             else if (numPlayers == 2)
             {
-                playerRig.transform.SetPositionAndRotation(spawnPointTwoInPerson.position,spawnPointTwoInPerson.rotation);
-                //playerRig.transform.position = spawnPointTwoInPerson.position;
-                //Debug.Log("Spawning as Player Two");
+                playerRig.transform.RotateAround(spawnPointOneInPerson.transform.position, Vector3.up, 180);                
+                playerRig.transform.position += spawnPointTwoInPerson.transform.position - spawnPointOneInPerson.transform.position;
+                Debug.Log("Spawning as Player Two");
                 MyNetworkManager.singelton.playerNumber = 2;
             }
             else
