@@ -6,22 +6,18 @@ public class DesertSurvivalGame : BaseGame
 {
     public int numPinned = 0;
     public int numPins = 6;
+    public TextMesh text;
 
 
-    public override void SetCondition()
+    public void SetCondition(bool condition)
     {
-        if (numPinned == numPins)
-        {
-            base.SetCondition(); 
-        } 
-        else
-        {
-            gameManager.endCondition = false;
-        }
+        
+        gameManager.endCondition = condition;
     }
 
     public void IsPinned(bool increase)
     {
+
         if (increase)
         {
             numPinned++;
@@ -31,6 +27,8 @@ public class DesertSurvivalGame : BaseGame
             numPinned--;
         }
 
+        text.text = numPinned.ToString();
         SetCondition();
+        
     }
 }

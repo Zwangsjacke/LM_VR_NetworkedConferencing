@@ -77,7 +77,7 @@ public class NetworkGameManager : NetworkBehaviour
             numThumbs = 0;
             RPCRdyStartNextGame();
             if (startedDistractorTimer) return;
-            CMDStartDistractorTimer();
+            RPCStartDistractorTimer();
             startedDistractorTimer = true;
         }
     }
@@ -93,6 +93,7 @@ public class NetworkGameManager : NetworkBehaviour
     [ClientRpc]
     public void RPCTurnOffPhone()
     {
+        Debug.Log("RpcTurnphoneOff called");
         phoneOne.TurnPhoneOff();
         phoneTwo.TurnPhoneOff();
     }
@@ -107,16 +108,18 @@ public class NetworkGameManager : NetworkBehaviour
         Debug.Log("Called in RPC");
         door.timerActive = true;
         picture.timerActive = true;
-        if (MyNetworkManager.singelton.playerNumber==1)
+        bird.timerActive = true;
+        if (MyNetworkManager.mySingleton.playerNumber==1)
         {
 
-        phoneOne.timerActive = true;
+            phoneOne.timerActive = true;
         }
         else
         {
-        phoneTwo.timerActive = true;
+            phoneTwo.timerActive = true;
 
         }
-        bird.timerActive = true;
+
+
     }
 }

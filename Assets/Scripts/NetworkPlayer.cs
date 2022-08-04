@@ -17,16 +17,20 @@ public class NetworkPlayer : NetworkBehaviour
     public ApperanceHolder apperanceHolder;
     public Apperance apperance;
     public MyNetworkManager networkManager;
-    public GameObject dummyTransform;
+    PlayerRigScript singelton;
+
 
     private void Awake()
     {
-            networkManager = MyNetworkManager.singelton;
+
+            networkManager = MyNetworkManager.mySingleton;
             apperanceHolder = ApperanceHolder.apperanceHolder;
-            cameraRig = GameObject.FindGameObjectWithTag("CenterEye");
+                    
     }
     private void Start()
     {
+        singelton = PlayerRigScript.singleton;
+
         if (isLocalPlayer)
         {
             localPlayer = this;
@@ -56,13 +60,16 @@ public class NetworkPlayer : NetworkBehaviour
 
     public void SetPositions()
     {
-        leftHand.transform.localPosition = OVRInput.GetLocalControllerPosition(OVRInput.Controller.LHand);
-        rightHand.transform.localPosition = OVRInput.GetLocalControllerPosition(OVRInput.Controller.RHand);
+        //leftHand.transform.position = OVRInput.GetLocalControllerPosition(OVRInput.Controller.LHand);
+        //rightHand.transform.position = OVRInput.GetLocalControllerPosition(OVRInput.Controller.RHand);
+        leftHand.transform.SetPositionAndRotation(singelton.leftHand.transform.position, singelton.leftHand.transform.rotation);
+        rightHand.transform.SetPositionAndRotation(singelton.rightHand.transform.position, singelton.rightHand.transform.rotation);
 
-        leftHand.transform.localRotation = OVRInput.GetLocalControllerRotation(OVRInput.Controller.LHand);
-        rightHand.transform.localRotation = OVRInput.GetLocalControllerRotation(OVRInput.Controller.RHand);
 
-        head.transform.SetPositionAndRotation(cameraRig.transform.position, cameraRig.transform.rotation);
+        //leftHand.transform.rotation = OVRInput.GetLocalControllerRotation(OVRInput.Controller.LHand);
+        //rightHand.transform.rotation = OVRInput.GetLocalControllerRotation(OVRInput.Controller.RHand);
+
+        head.transform.SetPositionAndRotation(singelton.centerEye.transform.position, singelton.centerEye.transform.rotation);
     }
 
     public void ApplyCustom(int[] customs, Color[] colors)

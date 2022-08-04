@@ -9,7 +9,7 @@ public class MicroPremissionRequester : MonoBehaviour
     void Start()
     {
         Permission.RequestUserPermission(Permission.Microphone);
-        Microphone.Start(Microphone.devices[0], false, 1, 0);
+        Microphone.Start(Microphone.devices[0], false, 1, 1);
     }
 
     // Update is called once per frame

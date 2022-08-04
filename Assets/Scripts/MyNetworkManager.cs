@@ -9,6 +9,7 @@ public class MyNetworkManager : NetworkManager
 {
     public GameObject rightHandVisual;
     public GameObject leftHandvisual;
+    public OnServnerTracking tracker;
 
     [Header("Client Information")]
 
@@ -29,7 +30,7 @@ public class MyNetworkManager : NetworkManager
     public bool serverPuffer = true;
 
     //Singelton
-    public static MyNetworkManager singelton; 
+    public static MyNetworkManager mySingleton; 
 
     public Transform phoneSpawnLocation;
 
@@ -37,7 +38,7 @@ public class MyNetworkManager : NetworkManager
 
     public override void Awake()
     {
-        singelton = this;
+        mySingleton = this;
         base.Awake();
     }
     public override void OnServerConnect(NetworkConnectionToClient conn)
@@ -51,9 +52,12 @@ public class MyNetworkManager : NetworkManager
         }
         StoreClientConn(conn);
 
+    }
+
+    public override void OnClientConnect()
+    {
+        base.OnClientConnect();
         DisableHandVisuals();
-
-
     }
 
 
@@ -63,6 +67,7 @@ public class MyNetworkManager : NetworkManager
     /// <param name="conn"></param>
     public override void OnServerAddPlayer(NetworkConnectionToClient conn)
     {
+
         base.OnServerAddPlayer(conn);
         foreach (NetworkConnection connection in clientConnections)
         {
@@ -74,6 +79,7 @@ public class MyNetworkManager : NetworkManager
                 connection.identity.GetComponent<NetworkPlayer>().networkManager.studyCondition = studyCondition;
             }   
         }
+        tracker.AddPlayer(conn.identity.gameObject);
     }
 
     /// <summary>
@@ -217,5 +223,6 @@ public class MyNetworkManager : NetworkManager
             Debug.Log("Player number is wrong");
         }
     }
+
 }
 

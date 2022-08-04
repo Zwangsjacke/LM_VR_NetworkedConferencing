@@ -21,6 +21,7 @@ public class PictureScript : MonoBehaviour
     }
     public void FallDown()
     {
+        rigidBody.isKinematic = false;
         rigidBody.useGravity = true;
         timerActive = false;
     }

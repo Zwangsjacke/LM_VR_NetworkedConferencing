@@ -6,16 +6,13 @@ using System;
 public class SocketInteractor : MonoBehaviour
 {
     public AudioSource audioSource;
-    public DesertSurvivalGame survivalGame;
+    public DesertConditionCheck check;
     public GameObject socket;
     public bool pinned;
     public float coolDown = 1;
     public bool rePinnable = true;
 
-    private void Awake()
-    {
-        survivalGame = GameObject.FindGameObjectWithTag("gameManager").GetComponent<DesertSurvivalGame>();
-    }
+
 
     private void Update()
     {
@@ -28,10 +25,10 @@ public class SocketInteractor : MonoBehaviour
                 coolDown = 1;
             }
         }
-        if (!pinned) return;
+        if (!pinned || !rePinnable) return;
+        if (socket == null) return;
         PlaceInSocket(socket);
 
-        
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -40,13 +37,12 @@ public class SocketInteractor : MonoBehaviour
             socket = other.gameObject;
             pinned = true;
             audioSource.Play();
-            survivalGame.IsPinned(true);
+
         }
         if(pinned && other.CompareTag("Hand"))
         {
             Debug.Log("Hand Kontakt");
             rePinnable = false;
-            pinned = false;
         }
     }
 
@@ -54,13 +50,16 @@ public class SocketInteractor : MonoBehaviour
     {
         if (other.CompareTag("Socket"))
         {
-            survivalGame.IsPinned(false);
+            pinned = false;
         }
     }
+
+
 
     public void PlaceInSocket(GameObject pinnedSocket)
     {
         transform.SetPositionAndRotation(pinnedSocket.transform.position, pinnedSocket.transform.rotation);
+        pinned = true;
     }
 
 

@@ -18,7 +18,6 @@ public class DataWriter : NetworkBehaviour
     private void Start()
     {
         if (isServer) return;
-        GetSource();
         CMDStartFile();
     }
 
@@ -29,14 +28,17 @@ public class DataWriter : NetworkBehaviour
 
         if (Physics.Raycast(rayStart.transform.position, rayStart.transform.forward, out hit, 100f))
         {
+            Debug.Log(hit.transform.tag);
 
             if (TagExistsinArray(hit.transform.tag))
             {
                 watchedObject = hit.transform.tag;
+                Debug.Log("Found: " + watchedObject);
                 watchTime += Time.deltaTime;
             }
             else if (watchTime != 0)
             {
+                Debug.Log("Call Make Data");
                 MakeData(watchedObject, watchTime);
                 watchTime = 0;
             }
@@ -64,7 +66,7 @@ public class DataWriter : NetworkBehaviour
 
         if(playerNumber == 1)
         {
-            fileNameOne = Application.dataPath + $"/Experiment{MyNetworkManager.singelton.experimentNumber}_{MyNetworkManager.singelton.studyCondition.ToUpper()}_Player{playerNumber}.csv";
+            fileNameOne = Application.dataPath + $"/Experiment{MyNetworkManager.mySingleton.experimentNumber}_{MyNetworkManager.mySingleton.studyCondition.ToUpper()}_Player{playerNumber}.csv";
             TextWriter tw = new StreamWriter(fileNameOne, false);
             tw.WriteLine("Object, Duration, Time");
             tw.Close();
@@ -72,7 +74,7 @@ public class DataWriter : NetworkBehaviour
         }
         else
         {
-            fileNameTwo = Application.dataPath + $"/Experiment{MyNetworkManager.singelton.experimentNumber}_{MyNetworkManager.singelton.studyCondition.ToUpper()}_Player{playerNumber}.csv";
+            fileNameTwo = Application.dataPath + $"/Experiment{MyNetworkManager.mySingleton.experimentNumber}_{MyNetworkManager.mySingleton.studyCondition.ToUpper()}_Player{playerNumber}.csv";
             TextWriter tw = new StreamWriter(fileNameTwo, false);
             tw.WriteLine("Object, Duration, Time");
             tw.Close();
@@ -112,20 +114,19 @@ public class DataWriter : NetworkBehaviour
         }
     }
 
-    public void GetSource()
-    {
-        rayStart = GameObject.Find("RayCastSource");
-    }
+
 
 [Command]
     public void CMDStartFile()
     {
-        StartFile(MyNetworkManager.singelton.playerNumber);
+        StartFile(MyNetworkManager.mySingleton.playerNumber);
+        Debug.Log("Startet File");
     }
 
     [Command]
     public void CMDWrite(string data)
     {
-        WriteFile(MyNetworkManager.singelton.playerNumber, data);
+        WriteFile(MyNetworkManager.mySingleton.playerNumber, data);
+        Debug.Log("Data Written: " + data);
     }
 }

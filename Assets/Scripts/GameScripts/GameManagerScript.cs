@@ -6,6 +6,8 @@ using TMPro;
 public class GameManagerScript : MonoBehaviour
 {
     public NetworkGameManager networkGameManager;
+    public static GameManagerScript singleton;
+    public TextMesh conditionText;
 
     [Tooltip("Order relevant! \nShould be: Interview, Desert Survival, Photos")]
     public BaseGame[] games;
@@ -30,8 +32,16 @@ public class GameManagerScript : MonoBehaviour
     public AudioSource changeGameSound;
     public AudioSource thumbsUpSound;
 
-    
 
+    private void Awake()
+    {
+        singleton = this;
+    }
+
+    private void Update()
+    {
+        conditionText.text = endCondition.ToString();
+    }
     /// <summary>
     /// Increments the gameCounter an starts the respective Game or ends the study. See BaseGame[] games order for the game order.
     /// Resets endConditions
@@ -46,7 +56,7 @@ public class GameManagerScript : MonoBehaviour
         {
             ChangeText();
             games[gameCounter].StartGame();
-            if(MyNetworkManager.singelton.playerNumber == 1)
+            if(MyNetworkManager.mySingleton.playerNumber == 1)
             {
                 TimerOne.StartTimer();
             }

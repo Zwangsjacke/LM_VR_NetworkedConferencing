@@ -41,7 +41,8 @@ public class PhoneScript : MonoBehaviour
     }
     public void Dismiss()
     {
-        networkedGameManager.CMDTurnPhonesOff();
+        Debug.Log("Dismiss Called");
+        networkedGameManager.RPCTurnOffPhone();
     }
 
     public void GetNotification()
@@ -56,23 +57,20 @@ public class PhoneScript : MonoBehaviour
     {
         if (other.CompareTag("Hand"))
         {
-            if (!isNotified)
-            {
-                TurnPhoneOn();
-            }
+            Dismiss();
         }
     }
 
-    public void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Hand"))
-        {
-            if (!isNotified)
-            {
-                TurnPhoneOff();
-            }
-        }
-    }
+    //public void OnTriggerExit(Collider other)
+    //{
+    //    if (other.CompareTag("Hand"))
+    //    {
+    //        if (!isNotified)
+    //        {
+    //            TurnPhoneOff();
+    //        }
+    //    }
+    //}
 
     public void ShowNotification()
     {
@@ -92,6 +90,7 @@ public class PhoneScript : MonoBehaviour
         StopVibrating();
         screenMaterial.mainTexture = phoneOff;
         clock.text = null;
+        Debug.Log("Turn Phone Off Called");
     }
 
     public void SetClock()
