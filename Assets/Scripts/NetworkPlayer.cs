@@ -37,10 +37,6 @@ public class NetworkPlayer : NetworkBehaviour
             
             CMDSetApparence(apperanceHolder.customs, apperanceHolder.colors);
 
-            //if (isServer)
-            //{
-            //    Destroy(this.gameObject);
-            //}
         }
     }
 
@@ -98,6 +94,8 @@ public class NetworkPlayer : NetworkBehaviour
     public void RPCSetApperance(int[] customs, Color[] colors)
     {
         ApplyCustom(customs, colors);
+        leftHand.GetComponentInChildren<ChangeHandColor>().ChangeColor();
+        rightHand.GetComponentInChildren<ChangeHandColor>().ChangeColor();
         Debug.Log("Tried to Set Apperance");
     }
 }
