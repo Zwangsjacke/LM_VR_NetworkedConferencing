@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
 using TMPro;
+using Dissonance.Integrations.MirrorIgnorance;
 
 public class MyNetworkManager : NetworkManager
 
@@ -80,6 +81,7 @@ public class MyNetworkManager : NetworkManager
             }   
         }
         tracker.AddPlayer(conn.identity.gameObject);
+        if(studyCondition == "VideoConference") Destroy(conn.identity.GetComponent<MirrorIgnorancePlayer>());
     }
 
     /// <summary>

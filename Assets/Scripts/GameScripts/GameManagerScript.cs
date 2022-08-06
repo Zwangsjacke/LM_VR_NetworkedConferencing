@@ -40,7 +40,7 @@ public class GameManagerScript : MonoBehaviour
 
     private void Update()
     {
-        conditionText.text = endCondition.ToString();
+        //conditionText.text = endCondition.ToString();
     }
     /// <summary>
     /// Increments the gameCounter an starts the respective Game or ends the study. See BaseGame[] games order for the game order.

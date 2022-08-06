@@ -46,7 +46,6 @@ public class PlayerRigScript : MonoBehaviour
         if(numPlayers == 1)
         {
             playerRig.transform.SetPositionAndRotation(spawnPointOneVideo.position, spawnPointOneVideo.rotation);
-                //playerRig.transform.position = spawnPointOneVideo.position;
             Debug.Log("Spawning as Player One");
             MyNetworkManager.mySingleton.playerNumber = 1;
         }

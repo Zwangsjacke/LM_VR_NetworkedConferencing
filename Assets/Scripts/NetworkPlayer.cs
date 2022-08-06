@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR;
 using Mirror;
+using Dissonance.Integrations.MirrorIgnorance;
 
 public class NetworkPlayer : NetworkBehaviour
 {
@@ -36,6 +37,7 @@ public class NetworkPlayer : NetworkBehaviour
             localPlayer = this;
             
             CMDSetApparence(apperanceHolder.customs, apperanceHolder.colors);
+            if (isServer) Destroy(GetComponent<MirrorIgnorancePlayer>());
 
         }
     }
