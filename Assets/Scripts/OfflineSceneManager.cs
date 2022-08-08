@@ -13,6 +13,7 @@ public class OfflineSceneManager : MonoBehaviour
     public GameObject[][] phases;
     public MyNetworkManager networkManager;
     public ToBlackFader fader;
+    public AudioSource switchAudio;
 
 
     public void Start()
@@ -44,15 +45,21 @@ public class OfflineSceneManager : MonoBehaviour
             go.SetActive(true);
         }
         phaseNumber++;
+        PlaySound();
         ChangeText();
+
     }
 
     private IEnumerator SwitchToOnline()
     {
         fader.Fade(true);
         yield return new WaitForSeconds(3);
-        Debug.Log("Trying to go Online");
         networkManager.StartClient();
+    }
+
+    public void PlaySound()
+    {
+        switchAudio.Play();
     }
 
 
