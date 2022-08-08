@@ -77,8 +77,13 @@ public class Timer : MonoBehaviour
         {
             desertPhaseOneDone = true;
             currentTime = gameManager.desertSecondPhaseTimer * 60;
-            //GameObject header = GameObject.FindGameObjectWithTag("Ranking Header");
-            //header.SetActive(true);
+            gameManager.changeGameSound.Play();
+            GameObject headers = GameObject.FindGameObjectWithTag("Ranking Header");
+            for (int i = 0; i < headers.transform.childCount; i++)
+            {
+                headers.transform.GetChild(i).gameObject.SetActive(true);
+            }
+
             foreach (TextMeshProUGUI txt in gameManager.disyplays)
             {
                 txt.text = "Welcher Gegenstand kann euch am meisten helfen?\n Bringt die Gegenstände nun in Rangreihenfolge und pinnt die Fotos an die richtige Stelle!";
