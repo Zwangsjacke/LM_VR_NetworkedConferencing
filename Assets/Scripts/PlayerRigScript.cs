@@ -8,6 +8,7 @@ public class PlayerRigScript : MonoBehaviour
     public GameObject centerEye;
     public GameObject leftHand;
     public GameObject rightHand;
+    public GameObject rotatePoint;
 
     [Header("Spawn Points")]
     public Transform spawnPointOneVideo;
@@ -45,14 +46,13 @@ public class PlayerRigScript : MonoBehaviour
             Debug.Log("Moving Player in Condition Video Conference");
         if(numPlayers == 1)
         {
-            playerRig.transform.SetPositionAndRotation(spawnPointOneVideo.position, spawnPointOneVideo.rotation);
             Debug.Log("Spawning as Player One");
             MyNetworkManager.mySingleton.playerNumber = 1;
         }
         else if (numPlayers == 2)
         {
                 playerRig.transform.RotateAround(spawnPointOneVideo.transform.position, Vector3.up, 180);
-                playerRig.transform.position += spawnPointTwoVideo.transform.position - spawnPointOneVideo.transform.position;
+                //playerRig.transform.position += spawnPointTwoVideo.transform.position - spawnPointOneVideo.transform.position;
                 Debug.Log("Spawning as Player Two");
             MyNetworkManager.mySingleton.playerNumber = 2;
         }
@@ -74,8 +74,7 @@ public class PlayerRigScript : MonoBehaviour
             }
             else if (numPlayers == 2)
             {
-                playerRig.transform.RotateAround(spawnPointOneInPerson.transform.position, Vector3.up, 180);                
-                playerRig.transform.position += spawnPointTwoInPerson.transform.position - spawnPointOneInPerson.transform.position;
+                playerRig.transform.RotateAround(rotatePoint.transform.position, Vector3.up, 180);                
                 Debug.Log("Spawning as Player Two");
                 MyNetworkManager.mySingleton.playerNumber = 2;
             }
@@ -86,4 +85,6 @@ public class PlayerRigScript : MonoBehaviour
         }
 
     }
+
+
 }

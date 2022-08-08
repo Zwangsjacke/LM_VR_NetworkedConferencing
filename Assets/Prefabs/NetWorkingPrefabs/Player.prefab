@@ -2468,6 +2468,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 728646409506011189, guid: b4410c475dcb10f4c9177622da0787a7,
+        type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[1]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 728646409506011189, guid: b4410c475dcb10f4c9177622da0787a7,
+        type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[2]
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 966163943427263356, guid: b4410c475dcb10f4c9177622da0787a7,
         type: 3}
       propertyPath: m_Name

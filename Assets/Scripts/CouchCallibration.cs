@@ -105,7 +105,7 @@ public class CouchCallibration : MonoBehaviour
 
     public void FinishSetup()
     {
-        GetComponent<AudioSource>().Play();
+        //GetComponent<AudioSource>().Play();
 
     }
 

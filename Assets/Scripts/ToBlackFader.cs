@@ -32,7 +32,7 @@ public class ToBlackFader : MonoBehaviour
             while (blackOutSqu.GetComponent<Image>().color.a > 0)
             {
 
-                fadeAmount = objectColor.a + (fadeSpeed * Time.deltaTime);
+                fadeAmount = objectColor.a - (fadeSpeed * Time.deltaTime);
                 objectColor = new Color(objectColor.r, objectColor.g, objectColor.b, fadeAmount);
                 blackOutSqu.GetComponent<Image>().color = objectColor;
                 yield return null;
