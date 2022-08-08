@@ -10,11 +10,6 @@ public class PlayerRigScript : MonoBehaviour
     public GameObject rightHand;
     public GameObject rotatePoint;
 
-    [Header("Spawn Points")]
-    public Transform spawnPointOneVideo;
-    public Transform spawnPointTwoVideo;
-    public Transform spawnPointOneInPerson;
-    public Transform spawnPointTwoInPerson;
     public static PlayerRigScript singleton;
 
     [Header("Spawn Check")]
@@ -44,24 +39,25 @@ public class PlayerRigScript : MonoBehaviour
         if (MyNetworkManager.mySingleton.studyCondition == "VideoConference")
         {
             Debug.Log("Moving Player in Condition Video Conference");
-        if(numPlayers == 1)
-        {
-            Debug.Log("Spawning as Player One");
-            MyNetworkManager.mySingleton.playerNumber = 1;
-        }
-        else if (numPlayers == 2)
-        {
-                playerRig.transform.RotateAround(spawnPointOneVideo.transform.position, Vector3.up, 180);
-                //playerRig.transform.position += spawnPointTwoVideo.transform.position - spawnPointOneVideo.transform.position;
-                Debug.Log("Spawning as Player Two");
-            MyNetworkManager.mySingleton.playerNumber = 2;
-        }
-        else
-        {
-            Debug.Log($"Something went wrong. There cannot be {numPlayers} players.");
-        }
 
-        MyNetworkManager.mySingleton.DestroyRoom(MyNetworkManager.mySingleton.playerNumber);
+            if(numPlayers == 1)
+            {
+                Debug.Log("Spawning as Player One");
+                MyNetworkManager.mySingleton.playerNumber = 1;
+            }
+            else if (numPlayers == 2)
+            {
+    
+                playerRig.transform.position += new Vector3(0,0, -4.217367f);
+                Debug.Log("Spawning as Player Two");
+                MyNetworkManager.mySingleton.playerNumber = 2;
+            }
+            else
+            {
+                Debug.Log($"Something went wrong. There cannot be {numPlayers} players.");
+            }
+
+            MyNetworkManager.mySingleton.DestroyRoom(MyNetworkManager.mySingleton.playerNumber);
 
         }
         else
