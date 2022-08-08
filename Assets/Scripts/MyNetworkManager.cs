@@ -11,6 +11,7 @@ public class MyNetworkManager : NetworkManager
     public GameObject rightHandVisual;
     public GameObject leftHandvisual;
     public OnServnerTracking tracker;
+    public ToBlackFader fader;
 
     [Header("Client Information")]
 
@@ -59,6 +60,7 @@ public class MyNetworkManager : NetworkManager
     {
         base.OnClientConnect();
         DisableHandVisuals();
+        fader.Fade(false);
     }
 
 

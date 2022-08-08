@@ -12,6 +12,7 @@ public class OfflineSceneManager : MonoBehaviour
     public GameObject[] phaseThreeObjects;
     public GameObject[][] phases;
     public MyNetworkManager networkManager;
+    public ToBlackFader fader;
 
 
     public void Start()
@@ -26,7 +27,7 @@ public class OfflineSceneManager : MonoBehaviour
         if (phaseNumber == 3)
         {
             ChangeText();
-            networkManager.StartClient();
+            StartCoroutine(SwitchToOnline());
             return;
         }
         if (phaseNumber != 0)
@@ -45,6 +46,15 @@ public class OfflineSceneManager : MonoBehaviour
         phaseNumber++;
         ChangeText();
     }
+
+    private IEnumerator SwitchToOnline()
+    {
+        fader.Fade(true);
+        yield return new WaitForSeconds(3);
+        Debug.Log("Trying to go Online");
+        networkManager.StartClient();
+    }
+
 
     public void ChangeText()
     {

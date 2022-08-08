@@ -33,6 +33,7 @@ public class NetworkGameManager : NetworkBehaviour
     }
 
 
+
     public void SpawnObjects(int prefabId, Transform spawnLocationOne, Transform spawnLocationTwo)
     {
         if (isServer)
