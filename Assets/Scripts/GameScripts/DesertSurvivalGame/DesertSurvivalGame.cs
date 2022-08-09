@@ -8,27 +8,31 @@ public class DesertSurvivalGame : BaseGame
     public int numPins = 6;
     public TextMesh text;
 
-
-    public void SetCondition(bool condition)
+    public override void StartGame()
     {
-        
-        gameManager.endCondition = condition;
-    }
-
-    public void IsPinned(bool increase)
-    {
-
-        if (increase)
-        {
-            numPinned++;
-        }
-        else
-        {
-            numPinned--;
-        }
-
-        text.text = numPinned.ToString();
+        base.StartGame();
         SetCondition();
-        
     }
+    //public void SetCondition(bool condition)
+    //{
+
+    //    gameManager.endCondition = condition;
+    //}
+
+    //public void IsPinned(bool increase)
+    //{
+
+    //    if (increase)
+    //    {
+    //        numPinned++;
+    //    }
+    //    else
+    //    {
+    //        numPinned--;
+    //    }
+
+    //    text.text = numPinned.ToString();
+    //    SetCondition();
+
+    //}
 }

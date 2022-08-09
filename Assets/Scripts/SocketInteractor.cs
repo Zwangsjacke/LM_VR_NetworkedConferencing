@@ -6,7 +6,6 @@ using System;
 public class SocketInteractor : MonoBehaviour
 {
     public AudioSource audioSource;
-    public DesertConditionCheck check;
     public GameObject socket;
     public bool pinned;
     public float coolDown = 1;
@@ -25,8 +24,8 @@ public class SocketInteractor : MonoBehaviour
                 coolDown = 1;
             }
         }
-        if (!pinned || !rePinnable) return;
-        if (socket == null) return;
+
+        if (socket == null || !pinned) return;
         PlaceInSocket(socket);
 
     }
@@ -43,23 +42,17 @@ public class SocketInteractor : MonoBehaviour
         {
             Debug.Log("Hand Kontakt");
             rePinnable = false;
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Socket"))
-        {
             pinned = false;
         }
     }
 
 
 
+
+
     public void PlaceInSocket(GameObject pinnedSocket)
     {
         transform.SetPositionAndRotation(pinnedSocket.transform.position, pinnedSocket.transform.rotation);
-        pinned = true;
     }
 
 

@@ -17,6 +17,7 @@ public class PhoneScript : MonoBehaviour
     public TextMeshProUGUI clock;
     public NetworkGameManager networkedGameManager;
 
+
     [Header("InternalTimer")]
     public bool timerActive;
     public float countdownSec = 60;
@@ -39,10 +40,13 @@ public class PhoneScript : MonoBehaviour
 
         }
     }
+
+    [ContextMenu("Dismiss")]
     public void Dismiss()
     {
         Debug.Log("Dismiss Called");
-        networkedGameManager.RPCTurnOffPhone();
+        TurnPhoneOff();
+        //networkedGameManager.RPCTurnOffPhone();
     }
 
     public void GetNotification()
@@ -57,20 +61,27 @@ public class PhoneScript : MonoBehaviour
     {
         if (other.CompareTag("Hand"))
         {
-            Dismiss();
+            if (isNotified)
+            {
+               Dismiss();
+            }
+            else
+            {
+                TurnPhoneOn();
+            }
         }
     }
 
-    //public void OnTriggerExit(Collider other)
-    //{
-    //    if (other.CompareTag("Hand"))
-    //    {
-    //        if (!isNotified)
-    //        {
-    //            TurnPhoneOff();
-    //        }
-    //    }
-    //}
+    public void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Hand"))
+        {
+            if (!isNotified)
+            {
+                TurnPhoneOff();
+            }
+        }
+    }
 
     public void ShowNotification()
     {

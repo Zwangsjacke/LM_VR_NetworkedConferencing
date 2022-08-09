@@ -13,18 +13,18 @@ public class DesertConditionCheck : MonoBehaviour
     {
         desertSurvivalGame = GameManagerScript.singleton.GetComponent<DesertSurvivalGame>();
     }
-    private void Update()
-    {
-        if (CheckIfAllTrue())
-        {
-            desertSurvivalGame.SetCondition(true);
-        }
-        else
-        {
-            desertSurvivalGame.SetCondition(false);
-        }
+    //private void Update()
+    //{
+    //    if (CheckIfAllTrue())
+    //    {
+    //        desertSurvivalGame.SetCondition(true);
+    //    }
+    //    else
+    //    {
+    //        desertSurvivalGame.SetCondition(false);
+    //    }
 
-    }
+    //}
 
     public bool CheckIfAllTrue()
     {

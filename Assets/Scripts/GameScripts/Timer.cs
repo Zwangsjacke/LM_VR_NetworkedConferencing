@@ -78,11 +78,16 @@ public class Timer : MonoBehaviour
             desertPhaseOneDone = true;
             currentTime = gameManager.desertSecondPhaseTimer * 60;
             gameManager.changeGameSound.Play();
-            GameObject headers = GameObject.FindGameObjectWithTag("Ranking Header");
-            for (int i = 0; i < headers.transform.childCount; i++)
+            GameObject[] headers = GameObject.FindGameObjectsWithTag("Ranking Header");
+            foreach (GameObject head in headers)
             {
-                headers.transform.GetChild(i).gameObject.SetActive(true);
+
+                for (int i = 0; i < head.transform.childCount; i++)
+                {
+                    head.transform.GetChild(i).gameObject.SetActive(true);
+                }
             }
+
 
             foreach (TextMeshProUGUI txt in gameManager.disyplays)
             {
