@@ -25,6 +25,7 @@ public class MyNetworkManager : NetworkManager
 
     public int playerNumber;
 
+
     public string studyCondition;
 
     public TMP_InputField inputField;
@@ -61,6 +62,7 @@ public class MyNetworkManager : NetworkManager
         base.OnClientConnect();
         DisableHandVisuals();
         fader.Fade(false);
+        
     }
 
 

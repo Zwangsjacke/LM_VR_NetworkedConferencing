@@ -7,7 +7,6 @@ public class GameManagerScript : MonoBehaviour
 {
     public NetworkGameManager networkGameManager;
     public static GameManagerScript singleton;
-    public TextMesh conditionText;
 
     [Tooltip("Order relevant! \nShould be: Interview, Desert Survival, Photos")]
     public BaseGame[] games;
@@ -38,10 +37,7 @@ public class GameManagerScript : MonoBehaviour
         singleton = this;
     }
 
-    private void Update()
-    {
-        //conditionText.text = endCondition.ToString();
-    }
+
     /// <summary>
     /// Increments the gameCounter an starts the respective Game or ends the study. See BaseGame[] games order for the game order.
     /// Resets endConditions

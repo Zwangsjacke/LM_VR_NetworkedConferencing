@@ -239,7 +239,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5845536}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.445, y: 0.53, z: 0.6}
+  m_LocalPosition: {x: 0.445, y: 0.54, z: 0.6}
   m_LocalScale: {x: 1.25, y: 1.3888887, z: 0.83333325}
   m_Children: []
   m_Father: {fileID: 1609442273}
@@ -2537,6 +2537,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   playerRig: {fileID: 36427073}
+  studycondition: 
   numPlayers: 1
 --- !u!114 &242288153
 MonoBehaviour:
@@ -3163,7 +3164,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 1.27
+  m_Intensity: 2
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -10396,7 +10397,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1506784055}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.445, y: 0.53, z: -0.6}
+  m_LocalPosition: {x: 0.445, y: 0.54, z: -0.6}
   m_LocalScale: {x: 1.25, y: 1.3888887, z: 0.8333334}
   m_Children: []
   m_Father: {fileID: 1609442273}

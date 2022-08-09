@@ -57,31 +57,31 @@ public class PhoneScript : MonoBehaviour
         ShowNotification();
     }
 
-    public void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Hand"))
-        {
-            if (isNotified)
-            {
-               Dismiss();
-            }
-            else
-            {
-                TurnPhoneOn();
-            }
-        }
-    }
+    //public void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.CompareTag("Hand"))
+    //    {
+    //        if (isNotified)
+    //        {
+    //           Dismiss();
+    //        }
+    //        else
+    //        {
+    //            TurnPhoneOn();
+    //        }
+    //    }
+    //}
 
-    public void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Hand"))
-        {
-            if (!isNotified)
-            {
-                TurnPhoneOff();
-            }
-        }
-    }
+    //public void OnTriggerExit(Collider other)
+    //{
+    //    if (other.CompareTag("Hand"))
+    //    {
+    //        if (!isNotified)
+    //        {
+    //            TurnPhoneOff();
+    //        }
+    //    }
+    //}
 
     public void ShowNotification()
     {

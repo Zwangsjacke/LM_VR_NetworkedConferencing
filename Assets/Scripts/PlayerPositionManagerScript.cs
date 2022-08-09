@@ -7,15 +7,26 @@ public class PlayerPositionManagerScript : NetworkBehaviour
 {
     public PlayerRigScript playerRig;
 
+    public static PlayerPositionManagerScript singleton;
+
+    [SyncVar]
+    public string studycondition;
+
     [SerializeField]
     [SyncVar]
     private int numPlayers = 1;
 
+    private void Awake()
+    {
+        singleton = this;
+    }
     public override void OnStartClient()
     {
         base.OnStartClient();
+        if (isServer) studycondition = MyNetworkManager.mySingleton.studyCondition;
         if (isServer) return;
-        CMDMovingThePlayers(numPlayers);        
+
+        CMDMovingThePlayers(numPlayers, studycondition);        
     }
     
     /// <summary>
@@ -23,11 +34,11 @@ public class PlayerPositionManagerScript : NetworkBehaviour
     /// </summary>
     /// <param name="t"></param>
     [Command(requiresAuthority = false)]
-    public void CMDMovingThePlayers(int t)
+    public void CMDMovingThePlayers(int t, string cond)
     {
         Debug.Log("Moving the Players");
         numPlayers++;
-        RPCMovePlayer(t);
+        RPCMovePlayer(t, cond);
     }
 
     /// <summary>
@@ -35,8 +46,8 @@ public class PlayerPositionManagerScript : NetworkBehaviour
     /// </summary>
     /// <param name="numPlayers"></param>
     [ClientRpc]
-    public void RPCMovePlayer(int t)
+    public void RPCMovePlayer(int t, string cond)
     {
-        playerRig.Move(t);
+        playerRig.Move(t, cond);
     }
 }

@@ -26,17 +26,17 @@ public class PlayerRigScript : MonoBehaviour
     /// Should be called, when connecting as a client.
     /// </summary>
     /// <param name="numPlayers"></param>
-    public void Move(int numPlayers)
+    public void Move(int numPlayers, string cond)
     {
 
-        Debug.Log("Move Function called");
+        Debug.Log($"Move Function called.{cond} is the condition");
 
         if (alreadySpawned) return;
 
 
         alreadySpawned = true;
 
-        if (MyNetworkManager.mySingleton.studyCondition == "VideoConference")
+        if (cond == "VideoConference")
         {
             Debug.Log("Moving Player in Condition Video Conference");
 
@@ -47,9 +47,9 @@ public class PlayerRigScript : MonoBehaviour
             }
             else if (numPlayers == 2)
             {
-    
-                playerRig.transform.position += new Vector3(0,0, -4.217367f);
-                Debug.Log("Spawning as Player Two");
+                Debug.Log("Trying to Move Player down");
+                playerRig.transform.position = new Vector3(playerRig.transform.position.x,playerRig.transform.position.y - 4.217367f,playerRig.transform.position.z);
+                Debug.Log("Movement Happend");
                 MyNetworkManager.mySingleton.playerNumber = 2;
             }
             else
@@ -62,6 +62,7 @@ public class PlayerRigScript : MonoBehaviour
         }
         else
         {
+            Debug.Log("Spawning Player in InPersonCondition");
             if (numPlayers == 1)
             {
 

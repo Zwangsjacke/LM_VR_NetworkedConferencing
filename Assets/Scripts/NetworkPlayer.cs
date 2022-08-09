@@ -37,7 +37,7 @@ public class NetworkPlayer : NetworkBehaviour
             localPlayer = this;
             
             CMDSetApparence(apperanceHolder.customs, apperanceHolder.colors);
-            if (isServer) Destroy(GetComponent<MirrorIgnorancePlayer>());
+
 
         }
     }
