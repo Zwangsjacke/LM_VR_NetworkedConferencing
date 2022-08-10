@@ -85,7 +85,7 @@ public class MyNetworkManager : NetworkManager
             }   
         }
         tracker.AddPlayer(conn.identity.gameObject);
-        if(studyCondition == "VideoConference") Destroy(conn.identity.GetComponent<MirrorIgnorancePlayer>());
+        //if(studyCondition == "VideoConference") Destroy(conn.identity.GetComponent<MirrorIgnorancePlayer>());
     }
 
     /// <summary>

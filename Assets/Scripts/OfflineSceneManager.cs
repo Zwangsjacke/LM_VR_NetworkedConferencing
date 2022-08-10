@@ -69,7 +69,7 @@ public class OfflineSceneManager : MonoBehaviour
         {
             text.text = "Hier kannst du Deinen Avatar personalisieren.\n" +
                 "Kombiniere Farbe, Kleidung und Körper und wähle deinen Look!\n" +
-                "Rechts kannst Du die Optionen von Kleidung und Körpers wählen. Links kannst Du die Farbe der gewählten Option anpassen.\n"+
+                "Rechts kannst Du die Optionen von Kleidung und Körper wählen. Links kannst Du die Farbe der gewählten Option anpassen.\n"+
                 "Wenn du fertig bist, drücke den roten Knopf.";
         }
         if(phaseNumber == 2)

@@ -48,7 +48,7 @@ public class PlayerRigScript : MonoBehaviour
             else if (numPlayers == 2)
             {
                 Debug.Log("Trying to Move Player down");
-                playerRig.transform.position = new Vector3(playerRig.transform.position.x,playerRig.transform.position.y - 4.217367f,playerRig.transform.position.z);
+                playerRig.transform.position = new Vector3(playerRig.transform.position.x,playerRig.transform.position.y - 22.68f, playerRig.transform.position.z);
                 Debug.Log("Movement Happend");
                 MyNetworkManager.mySingleton.playerNumber = 2;
             }
