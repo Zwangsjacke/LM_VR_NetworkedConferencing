@@ -67,15 +67,23 @@ public class OfflineSceneManager : MonoBehaviour
     {
         if(phaseNumber == 1)
         {
-            text.text = "Hier kannst du Deinen Avatar personalisieren.\nWähle deinen Look!\nWenn du fertig bist, drücke den roten Knopf.";
+            text.text = "Hier kannst du Deinen Avatar personalisieren.\n" +
+                "Kombiniere Farbe, Kleidung und Körper und wähle deinen Look!\n" +
+                "Rechts kannst Du die Optionen von Kleidung und Körpers wählen. Links kannst Du die Farbe der gewählten Option anpassen.\n"+
+                "Wenn du fertig bist, drücke den roten Knopf.";
         }
         if(phaseNumber == 2)
         {
-            text.text = "Im Folgenden müsst ihr gemeinsam drei Spiele spielen.\nDazu könnt ihr mit bestimmten Gegenständen interagieren. Diese sind in diesen Raum demonstriert.\nNimm sie doch mal in die Hand!\n Drücke den roten Knopf, wenn du bereit für den nächsten Schritt bist.";
+            text.text = "Ihr werdet gemeinsam drei Spiele spielen.\n" +
+                "Dazu könnt ihr mit bestimmten Gegenständen interagieren.\n" +
+                "Nimm sie doch mal in die Hand! Versuch die Gegenstände herum zu drehen und an verschiedenen Stellen zu greifen.\n" +
+                "Drücke den roten Knopf, wenn du bereit für den nächsten Schritt bist.";
         }
         if (phaseNumber == 3)
         {
-            text.text = "Für jede Aufgabe habt ihr begrenzt Zeit. Der Wecker zeigt euch, wie lange ihr noch habt.\nIst die Zeit abgelaufen, klingelt der Wecker.\nUm zur nächsten Aufgabe zu gelangen, müsst ihr die Wecker abstellen und eure Daumen hochstrecken.\nMit dem Knopf vor dem Radio könnt ihr den Versuchsleiter jederzeit erreichen.\nBist Du bereit die Spiele zu starten drücke den roten Knopf";
+            text.text = "Für jede Aufgabe habt ihr begrenzt Zeit. Ist die Zeit abgelaufen, klingelt der Wecker.\n" +
+                "Um zur nächsten Aufgabe zu gelangen, muss jeder von euch den Wecker abstellen und einen Daumen hochstrecken.\n" +
+                "Mit dem Knopf vor dem Radio könnt ihr den Versuchsleiter jederzeit erreichen.\nBist Du bereit den nächsten Raum zu betreten und die Spiele zu starten, drücke den roten Knopf";
         }
     }
 }

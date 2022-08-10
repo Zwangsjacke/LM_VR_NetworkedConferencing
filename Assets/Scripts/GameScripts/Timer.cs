@@ -91,7 +91,7 @@ public class Timer : MonoBehaviour
 
             foreach (TextMeshProUGUI txt in gameManager.disyplays)
             {
-                txt.text = "Welcher Gegenstand kann euch am meisten helfen?\n Bringt die Gegenstände nun in Rangreihenfolge und pinnt die Fotos an die richtige Stelle!";
+                txt.text = "Welcher Gegenstand kann euch am meisten beim Überleben helfen?\n Bringt die Gegenstände nun in Rangreihenfolge und pinnt die Fotos an die jeweilige Stelle!";
             }
 
 

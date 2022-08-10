@@ -6,7 +6,7 @@ public class DesertSurvivalGame : BaseGame
 {
     public int numPinned = 0;
     public int numPins = 6;
-    public TextMesh text;
+
 
     public override void StartGame()
     {
