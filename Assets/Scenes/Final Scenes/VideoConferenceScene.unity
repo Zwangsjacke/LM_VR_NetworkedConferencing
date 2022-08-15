@@ -11966,11 +11966,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "F\xFCr jede Aufgabe habt ihr begrenzt Zeit. Der Wecker zeigt euch, wie
-    lange ihr noch habt. Ist die Zeit abgelaufen, klingelt der Wecker.\r\nUm zur
-    n\xE4chsten Aufgabe zu gelangen, m\xFCsst ihr die Wecker abstellen und eure Daumen
-    hochstrecken.\r\nMit dem Knopf auf dem Radio k\xF6nnt ihr den Versuchsleiter
-    jederzeit erreichen."
+  m_text: "Wartet auf Euren jeweiligen Partner. Seid Ihr zu zweit und habt Eure Wecker
+    abgestellt, k\xF6nnt Ihr die Daumen hochstrecken, um zu Beginnen.\nDenkt daran,
+    dass Ihr mit dem Knopf vor dem Radio den Versuchsleiter jederzeit erreichen k\xF6nnt."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -19854,11 +19852,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "F\xFCr jede Aufgabe habt ihr begrenzt Zeit. Der Wecker zeigt euch, wie
-    lange ihr noch habt. Ist die Zeit abgelaufen, klingelt der Wecker.\r\nUm zur
-    n\xE4chsten Aufgabe zu gelangen, m\xFCsst ihr die Wecker abstellen und eure Daumen
-    hochstrecken.\r\nMit dem Knopf auf dem Radio k\xF6nnt ihr den Versuchsleiter
-    jederzeit erreichen."
+  m_text: "Wartet auf Euren jeweiligen Partner. Seid Ihr zu zweit und habt Eure Wecker
+    abgestellt, k\xF6nnt Ihr die Daumen hochstrecken, um zu Beginnen.\nDenkt daran,
+    dass Ihr mit dem Knopf vor dem Radio den Versuchsleiter jederzeit erreichen k\xF6nnt."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

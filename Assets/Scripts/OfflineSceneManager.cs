@@ -83,7 +83,7 @@ public class OfflineSceneManager : MonoBehaviour
         {
             text.text = "Für jede Aufgabe habt ihr begrenzt Zeit. Ist die Zeit abgelaufen, klingelt der Wecker.\n" +
                 "Um zur nächsten Aufgabe zu gelangen, muss jeder von euch den Wecker abstellen und einen Daumen hochstrecken.\n" +
-                "Mit dem Knopf vor dem Radio könnt ihr den Versuchsleiter jederzeit erreichen.\nBist Du bereit den nächsten Raum zu betreten und die Spiele zu starten, drücke den roten Knopf";
+                "Mit dem Knopf vor dem Radio könnt ihr den Versuchsleiter jederzeit erreichen.\nBist Du bereit den Konferenzraum zu betreten und die Spiele zu starten, drücke den roten Knopf";
         }
     }
 }
